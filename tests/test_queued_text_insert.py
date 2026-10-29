@@ -1,7 +1,7 @@
 """Text inserted while LightRAG's pipeline is busy must still be indexed.
 
 ``ainsert`` only enqueues a document when another insert's pipeline run is
-busy; that run processes it later. RAG-Anything used to write its own
+busy; that run processes it later. MuseRAG used to write its own
 statuses (HANDLING, then PROCESSED) right after ``ainsert`` returned, which
 took the PENDING document out of LightRAG's queue: the text was never
 chunked while doc_status said "processed". The same overwrite hid a FAILED
@@ -22,10 +22,10 @@ import numpy as np
 import pytest
 from lightrag.utils import EmbeddingFunc, Tokenizer
 
-from raganything import RAGAnything, RAGAnythingConfig
-from raganything.base import DocStatus
-from raganything.parser import MineruParser
-from raganything.processor import ProcessorMixin
+from muserag import MuseRAG, MuseRAGConfig
+from muserag.base import DocStatus
+from muserag.parser import MineruParser
+from muserag.processor import ProcessorMixin
 
 
 class _ByteTokenizer:
@@ -66,10 +66,10 @@ def make_rag(monkeypatch, tmp_path):
     monkeypatch.setattr(MineruParser, "check_installation", lambda self: True)
 
     def build(llm):
-        config = RAGAnythingConfig(
+        config = MuseRAGConfig(
             working_dir=str(tmp_path / uuid.uuid4().hex), display_content_stats=False
         )
-        return RAGAnything(
+        return MuseRAG(
             config=config,
             llm_model_func=llm,
             embedding_func=EmbeddingFunc(
@@ -418,7 +418,7 @@ async def test_long_wait_is_reported(no_sleep, monkeypatch):
     """A pipeline that never gets to the document (e.g. a busy flag left by a
     dead process) must not look like a silent hang."""
     clock = iter(range(0, 10_000, 200))
-    monkeypatch.setattr("raganything.processor.time.monotonic", lambda: next(clock))
+    monkeypatch.setattr("muserag.processor.time.monotonic", lambda: next(clock))
     warnings = []
     lightrag = _ScriptedLightRAG([("pending", True)] * 8 + [("processed", False)])
     processor = _processor(lightrag)

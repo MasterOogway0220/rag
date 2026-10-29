@@ -1,7 +1,7 @@
 """Tests for the processing callbacks and events system."""
 
 import pytest
-from raganything.callbacks import (
+from muserag.callbacks import (
     ProcessingCallback,
     ProcessingEvent,
     MetricsCallback,
@@ -180,17 +180,17 @@ class TestMetricsCallback:
         assert m.metrics["documents_processed"] == 0
 
 
-class TestRAGAnythingIntegration:
+class TestMuseRAGIntegration:
     def test_process_document_emits_callbacks(self, monkeypatch, tmp_path):
         pytest.importorskip("lightrag")
 
-        from raganything import RAGAnything, RAGAnythingConfig
-        import raganything.processor as processor_module
+        from muserag import MuseRAG, MuseRAGConfig
+        import muserag.processor as processor_module
         import asyncio
 
-        config = RAGAnythingConfig()
+        config = MuseRAGConfig()
         config.parser_output_dir = str(tmp_path)
-        rag = RAGAnything(config=config)
+        rag = MuseRAG(config=config)
         cb = RecordingCallback()
         rag.callback_manager.register(cb)
 
@@ -255,15 +255,15 @@ class TestRAGAnythingIntegration:
     def test_query_emits_callbacks(self, monkeypatch):
         pytest.importorskip("lightrag")
 
-        from raganything import RAGAnything, RAGAnythingConfig
+        from muserag import MuseRAG, MuseRAGConfig
         import asyncio
 
         class FakeLightRAG:
             async def aquery(self, query, param, system_prompt=None):
                 return "answer"
 
-        config = RAGAnythingConfig()
-        rag = RAGAnything(config=config)
+        config = MuseRAGConfig()
+        rag = MuseRAG(config=config)
         rag.lightrag = FakeLightRAG()
 
         cb = RecordingCallback()

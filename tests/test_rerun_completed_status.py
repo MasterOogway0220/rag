@@ -18,9 +18,9 @@ import pytest
 from lightrag.utils import EmbeddingFunc, Tokenizer
 from PIL import Image
 
-from raganything import RAGAnything, RAGAnythingConfig
-from raganything.base import DocStatus
-from raganything.parser import MineruParser
+from muserag import MuseRAG, MuseRAGConfig
+from muserag.base import DocStatus
+from muserag.parser import MineruParser
 
 
 class _ByteTokenizer:
@@ -67,12 +67,12 @@ async def _constant_embeddings(texts):
 def rag(monkeypatch, tmp_path):
     monkeypatch.setattr(MineruParser, "check_installation", lambda self: True)
     _MODAL_CALLS.clear()
-    config = RAGAnythingConfig(
+    config = MuseRAGConfig(
         working_dir=str(tmp_path / "rag"),
         parser_output_dir=str(tmp_path / "out"),
         display_content_stats=False,
     )
-    return RAGAnything(
+    return MuseRAG(
         config=config,
         llm_model_func=_llm,
         vision_model_func=_vlm,

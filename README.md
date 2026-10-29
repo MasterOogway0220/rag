@@ -1,28 +1,27 @@
 <div align="center">
 
 <div style="margin: 20px 0;">
-  <img src="./assets/logo.png" width="120" height="120" alt="RAG-Anything Logo" style="border-radius: 20px; box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3);">
+  <img src="./assets/logo.png" width="120" height="120" alt="MuseRAG Logo" style="border-radius: 20px; box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3);">
 </div>
 
-# 🚀 RAG-Anything: All-in-One RAG Framework
+# 🚀 MuseRAG: All-in-One RAG Framework
 
-<a href="https://trendshift.io/repositories/14959" target="_blank"><img src="https://trendshift.io/api/badge/repositories/14959" alt="HKUDS%2FRAG-Anything | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=24&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&width=600&lines=Welcome+to+RAG-Anything;Next-Gen+Multimodal+RAG+System;Powered+by+Advanced+AI+Technology" alt="Typing Animation" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=24&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&width=600&lines=Welcome+to+MuseRAG;Next-Gen+Multimodal+RAG+System;Powered+by+Advanced+AI+Technology" alt="Typing Animation" />
 </div>
 
 <div align="center">
   <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; padding: 25px; text-align: center;">
     <p>
-      <a href='https://github.com/HKUDS/RAG-Anything'><img src='https://img.shields.io/badge/🔥Project-Page-00d9ff?style=for-the-badge&logo=github&logoColor=white&labelColor=1a1a2e'></a>
+      <a href='https://github.com/MasterOogway0220/rag'><img src='https://img.shields.io/badge/🔥Project-Page-00d9ff?style=for-the-badge&logo=github&logoColor=white&labelColor=1a1a2e'></a>
       <a href='https://arxiv.org/abs/2510.12323'><img src='https://img.shields.io/badge/📄arXiv-2510.12323-ff6b6b?style=for-the-badge&logo=arxiv&logoColor=white&labelColor=1a1a2e'></a>
       <a href='https://github.com/HKUDS/LightRAG'><img src='https://img.shields.io/badge/⚡Based%20on-LightRAG-4ecdc4?style=for-the-badge&logo=lightning&logoColor=white&labelColor=1a1a2e'></a>
     </p>
     <p>
-      <a href="https://github.com/HKUDS/RAG-Anything/stargazers"><img src='https://img.shields.io/github/stars/HKUDS/RAG-Anything?color=00d9ff&style=for-the-badge&logo=star&logoColor=white&labelColor=1a1a2e' /></a>
+      <a href="https://github.com/MasterOogway0220/rag/stargazers"><img src='https://img.shields.io/github/stars/MasterOogway0220/rag?color=00d9ff&style=for-the-badge&logo=star&logoColor=white&labelColor=1a1a2e' /></a>
       <img src="https://img.shields.io/badge/🐍Python-3.10-4ecdc4?style=for-the-badge&logo=python&logoColor=white&labelColor=1a1a2e">
-      <a href="https://pypi.org/project/raganything/"><img src="https://img.shields.io/pypi/v/raganything.svg?style=for-the-badge&logo=pypi&logoColor=white&labelColor=1a1a2e&color=ff6b6b"></a>
+      <a href="https://pypi.org/project/muserag/"><img src="https://img.shields.io/pypi/v/muserag.svg?style=for-the-badge&logo=pypi&logoColor=white&labelColor=1a1a2e&color=ff6b6b"></a>
       <a href="https://github.com/astral-sh/uv"><img src="https://img.shields.io/badge/⚡uv-Ready-ff6b6b?style=for-the-badge&logo=python&logoColor=white&labelColor=1a1a2e"></a>
     </p>
     <p>
@@ -34,7 +33,7 @@
       <a href="README.md"><img src="https://img.shields.io/badge/🇺🇸English-1a1a2e?style=for-the-badge"></a>
     </p>
     <p>
-      <a href="https://pepy.tech/projects/raganything"><img src="https://static.pepy.tech/personalized-badge/raganything?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads"></a>
+      <a href="https://pepy.tech/projects/muserag"><img src="https://static.pepy.tech/personalized-badge/muserag?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads"></a>
     </p>
   </div>
 </div>
@@ -54,12 +53,12 @@
 ---
 
 ## 🎉 News
-- [X] [2026.06]🎯📢 🎉 [LightRAG](https://github.com/HKUDS/LightRAG) enables multimodal RAG through native integration of RAG-Anything.
+- [X] [2026.06]🎯📢 🎉 [LightRAG](https://github.com/HKUDS/LightRAG) enables multimodal RAG through native integration of MuseRAG.
 - [X] [2025.10]🎯📢 🚀 We have released the technical report of [RAG-Anything](http://arxiv.org/abs/2510.12323). Access it now to explore our latest research findings.
-- [X] [2025.08]🎯📢 🔍 RAG-Anything now features **VLM-Enhanced Query** mode! When documents include images, the system seamlessly integrates them into VLM for advanced multimodal analysis, combining visual and textual context for deeper insights.
-- [X] [2025.07]🎯📢 RAG-Anything now features a [context configuration module](docs/context_aware_processing.md), enabling intelligent integration of relevant contextual information to enhance multimodal content processing.
-- [X] [2025.07]🎯📢 🚀 RAG-Anything now supports multimodal query capabilities, enabling enhanced RAG with seamless processing of text, images, tables, and equations.
-- [X] [2025.07]🎯📢 🎉 RAG-Anything has reached 1k🌟 stars on GitHub! Thank you for your incredible support and valuable contributions to the project.
+- [X] [2025.08]🎯📢 🔍 MuseRAG now features **VLM-Enhanced Query** mode! When documents include images, the system seamlessly integrates them into VLM for advanced multimodal analysis, combining visual and textual context for deeper insights.
+- [X] [2025.07]🎯📢 MuseRAG now features a [context configuration module](docs/context_aware_processing.md), enabling intelligent integration of relevant contextual information to enhance multimodal content processing.
+- [X] [2025.07]🎯📢 🚀 MuseRAG now supports multimodal query capabilities, enabling enhanced RAG with seamless processing of text, images, tables, and equations.
+- [X] [2025.07]🎯📢 🎉 MuseRAG has reached 1k🌟 stars on GitHub! Thank you for your incredible support and valuable contributions to the project.
 
 ---
 
@@ -69,13 +68,13 @@
 
 <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); border-radius: 15px; padding: 25px; margin: 20px 0; border: 2px solid #00d9ff; box-shadow: 0 0 30px rgba(0, 217, 255, 0.3);">
 
-Modern documents increasingly contain diverse multimodal content—text, images, tables, equations, charts, and multimedia—that traditional text-focused RAG systems cannot effectively process. **RAG-Anything** addresses this challenge as a comprehensive **All-in-One Multimodal Document Processing RAG system** built on [LightRAG](https://github.com/HKUDS/LightRAG).
+Modern documents increasingly contain diverse multimodal content—text, images, tables, equations, charts, and multimedia—that traditional text-focused RAG systems cannot effectively process. **MuseRAG** addresses this challenge as a comprehensive **All-in-One Multimodal Document Processing RAG system** built on [LightRAG](https://github.com/HKUDS/LightRAG).
 
-As a unified solution, RAG-Anything **eliminates the need for multiple specialized tools**. It provides **seamless processing and querying across all content modalities** within a single integrated framework. Unlike conventional RAG approaches that struggle with non-textual elements, our all-in-one system delivers **comprehensive multimodal retrieval capabilities**.
+As a unified solution, MuseRAG **eliminates the need for multiple specialized tools**. It provides **seamless processing and querying across all content modalities** within a single integrated framework. Unlike conventional RAG approaches that struggle with non-textual elements, our all-in-one system delivers **comprehensive multimodal retrieval capabilities**.
 
-Users can query documents containing **interleaved text**, **visual diagrams**, **structured tables**, and **mathematical formulations** through **one cohesive interface**. This consolidated approach makes RAG-Anything particularly valuable for academic research, technical documentation, financial reports, and enterprise knowledge management where rich, mixed-content documents demand a **unified processing framework**.
+Users can query documents containing **interleaved text**, **visual diagrams**, **structured tables**, and **mathematical formulations** through **one cohesive interface**. This consolidated approach makes MuseRAG particularly valuable for academic research, technical documentation, financial reports, and enterprise knowledge management where rich, mixed-content documents demand a **unified processing framework**.
 
-<img src="assets/rag_anything_framework.png" alt="RAG-Anything" />
+<img src="assets/muserag_framework.png" alt="MuseRAG" />
 
 </div>
 
@@ -101,7 +100,7 @@ Users can query documents containing **interleaved text**, **visual diagrams**, 
 
 ### Core Algorithm
 
-**RAG-Anything** implements an effective **multi-stage multimodal pipeline** that fundamentally extends traditional RAG architectures to seamlessly handle diverse content modalities through intelligent orchestration and cross-modal understanding.
+**MuseRAG** implements an effective **multi-stage multimodal pipeline** that fundamentally extends traditional RAG architectures to seamlessly handle diverse content modalities through intelligent orchestration and cross-modal understanding.
 
 </div>
 
@@ -243,13 +242,13 @@ The hybrid retrieval system combines vector similarity search with graph travers
 
 ```bash
 # Basic installation
-pip install raganything
+pip install muserag
 
 # With optional dependencies for extended format support:
-pip install 'raganything[all]'              # All optional features (Docling not included)
-pip install 'raganything[image]'            # Image format conversion (BMP, TIFF, GIF, WebP)
-pip install 'raganything[text]'             # Text file processing (TXT, MD)
-pip install 'raganything[image,text]'       # Multiple features
+pip install 'muserag[all]'              # All optional features (Docling not included)
+pip install 'muserag[image]'            # Image format conversion (BMP, TIFF, GIF, WebP)
+pip install 'muserag[text]'             # Text file processing (TXT, MD)
+pip install 'muserag[image,text]'       # Multiple features
 ```
 
 #### Option 2: Install from Source
@@ -258,8 +257,8 @@ pip install 'raganything[image,text]'       # Multiple features
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Clone and setup the project with uv
-git clone https://github.com/HKUDS/RAG-Anything.git
-cd RAG-Anything
+git clone https://github.com/MasterOogway0220/rag.git
+cd MuseRAG
 
 # Install the package and dependencies in a virtual environment
 uv sync
@@ -268,7 +267,7 @@ uv sync
 # UV_HTTP_TIMEOUT=120 uv sync
 
 # Run commands directly with uv (recommended approach)
-uv run python examples/raganything_example.py --help
+uv run python examples/muserag_example.py --help
 
 # Install with optional dependencies
 uv sync --extra image --extra text  # Specific extras
@@ -296,7 +295,7 @@ uv sync --all-extras                 # All optional features
 mineru --version
 
 # Check if properly configured
-python -c "from raganything import RAGAnything; rag = RAGAnything(); print('✅ MinerU installed properly' if rag.check_parser_installation() else '❌ MinerU installation issue')"
+python -c "from muserag import MuseRAG; rag = MuseRAG(); print('✅ MinerU installed properly' if rag.check_parser_installation() else '❌ MinerU installation issue')"
 ```
 
 Models are downloaded automatically on first use. For manual download, refer to [MinerU Model Source Configuration](https://github.com/opendatalab/MinerU/blob/master/README.md#22-model-source-configuration).
@@ -309,8 +308,8 @@ Models are downloaded automatically on first use. For manual download, refer to 
 import asyncio
 import base64
 from functools import partial
-from raganything import RAGAnything, RAGAnythingConfig
-from raganything.image_signature import image_mime_type
+from muserag import MuseRAG, MuseRAGConfig
+from muserag.image_signature import image_mime_type
 from lightrag.llm.openai import openai_complete_if_cache, openai_embed
 from lightrag.utils import EmbeddingFunc
 
@@ -319,8 +318,8 @@ async def main():
     api_key = "your-api-key"
     base_url = "your-base-url"  # Optional
 
-    # Create RAGAnything configuration
-    config = RAGAnythingConfig(
+    # Create MuseRAG configuration
+    config = MuseRAGConfig(
         working_dir="./rag_storage",
         parser="mineru",  # Parser selection: mineru, docling, or paddleocr
         parse_method="auto",  # Parse method: auto, ocr, or txt
@@ -406,8 +405,8 @@ async def main():
         ),
     )
 
-    # Initialize RAGAnything
-    rag = RAGAnything(
+    # Initialize MuseRAG
+    rag = MuseRAG(
         config=config,
         llm_model_func=llm_model_func,
         vision_model_func=vision_model_func,
@@ -456,8 +455,8 @@ from functools import partial
 from lightrag import LightRAG
 from lightrag.llm.openai import openai_complete_if_cache, openai_embed
 from lightrag.utils import EmbeddingFunc
-from raganything.modalprocessors import ImageModalProcessor, TableModalProcessor
-from raganything.image_signature import image_mime_type
+from muserag.modalprocessors import ImageModalProcessor, TableModalProcessor
+from muserag.image_signature import image_mime_type
 
 def image_data_url(image_data):
     # Label the image with its real media type (PNG, GIF, WebP, ...),
@@ -556,7 +555,7 @@ async def process_multimodal_content():
         "table_body": """
         | Method | Accuracy | F1-Score |
         |--------|----------|----------|
-        | RAGAnything | 95.2% | 0.94 |
+        | MuseRAG | 95.2% | 0.94 |
         | Baseline | 87.3% | 0.85 |
         """,
         "table_caption": ["Performance Comparison"],
@@ -590,7 +589,7 @@ await rag.process_folder_complete(
 #### 4. Custom Modal Processors
 
 ```python
-from raganything.modalprocessors import GenericModalProcessor
+from muserag.modalprocessors import GenericModalProcessor
 
 class CustomModalProcessor(GenericModalProcessor):
     async def process_multimodal_content(self, modal_content, content_type, file_path, entity_name):
@@ -602,7 +601,7 @@ class CustomModalProcessor(GenericModalProcessor):
 
 #### 5. Query Options
 
-RAG-Anything provides three types of query methods:
+MuseRAG provides three types of query methods:
 
 **Pure Text Queries** - Direct knowledge base search using LightRAG:
 ```python
@@ -655,7 +654,7 @@ table_result = await rag.aquery_with_multimodal(
     multimodal_content=[{
         "type": "table",
         "table_data": """Method,Accuracy,Speed
-                        RAGAnything,95.2%,120ms
+                        MuseRAG,95.2%,120ms
                         Traditional,87.3%,180ms""",
         "table_caption": "Performance comparison"
     }],
@@ -680,8 +679,8 @@ equation_result = await rag.aquery_with_multimodal(
 import asyncio
 import base64
 from functools import partial
-from raganything import RAGAnything, RAGAnythingConfig
-from raganything.image_signature import image_mime_type
+from muserag import MuseRAG, MuseRAGConfig
+from muserag.image_signature import image_mime_type
 from lightrag import LightRAG
 from lightrag.llm.openai import openai_complete_if_cache, openai_embed
 from lightrag.kg.shared_storage import initialize_pipeline_status
@@ -783,8 +782,8 @@ async def load_existing_lightrag():
         else:
             return lightrag_instance.llm_model_func(prompt, system_prompt, history_messages, **kwargs)
 
-    # Now use existing LightRAG instance to initialize RAGAnything
-    rag = RAGAnything(
+    # Now use existing LightRAG instance to initialize MuseRAG
+    rag = MuseRAG(
         lightrag=lightrag_instance,  # Pass existing LightRAG instance
         vision_model_func=vision_model_func,
         # Note: working_dir, llm_model_func, embedding_func, etc. are inherited from lightrag_instance
@@ -809,14 +808,14 @@ if __name__ == "__main__":
 
 #### 7. Direct Content List Insertion
 
-For scenarios where you already have a pre-parsed content list (e.g., from external parsers or previous processing), you can directly insert it into RAGAnything without document parsing:
+For scenarios where you already have a pre-parsed content list (e.g., from external parsers or previous processing), you can directly insert it into MuseRAG without document parsing:
 
 ```python
 import asyncio
 import base64
 from functools import partial
-from raganything import RAGAnything, RAGAnythingConfig
-from raganything.image_signature import image_mime_type
+from muserag import MuseRAG, MuseRAGConfig
+from muserag.image_signature import image_mime_type
 from lightrag.llm.openai import openai_complete_if_cache, openai_embed
 from lightrag.utils import EmbeddingFunc
 
@@ -825,8 +824,8 @@ async def insert_content_list_example():
     api_key = "your-api-key"
     base_url = "your-base-url"  # Optional
 
-    # Create RAGAnything configuration
-    config = RAGAnythingConfig(
+    # Create MuseRAG configuration
+    config = MuseRAGConfig(
         working_dir="./rag_storage",
         enable_image_processing=True,
         enable_table_processing=True,
@@ -897,8 +896,8 @@ async def insert_content_list_example():
         ),
     )
 
-    # Initialize RAGAnything
-    rag = RAGAnything(
+    # Initialize MuseRAG
+    rag = MuseRAG(
         config=config,
         llm_model_func=llm_model_func,
         vision_model_func=vision_model_func,
@@ -1012,7 +1011,7 @@ By default, `process_document_complete` and `insert_content_list` skip multimoda
 processed, to avoid redundant LLM calls. If you switch to a **new** graph/vector
 storage backend (e.g. migrating from the default file-based storage to Neo4j),
 the new backend will not yet contain the multimodal entities/relations that were
-written to the old one — see [#154](https://github.com/HKUDS/RAG-Anything/issues/154).
+written to the old one — see [#154](https://github.com/MasterOogway0220/rag/issues/154).
 
 Pass `force_multimodal_reprocess=True` to explicitly re-run multimodal processing
 and re-populate the current storage backend for an already-processed document:
@@ -1050,7 +1049,7 @@ so existing behavior is unchanged unless you explicitly set it.
 
 The `examples/` directory contains comprehensive usage examples:
 
-- **`raganything_example.py`**: End-to-end document processing with MinerU
+- **`muserag_example.py`**: End-to-end document processing with MinerU
 - **`modalprocessors_example.py`**: Direct multimodal content processing
 - **`office_document_test.py`**: Office document parsing test with MinerU (no API key required)
 - **`image_format_test.py`**: Image format parsing test with MinerU (no API key required)
@@ -1060,7 +1059,7 @@ The `examples/` directory contains comprehensive usage examples:
 
 ```bash
 # End-to-end processing with parser selection
-python examples/raganything_example.py path/to/document.pdf --api-key YOUR_API_KEY --parser mineru
+python examples/muserag_example.py path/to/document.pdf --api-key YOUR_API_KEY --parser mineru
 
 # Direct modal processing
 python examples/modalprocessors_example.py --api-key YOUR_API_KEY
@@ -1109,7 +1108,7 @@ PARSE_METHOD=auto              # Parse method: auto, ocr, or txt
 
 ### Troubleshooting and multimodal checklist
 
-- See **[docs/multimodal_rag_failure_modes.md](docs/multimodal_rag_failure_modes.md)** for a short checklist of common pipeline issues (OCR, tables, retrieval bias, debugging tips). Related: [#207](https://github.com/HKUDS/RAG-Anything/issues/207), [#213](https://github.com/HKUDS/RAG-Anything/issues/213).
+- See **[docs/multimodal_rag_failure_modes.md](docs/multimodal_rag_failure_modes.md)** for a short checklist of common pipeline issues (OCR, tables, retrieval bias, debugging tips). Related: [#207](https://github.com/MasterOogway0220/rag/issues/207), [#213](https://github.com/MasterOogway0220/rag/issues/213).
 
 ### Public media URLs (CDN / object storage)
 
@@ -1117,20 +1116,20 @@ When ingestion runs on a server but your UI or another service needs **HTTPS** (
 
 ```bash
 # Base URL for assets (no trailing slash required)
-RAGANYTHING_PUBLIC_ASSET_BASE_URL=https://my-bucket.s3.us-east-1.amazonaws.com/prefix
+MUSERAG_PUBLIC_ASSET_BASE_URL=https://my-bucket.s3.us-east-1.amazonaws.com/prefix
 # Filesystem root that should be stripped from absolute paths under that tree
-RAGANYTHING_PUBLIC_ASSET_STRIP_PREFIX=/var/rag/output
+MUSERAG_PUBLIC_ASSET_STRIP_PREFIX=/var/rag/output
 ```
 
-After parsing, each non-empty `img_path`, `table_img_path`, or `equation_img_path` may gain a sibling field `*_public_url` while the original path stays on disk for local processing. See [#272](https://github.com/HKUDS/RAG-Anything/issues/272).
+After parsing, each non-empty `img_path`, `table_img_path`, or `equation_img_path` may gain a sibling field `*_public_url` while the original path stays on disk for local processing. See [#272](https://github.com/MasterOogway0220/rag/issues/272).
 
-> **Scope today**: this mapping runs in the MinerU parser path only. Other parsers (e.g. Docling) keep working but will not produce `*_public_url` fields until the helper is wired into their content_list post-processing as well. If only one of the two env vars is set, RAG-Anything logs a warning and skips URL attachment.
+> **Scope today**: this mapping runs in the MinerU parser path only. Other parsers (e.g. Docling) keep working but will not produce `*_public_url` fields until the helper is wired into their content_list post-processing as well. If only one of the two env vars is set, MuseRAG logs a warning and skips URL attachment.
 
 ### Parser Configuration
 
-The parser is chosen when `RAGAnything` is created: set `RAGAnythingConfig(parser=...)` to `"mineru"` (default), `"docling"`, or `"paddleocr"`, or use the `PARSER` environment variable (command-line tools: `--parser`). It cannot be switched per `process_document_complete()` call.
+The parser is chosen when `MuseRAG` is created: set `MuseRAGConfig(parser=...)` to `"mineru"` (default), `"docling"`, or `"paddleocr"`, or use the `PARSER` environment variable (command-line tools: `--parser`). It cannot be switched per `process_document_complete()` call.
 
-RAGAnything now supports multiple parsers, each with specific advantages:
+MuseRAG now supports multiple parsers, each with specific advantages:
 
 #### MinerU Parser
 - Supports PDF, images, Office documents, and more formats
@@ -1143,7 +1142,7 @@ RAGAnything now supports multiple parsers, each with specific advantages:
 - Better document structure preservation
 - Native support for multiple Office formats
 
-Install Docling (not included in `raganything[all]`):
+Install Docling (not included in `muserag[all]`):
 
 ```bash
 pip install docling
@@ -1177,12 +1176,12 @@ mineru -p input.pdf -o output_dir -m ocr     # OCR-focused parsing
 mineru -p input.pdf -o output_dir -b pipeline --device cuda  # GPU acceleration
 ```
 
-You can also configure parsing through RAGAnything parameters:
+You can also configure parsing through MuseRAG parameters:
 
 ```python
-# The parser comes from RAGAnythingConfig (or PARSER), not from process_document_complete()
-config = RAGAnythingConfig(parser="mineru")  # "mineru", "docling", or "paddleocr"
-rag = RAGAnything(config=config, llm_model_func=llm_model_func, embedding_func=embedding_func)
+# The parser comes from MuseRAGConfig (or PARSER), not from process_document_complete()
+config = MuseRAGConfig(parser="mineru")  # "mineru", "docling", or "paddleocr"
+rag = MuseRAG(config=config, llm_model_func=llm_model_func, embedding_func=embedding_func)
 
 # Basic parsing configuration
 await rag.process_document_complete(
@@ -1209,18 +1208,18 @@ await rag.process_document_complete(
     # vlm_url="http://127.0.0.1:3000" # Service address when using backend=vlm-http-client
     include_layout_blocks=False,  # Keep MinerU v2 headers, footers, and page numbers only when needed
 
-    # Standard RAGAnything parameters
+    # Standard MuseRAG parameters
     display_stats=True,          # Display content statistics
     split_by_character=None,     # Optional character to split text by
     doc_id=None                  # Optional document ID
 )
 ```
 
-> **Note**: MinerU 2.0 no longer uses the `magic-pdf.json` configuration file. All settings are now passed as command-line parameters or function arguments. RAG-Anything supports multiple document parsers, including MinerU, Docling, and PaddleOCR.
+> **Note**: MinerU 2.0 no longer uses the `magic-pdf.json` configuration file. All settings are now passed as command-line parameters or function arguments. MuseRAG supports multiple document parsers, including MinerU, Docling, and PaddleOCR.
 
 #### MinerU 3.x Content List v2
 
-RAG-Anything natively reads MinerU 3.x `*_content_list_v2.json` and `content_list_v2.json` outputs when they are available, ahead of the legacy flat content list. Document-scoped output directories are preferred over shared roots; within one bundle, v2 is preferred over legacy and exact stem filenames are preferred over generic filenames. The v2 page-grouped representation is converted to the existing flat `content_list` contract while preserving page indexes, bounding boxes, anchors, heading levels, visual metadata, captions, and footnotes. Algorithm blocks use the compatible `type="code", sub_type="algorithm"` representation.
+MuseRAG natively reads MinerU 3.x `*_content_list_v2.json` and `content_list_v2.json` outputs when they are available, ahead of the legacy flat content list. Document-scoped output directories are preferred over shared roots; within one bundle, v2 is preferred over legacy and exact stem filenames are preferred over generic filenames. The v2 page-grouped representation is converted to the existing flat `content_list` contract while preserving page indexes, bounding boxes, anchors, heading levels, visual metadata, captions, and footnotes. Algorithm blocks use the compatible `type="code", sub_type="algorithm"` representation.
 
 Page headers, footers, page numbers, aside text, and page footnotes are excluded by default so repeated layout artifacts do not enter semantic retrieval or graph construction. Set `include_layout_blocks=True` only when those blocks are meaningful for your use case:
 
@@ -1231,20 +1230,20 @@ await rag.process_document_complete(
 )
 ```
 
-MinerU marks v2 as an evolving output schema. RAG-Anything skips unknown future block types with a warning, but falls back to the legacy content list when a v2 file is malformed, structurally invalid, or yields no supported semantic blocks and a legacy file is present.
+MinerU marks v2 as an evolving output schema. MuseRAG skips unknown future block types with a warning, but falls back to the legacy content list when a v2 file is malformed, structurally invalid, or yields no supported semantic blocks and a legacy file is present.
 
 ### Processing Requirements
 
 Different content types require specific optional dependencies:
 
 - **Office Documents** (.doc, .docx, .ppt, .pptx, .xls, .xlsx): Install [LibreOffice](https://www.libreoffice.org/download/download/)
-- **Extended Image Formats** (.bmp, .tiff, .gif, .webp): Install with `pip install raganything[image]`
-- **Audio** (.mp3, .wav, .flac, .m4a, .ogg): Install with `pip install raganything[audio]` and set `enable_audio_processing=True` (env `ENABLE_AUDIO_PROCESSING`); local transcription via faster-whisper, model picked by `WHISPER_MODEL` (default `base`; for CJK audio use `WHISPER_MODEL=medium` or larger and set `WHISPER_LANGUAGE`, e.g. `zh` — smaller models garble non-Latin proper nouns)
-- **Video** (.mp4, .mov, .webm, .avi, .mkv): Install with `pip install raganything[video]` (also needs ffmpeg on PATH) and set `enable_video_processing=True` (env `ENABLE_VIDEO_PROCESSING`); dual-channel: SceneDetect + keyframe VLM description + audio-track transcription. Media files can be passed directly to `process_document_complete()` / folder batches, or inserted as content-list items
-- **Text Files** (.txt, .md): Install with `pip install raganything[text]`. Parsed directly (no PDF/OCR round trip); markdown image references (`![alt](path)`) that point to local image files (an image extension and image file contents) become image blocks and flow through the same multimodal pipeline as images extracted from PDFs — URLs, missing files and other files stay as plain text. Referenced images are sent to the configured vision model wherever they are on disk, so only ingest Markdown whose image references you trust
-- **PaddleOCR Parser** (`parser="paddleocr"`): Install with `pip install raganything[paddleocr]`, then install `paddlepaddle` for your platform
+- **Extended Image Formats** (.bmp, .tiff, .gif, .webp): Install with `pip install muserag[image]`
+- **Audio** (.mp3, .wav, .flac, .m4a, .ogg): Install with `pip install muserag[audio]` and set `enable_audio_processing=True` (env `ENABLE_AUDIO_PROCESSING`); local transcription via faster-whisper, model picked by `WHISPER_MODEL` (default `base`; for CJK audio use `WHISPER_MODEL=medium` or larger and set `WHISPER_LANGUAGE`, e.g. `zh` — smaller models garble non-Latin proper nouns)
+- **Video** (.mp4, .mov, .webm, .avi, .mkv): Install with `pip install muserag[video]` (also needs ffmpeg on PATH) and set `enable_video_processing=True` (env `ENABLE_VIDEO_PROCESSING`); dual-channel: SceneDetect + keyframe VLM description + audio-track transcription. Media files can be passed directly to `process_document_complete()` / folder batches, or inserted as content-list items
+- **Text Files** (.txt, .md): Install with `pip install muserag[text]`. Parsed directly (no PDF/OCR round trip); markdown image references (`![alt](path)`) that point to local image files (an image extension and image file contents) become image blocks and flow through the same multimodal pipeline as images extracted from PDFs — URLs, missing files and other files stay as plain text. Referenced images are sent to the configured vision model wherever they are on disk, so only ingest Markdown whose image references you trust
+- **PaddleOCR Parser** (`parser="paddleocr"`): Install with `pip install muserag[paddleocr]`, then install `paddlepaddle` for your platform
 
-> **📋 Quick Install**: Use `pip install raganything[all]` to enable all format support (Python dependencies only - LibreOffice still needs separate installation, and HTML needs Docling: `pip install docling`)
+> **📋 Quick Install**: Use `pip install muserag[all]` to enable all format support (Python dependencies only - LibreOffice still needs separate installation, and HTML needs Docling: `pip install docling`)
 
 ---
 
@@ -1256,7 +1255,7 @@ Different content types require specific optional dependencies:
 - **Office Documents** - DOC, DOCX, PPT, PPTX, XLS, XLSX
 - **Images** - JPG, PNG, BMP, TIFF, GIF, WebP
 - **Text Files** - TXT, MD
-- **HTML** - HTML, HTM, XHTML (Docling parser only: install it with `pip install docling` and select it with `RAGAnythingConfig(parser="docling")` or `PARSER=docling`). MinerU and PaddleOCR raise an error for these files instead of converting them to PDF with LibreOffice, because that conversion fetches remote URLs and embeds local files referenced by the page. HTML is recognised by file extension: HTML content saved under an Office extension (for example `.doc` or `.xls`) is still converted by LibreOffice
+- **HTML** - HTML, HTM, XHTML (Docling parser only: install it with `pip install docling` and select it with `MuseRAGConfig(parser="docling")` or `PARSER=docling`). MinerU and PaddleOCR raise an error for these files instead of converting them to PDF with LibreOffice, because that conversion fetches remote URLs and embeds local files referenced by the page. HTML is recognised by file extension: HTML content saved under an Office extension (for example `.doc` or `.xls`) is still converted by LibreOffice
 
 ### Multimodal Elements
 
@@ -1282,7 +1281,7 @@ Different content types require specific optional dependencies:
   </div>
 </div>
 
-If you find RAG-Anything useful in your research, please cite our paper:
+MuseRAG is based on [RAG-Anything](https://github.com/HKUDS/RAG-Anything) by HKUDS (MIT License). If you find it useful in your research, please cite the original paper:
 
 ```bibtex
 @misc{guo2025raganythingallinoneragframework,
@@ -1347,8 +1346,8 @@ If you find RAG-Anything useful in your research, please cite our paper:
 </div>
 
 <div align="center">
-  <a href="https://github.com/HKUDS/RAG-Anything/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=HKUDS/RAG-Anything" style="border-radius: 15px; box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);" />
+  <a href="https://github.com/MasterOogway0220/rag/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=MasterOogway0220/rag" style="border-radius: 15px; box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);" />
   </a>
 </div>
 
@@ -1359,13 +1358,13 @@ If you find RAG-Anything useful in your research, please cite our paper:
     <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="500">
   </div>
   <div style="margin-top: 20px;">
-    <a href="https://github.com/HKUDS/RAG-Anything" style="text-decoration: none;">
+    <a href="https://github.com/MasterOogway0220/rag" style="text-decoration: none;">
       <img src="https://img.shields.io/badge/⭐%20Star%20us%20on%20GitHub-1a1a2e?style=for-the-badge&logo=github&logoColor=white">
     </a>
-    <a href="https://github.com/HKUDS/RAG-Anything/issues" style="text-decoration: none;">
+    <a href="https://github.com/MasterOogway0220/rag/issues" style="text-decoration: none;">
       <img src="https://img.shields.io/badge/🐛%20Report%20Issues-ff6b6b?style=for-the-badge&logo=github&logoColor=white">
     </a>
-    <a href="https://github.com/HKUDS/RAG-Anything/discussions" style="text-decoration: none;">
+    <a href="https://github.com/MasterOogway0220/rag/discussions" style="text-decoration: none;">
       <img src="https://img.shields.io/badge/💬%20Discussions-4ecdc4?style=for-the-badge&logo=github&logoColor=white">
     </a>
   </div>
@@ -1375,7 +1374,7 @@ If you find RAG-Anything useful in your research, please cite our paper:
   <div style="width: 100%; max-width: 600px; margin: 20px auto; padding: 20px; background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 217, 255, 0.05) 100%); border-radius: 15px; border: 1px solid rgba(0, 217, 255, 0.2);">
     <div style="display: flex; justify-content: center; align-items: center; gap: 15px;">
       <span style="font-size: 24px;">⭐</span>
-      <span style="color: #00d9ff; font-size: 18px;">Thank you for visiting RAG-Anything!</span>
+      <span style="color: #00d9ff; font-size: 18px;">Thank you for visiting MuseRAG!</span>
       <span style="font-size: 24px;">⭐</span>
     </div>
     <div style="margin-top: 10px; color: #00d9ff; font-size: 16px;">Building the Future of Multimodal AI</div>

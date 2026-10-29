@@ -15,7 +15,7 @@ Usage:
 
 import argparse
 
-from raganything.batch_parser import BatchParser
+from muserag.batch_parser import BatchParser
 
 
 def main() -> int:

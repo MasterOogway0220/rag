@@ -11,10 +11,10 @@ from types import SimpleNamespace
 
 import pytest
 
-import raganything.parser as parser_module
-from raganything.batch_parser import BatchParser
-from raganything.parser import MineruParser, PaddleOCRParser, Parser
-from raganything.processor import ProcessorMixin
+import muserag.parser as parser_module
+from muserag.batch_parser import BatchParser
+from muserag.parser import MineruParser, PaddleOCRParser, Parser
+from muserag.processor import ProcessorMixin
 
 
 class _Logger:
@@ -42,7 +42,7 @@ _BLOCK = [{"type": "text", "text": "hello", "page_idx": 0}]
 
 # The error names the settings that select Docling (config/env; the CLI test
 # checks --parser): a per-call parser= argument does not switch parsers.
-_DOCLING_HINT = r"RAGAnythingConfig\(parser='docling'\) or the PARSER=docling"
+_DOCLING_HINT = r"MuseRAGConfig\(parser='docling'\) or the PARSER=docling"
 
 
 class _HtmlParser:
@@ -169,14 +169,14 @@ def test_parser_cli_rejects_html_for_mineru(
     doc = tmp_path / "page.html"
     doc.write_text("<p>hello</p>")
     monkeypatch.setattr(
-        "sys.argv", ["raganything.parser", str(doc), "--parser", "mineru"]
+        "sys.argv", ["muserag.parser", str(doc), "--parser", "mineru"]
     )
 
     assert parser_module.main() == 1
     # The hint names the CLI flag as well as the config and env spellings.
     out = capsys.readouterr().out
     assert "--parser docling" in out
-    assert "RAGAnythingConfig(parser='docling')" in out
+    assert "MuseRAGConfig(parser='docling')" in out
     assert "PARSER=docling" in out
     assert no_libreoffice == []
 

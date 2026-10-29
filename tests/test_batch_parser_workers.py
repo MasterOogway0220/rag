@@ -11,8 +11,8 @@ from unittest.mock import AsyncMock
 
 import pytest
 
-from raganything.batch import BatchMixin
-from raganything.batch_parser import BatchParser
+from muserag.batch import BatchMixin
+from muserag.batch_parser import BatchParser
 
 MESSAGE = "max_workers must be greater than zero"
 

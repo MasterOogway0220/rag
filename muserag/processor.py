@@ -1,5 +1,5 @@
 """
-Document processing functionality for RAGAnything
+Document processing functionality for MuseRAG
 
 Contains methods for parsing documents and processing multimodal content
 """
@@ -13,16 +13,16 @@ import json
 from typing import Dict, List, Any, Tuple, Optional
 from pathlib import Path
 
-from raganything.base import DocStatus
-from raganything.document_context import document_context
-from raganything.parser import (
+from muserag.base import DocStatus
+from muserag.document_context import document_context
+from muserag.parser import (
     HTML_FILE_EXTENSIONS,
     MineruParser,
     MineruExecutionError,
     get_parser,
     html_requires_docling_error,
 )
-from raganything.utils import (
+from muserag.utils import (
     separate_content_with_page_map,
     insert_text_content,
     insert_text_content_with_multimodal_content,
@@ -35,7 +35,7 @@ from raganything.utils import (
     build_sanitized_page_map,
     replay_chunk_spans,
 )
-from raganything.parse_options import (
+from muserag.parse_options import (
     PARSER_CACHE_KWARGS as _PARSER_CACHE_KWARGS,  # noqa: F401
     relevant_parser_kwargs,
 )
@@ -60,7 +60,7 @@ def _is_lightrag_token_chunker(func) -> bool:
 
 
 class ProcessorMixin:
-    """ProcessorMixin class containing document processing functionality for RAGAnything"""
+    """ProcessorMixin class containing document processing functionality for MuseRAG"""
 
     @staticmethod
     def _relevant_parser_kwargs(kwargs: Dict[str, Any]) -> Dict[str, Any]:
@@ -170,7 +170,7 @@ class ProcessorMixin:
 
         LightRAG drops an insert whose doc_id doc_status already holds, and it
         never retries a FAILED record without stored text. Such a record is
-        RAG-Anything's own (LightRAG stores the text before the status), e.g.
+        MuseRAG's own (LightRAG stores the text before the status), e.g.
         FAILED after a parse error; left in place it would block this
         document's text for good.
         """
@@ -201,7 +201,7 @@ class ProcessorMixin:
         When another insert's pipeline run is busy, ``ainsert`` only enqueues
         the document (and asks that run to come back for it) and returns.
         LightRAG only picks up PENDING, PROCESSING and FAILED documents, so
-        writing RAG-Anything's own statuses before then (HANDLING, later
+        writing MuseRAG's own statuses before then (HANDLING, later
         PROCESSED) took the text out of the queue for good. So this polls
         while a run is busy, and when the pipeline is idle with the document
         still queued (a run ended without reaching it) runs the pipeline
@@ -887,7 +887,7 @@ class ProcessorMixin:
                 cache report it as complete. Defaults to False, which preserves
                 the original skip-if-already-processed behavior. Useful when the
                 underlying graph/vector storage backend was swapped (see
-                https://github.com/HKUDS/RAG-Anything/issues/154) and multimodal
+                https://github.com/MasterOogway0220/rag/issues/154) and multimodal
                 entities/relations need to be re-written into the new backend.
         """
 
@@ -1399,7 +1399,7 @@ class ProcessorMixin:
         Returns:
             Formatted chunk content using the appropriate template
         """
-        from raganything.prompt import PROMPTS
+        from muserag.prompt import PROMPTS
 
         try:
             if content_type == "image":
@@ -2012,7 +2012,7 @@ class ProcessorMixin:
                 documents are skipped). This is useful after switching to a new
                 graph/vector storage backend, since a fresh backend will not yet
                 contain the multimodal entities/relations that were written to the
-                previous one (see https://github.com/HKUDS/RAG-Anything/issues/154).
+                previous one (see https://github.com/MasterOogway0220/rag/issues/154).
                 Text content is unaffected by this flag.
             **kwargs: Additional parameters for parser (e.g., lang, device,
                 start_page, end_page, formula, table, backend, source,
@@ -2452,7 +2452,7 @@ class ProcessorMixin:
                     async with pipeline_status_lock:
                         pipeline_status.update({"scan_disabled": False})
                         error_msg = (
-                            f"RAGAnything processing failed for {file_name}: {str(e)}"
+                            f"MuseRAG processing failed for {file_name}: {str(e)}"
                         )
                         pipeline_status["latest_message"] = error_msg
                         pipeline_status["history_messages"].append(error_msg)
@@ -2472,10 +2472,10 @@ class ProcessorMixin:
                     async with pipeline_status_lock:
                         pipeline_status.update({"scan_disabled": False})
                         pipeline_status["latest_message"] = (
-                            f"RAGAnything processing completed for {file_name}"
+                            f"MuseRAG processing completed for {file_name}"
                         )
                         pipeline_status["history_messages"].append(
-                            f"RAGAnything processing completed for {file_name}"
+                            f"MuseRAG processing completed for {file_name}"
                         )
                         pipeline_status["history_messages"].append(
                             "Now is allowed to scan"
@@ -2521,7 +2521,7 @@ class ProcessorMixin:
                 documents are skipped). This is useful after switching to a new
                 graph/vector storage backend, since a fresh backend will not yet
                 contain the multimodal entities/relations that were written to the
-                previous one (see https://github.com/HKUDS/RAG-Anything/issues/154).
+                previous one (see https://github.com/MasterOogway0220/rag/issues/154).
                 Text content is unaffected by this flag.
 
         Note:

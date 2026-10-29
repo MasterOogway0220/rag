@@ -2,7 +2,7 @@
 
 import pytest
 
-from raganything.parser import (
+from muserag.parser import (
     Parser,
     get_parser,
     register_parser,
@@ -155,7 +155,7 @@ class TestCliIntegration:
     def test_cli_accepts_custom_parser_name(self, monkeypatch, tmp_path):
         """Ensure CLI argument parsing does not reject custom parser names."""
         import sys
-        from raganything import parser as parser_module
+        from muserag import parser as parser_module
 
         class DummyCliParser(Parser):
             def check_installation(self) -> bool:
@@ -176,7 +176,7 @@ class TestCliIntegration:
             sys,
             "argv",
             [
-                "raganything-parser",
+                "muserag-parser",
                 str(tmp_path / "dummy.pdf"),
                 "--parser",
                 "custom-cli",

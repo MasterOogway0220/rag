@@ -2,8 +2,8 @@
 
 import pytest
 
-import raganything.resilience as resilience_module
-from raganything.resilience import CircuitBreaker, async_retry, retry
+import muserag.resilience as resilience_module
+from muserag.resilience import CircuitBreaker, async_retry, retry
 
 
 class TestSyncRetry:

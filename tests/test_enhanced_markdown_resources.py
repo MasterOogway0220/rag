@@ -19,7 +19,7 @@ pytest.importorskip("weasyprint")
 pypdf = pytest.importorskip("pypdf")
 from PIL import Image
 
-from raganything.enhanced_markdown import EnhancedMarkdownConverter, MarkdownConfig
+from muserag.enhanced_markdown import EnhancedMarkdownConverter, MarkdownConfig
 
 
 def _png(path, color, size=(12, 8)):
@@ -338,7 +338,7 @@ def test_base_url_may_be_a_filesystem_path(tmp_path, make_base_url):
     ],
 )
 def test_fetcher_refuses_other_urls_before_any_io(tmp_path, url):
-    from raganything.enhanced_markdown import _restricted_url_fetcher
+    from muserag.enhanced_markdown import _restricted_url_fetcher
 
     fetcher = _restricted_url_fetcher((tmp_path / "doc.md").as_uri())
     with pytest.raises(ValueError, match="Markdown file's directory"):
@@ -359,7 +359,7 @@ _INSIDE_FILES = [
 
 @pytest.mark.parametrize("name", [*_INSIDE_FILES, "leak.png"])
 def test_fetcher_refuses_other_files_inside_the_directory(tmp_path, name):
-    from raganything.enhanced_markdown import _restricted_url_fetcher
+    from muserag.enhanced_markdown import _restricted_url_fetcher
 
     for secret in _INSIDE_FILES:
         (tmp_path / secret).parent.mkdir(exist_ok=True)

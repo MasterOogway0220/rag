@@ -6,11 +6,11 @@ from types import SimpleNamespace
 
 import pytest
 
-import raganything.batch_parser as batch_parser
-from raganything.base import DocStatus
-from raganything.batch import BatchMixin
-from raganything.parser import Parser
-from raganything.processor import ProcessorMixin
+import muserag.batch_parser as batch_parser
+from muserag.base import DocStatus
+from muserag.batch import BatchMixin
+from muserag.parser import Parser
+from muserag.processor import ProcessorMixin
 
 
 class MemoryStorage:

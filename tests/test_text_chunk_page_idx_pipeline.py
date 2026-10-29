@@ -18,8 +18,8 @@ import numpy as np
 import pytest
 from lightrag.utils import EmbeddingFunc, Tokenizer
 
-from raganything import RAGAnything, RAGAnythingConfig
-from raganything.parser import MineruParser
+from muserag import MuseRAG, MuseRAGConfig
+from muserag.parser import MineruParser
 
 MARKERS = ["PAGE-ZERO", "PAGE-ONE", "PAGE-TWO", "PAGE-THREE"]
 FOOTER = "Confidential &amp; internal - do not distribute."
@@ -70,10 +70,10 @@ def make_rag(monkeypatch, tmp_path):
     monkeypatch.setitem(_LLM, "fail", False)
 
     def build(chunk_token_size=48, chunk_overlap_token_size=8):
-        config = RAGAnythingConfig(
+        config = MuseRAGConfig(
             working_dir=str(tmp_path / uuid.uuid4().hex), display_content_stats=False
         )
-        return RAGAnything(
+        return MuseRAG(
             config=config,
             llm_model_func=_no_entities,
             embedding_func=EmbeddingFunc(
@@ -92,7 +92,7 @@ def make_rag(monkeypatch, tmp_path):
 
 
 async def _close(rag):
-    # Finalize inside the test's event loop; otherwise RAGAnything's atexit
+    # Finalize inside the test's event loop; otherwise MuseRAG's atexit
     # hook tries again after pytest has closed the loop and log streams.
     await rag.finalize_storages()
     atexit.unregister(rag.close)
@@ -235,8 +235,8 @@ async def test_real_pipeline_lightrag_retry_of_same_text_gets_no_foreign_pages(
     make_rag,
 ):
     """A document LightRAG failed earlier is retried in the next pipeline run
-    alongside a RAG-Anything insert of the same text; only rows owned by the
-    RAG-Anything document may carry its pages."""
+    alongside a MuseRAG insert of the same text; only rows owned by the
+    MuseRAG document may carry its pages."""
     rag = make_rag()
     text = "\n\n".join(item["text"] for item in _content_list())
     shifted = [dict(item, page_idx=item["page_idx"] + 10) for item in _content_list()]

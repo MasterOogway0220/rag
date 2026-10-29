@@ -5,7 +5,7 @@ from unittest.mock import AsyncMock
 
 import pytest
 
-import raganything.modalprocessors as modalprocessors
+import muserag.modalprocessors as modalprocessors
 
 
 class RecordingStorage:

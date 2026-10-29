@@ -29,18 +29,18 @@ def test_rag_batch_keeps_event_loop_responsive(monkeypatch, tmp_path, parse_fail
 
     parser = Parser()
     repo_root = Path(__file__).parents[1]
-    package = types.ModuleType("raganything")
-    package.__path__ = [str(repo_root / "raganything")]
-    parser_module = types.ModuleType("raganything.parser")
+    package = types.ModuleType("muserag")
+    package.__path__ = [str(repo_root / "muserag")]
+    parser_module = types.ModuleType("muserag.parser")
     parser_module.get_parser = lambda parser_type: parser
-    monkeypatch.setitem(sys.modules, "raganything", package)
-    monkeypatch.setitem(sys.modules, "raganything.parser", parser_module)
+    monkeypatch.setitem(sys.modules, "muserag", package)
+    monkeypatch.setitem(sys.modules, "muserag.parser", parser_module)
 
     modules = {}
     for name in ("batch_parser", "batch"):
-        full_name = f"raganything.{name}"
+        full_name = f"muserag.{name}"
         spec = importlib.util.spec_from_file_location(
-            full_name, repo_root / "raganything" / f"{name}.py"
+            full_name, repo_root / "muserag" / f"{name}.py"
         )
         module = importlib.util.module_from_spec(spec)
         monkeypatch.setitem(sys.modules, full_name, module)

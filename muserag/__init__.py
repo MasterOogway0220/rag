@@ -1,5 +1,5 @@
-from .raganything import RAGAnything as RAGAnything
-from .config import RAGAnythingConfig as RAGAnythingConfig
+from .muserag import MuseRAG as MuseRAG
+from .config import MuseRAGConfig as MuseRAGConfig
 
 # Core parser class is always available.
 from .parser import Parser as Parser
@@ -27,7 +27,7 @@ except ModuleNotFoundError:
     # Resilience module not present in this build.
     pass
 except ImportError:
-    # Symbols not available; ignore to avoid breaking import raganything.
+    # Symbols not available; ignore to avoid breaking import muserag.
     pass
 
 # Optional: processing callbacks.
@@ -79,11 +79,11 @@ except ImportError:
 
 __version__ = "1.4.3"
 __author__ = "Zirui Guo"
-__url__ = "https://github.com/HKUDS/RAG-Anything"
+__url__ = "https://github.com/MasterOogway0220/rag"
 
 __all__ = [
-    "RAGAnything",
-    "RAGAnythingConfig",
+    "MuseRAG",
+    "MuseRAGConfig",
     "Parser",
 ]
 
@@ -146,5 +146,5 @@ if "VideoModalProcessor" in globals():
 
 
 def get_version() -> str:
-    """Return the RAG-Anything version string."""
+    """Return the MuseRAG version string."""
     return __version__

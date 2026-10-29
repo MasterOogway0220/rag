@@ -1,4 +1,4 @@
-from raganything.modalprocessors import (
+from muserag.modalprocessors import (
     BaseModalProcessor,
     EquationModalProcessor,
     ImageModalProcessor,

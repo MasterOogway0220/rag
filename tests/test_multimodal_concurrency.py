@@ -10,7 +10,7 @@ import pytest
 
 
 def _load_batch_method():
-    source = Path(__file__).resolve().parents[1] / "raganything" / "processor.py"
+    source = Path(__file__).resolve().parents[1] / "muserag" / "processor.py"
     tree = ast.parse(source.read_text(encoding="utf-8"))
     mixin = next(
         node

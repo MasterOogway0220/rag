@@ -12,7 +12,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from raganything.parser import MineruParser, PaddleOCRParser, Parser  # noqa: E402
+from muserag.parser import MineruParser, PaddleOCRParser, Parser  # noqa: E402
 
 # Image references only become image blocks for real image files.
 PNG = b"\x89PNG\r\n\x1a\n"

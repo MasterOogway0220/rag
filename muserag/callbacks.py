@@ -1,5 +1,5 @@
 """
-Processing callbacks and event system for RAGAnything.
+Processing callbacks and event system for MuseRAG.
 
 Provides a lightweight publish-subscribe mechanism that lets users hook
 into every stage of the document processing pipeline — parsing, text
@@ -7,7 +7,7 @@ insertion, multimodal processing, and querying.
 
 Usage::
 
-    from raganything.callbacks import ProcessingCallback, CallbackManager
+    from muserag.callbacks import ProcessingCallback, CallbackManager
 
     class MyCallback(ProcessingCallback):
         def on_parse_start(self, file_path: str, **kw):
@@ -16,7 +16,7 @@ Usage::
         def on_parse_complete(self, file_path: str, content_blocks: int, **kw):
             print(f"Parsed {content_blocks} blocks from {file_path}")
 
-    rag = RAGAnything(config=config)
+    rag = MuseRAG(config=config)
     rag.callback_manager.register(MyCallback())
 """
 
@@ -264,7 +264,7 @@ class MetricsCallback(ProcessingCallback):
         """Return a human-readable summary of collected metrics."""
         m = self.metrics
         lines = [
-            "RAGAnything Processing Metrics",
+            "MuseRAG Processing Metrics",
             "=" * 40,
             f"Documents processed : {m['documents_processed']}",
             f"Documents failed    : {m['documents_failed']}",

@@ -17,7 +17,7 @@ This module provides a zero-dependency, pure-stdlib utility to:
    and grouping characters), and
 4. Optionally merge the extracted equations into an already-parsed
    ``content_list`` (the MinerU-compatible list of content blocks produced
-   by :class:`raganything.parser.MineruParser` / :class:`DoclingParser`)
+   by :class:`muserag.parser.MineruParser` / :class:`DoclingParser`)
    as ``{"type": "equation", "text": "<latex>", "text_format": "latex", ...}``
    blocks so that downstream multimodal processors can index them.
 
@@ -29,7 +29,7 @@ pixel-accurate rendering.
 
 Example
 -------
->>> from raganything.omml_extractor import extract_omml_equations
+>>> from muserag.omml_extractor import extract_omml_equations
 >>> equations = extract_omml_equations("paper.docx")  # doctest: +SKIP
 >>> for eq in equations:                              # doctest: +SKIP
 ...     print(eq["index"], eq["text"])
@@ -235,8 +235,8 @@ def enrich_content_list_with_docx_equations(
     ----------
     content_list:
         A list of MinerU-compatible content blocks as produced by
-        :class:`raganything.parser.MineruParser` or
-        :class:`raganything.parser.DoclingParser`. The list is *not* mutated;
+        :class:`muserag.parser.MineruParser` or
+        :class:`muserag.parser.DoclingParser`. The list is *not* mutated;
         a new list is returned.
     docx_path:
         Path to the original ``.docx`` source.

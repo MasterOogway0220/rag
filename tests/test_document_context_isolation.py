@@ -8,14 +8,14 @@ from unittest.mock import AsyncMock, Mock
 
 import pytest
 
-from raganything.base import DocStatus
-from raganything.modalprocessors import (
+from muserag.base import DocStatus
+from muserag.modalprocessors import (
     ContextConfig,
     ContextExtractor,
     TableModalProcessor,
 )
-from raganything.processor import ProcessorMixin
-from raganything.raganything import RAGAnything
+from muserag.processor import ProcessorMixin
+from muserag.muserag import MuseRAG
 
 
 class Storage:
@@ -33,7 +33,7 @@ class Storage:
 
 
 class Processor(ProcessorMixin):
-    set_content_source_for_context = RAGAnything.set_content_source_for_context
+    set_content_source_for_context = MuseRAG.set_content_source_for_context
 
 
 def content(label):

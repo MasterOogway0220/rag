@@ -41,23 +41,23 @@ def _install_minimal_lightrag_stubs():
     sys.modules["lightrag"] = fake_lightrag
     sys.modules["lightrag.utils"] = fake_lightrag_utils
 
-    fake_raganything = types.ModuleType("raganything")
-    fake_raganything.__path__ = [
-        str(Path(__file__).resolve().parents[1] / "raganything")
+    fake_muserag = types.ModuleType("muserag")
+    fake_muserag.__path__ = [
+        str(Path(__file__).resolve().parents[1] / "muserag")
     ]
-    sys.modules["raganything"] = fake_raganything
+    sys.modules["muserag"] = fake_muserag
 
 
 try:
-    from raganything.processor import ProcessorMixin
+    from muserag.processor import ProcessorMixin
 except ModuleNotFoundError as exc:
     if exc.name != "lightrag":
         raise
     for module_name in list(sys.modules):
-        if module_name == "raganything" or module_name.startswith("raganything."):
+        if module_name == "muserag" or module_name.startswith("muserag."):
             sys.modules.pop(module_name, None)
     _install_minimal_lightrag_stubs()
-    from raganything.processor import ProcessorMixin  # noqa: E402
+    from muserag.processor import ProcessorMixin  # noqa: E402
 
 
 class FakeDocStatus:

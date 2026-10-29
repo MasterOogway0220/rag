@@ -66,8 +66,8 @@ def public_url_for_local_path(
 
 def attach_public_media_urls(item: dict) -> None:
     """
-    If ``RAGANYTHING_PUBLIC_ASSET_BASE_URL`` and
-    ``RAGANYTHING_PUBLIC_ASSET_STRIP_PREFIX`` are both set, add
+    If ``MUSERAG_PUBLIC_ASSET_BASE_URL`` and
+    ``MUSERAG_PUBLIC_ASSET_STRIP_PREFIX`` are both set, add
     ``<field>_public_url`` for each non-empty media path field.
 
     Existing ``img_path`` / ``table_img_path`` / ``equation_img_path`` values
@@ -76,8 +76,8 @@ def attach_public_media_urls(item: dict) -> None:
     If only one of the two env vars is set, the function logs a single
     warning and returns without mutating ``item``.
     """
-    base = os.environ.get("RAGANYTHING_PUBLIC_ASSET_BASE_URL", "").strip()
-    strip = os.environ.get("RAGANYTHING_PUBLIC_ASSET_STRIP_PREFIX", "").strip()
+    base = os.environ.get("MUSERAG_PUBLIC_ASSET_BASE_URL", "").strip()
+    strip = os.environ.get("MUSERAG_PUBLIC_ASSET_STRIP_PREFIX", "").strip()
 
     if not base and not strip:
         _MISCONFIG_WARNED.clear()
@@ -85,8 +85,8 @@ def attach_public_media_urls(item: dict) -> None:
     if base and not strip:
         if "base_only" not in _MISCONFIG_WARNED:
             logger.warning(
-                "RAGANYTHING_PUBLIC_ASSET_BASE_URL is set but "
-                "RAGANYTHING_PUBLIC_ASSET_STRIP_PREFIX is not; "
+                "MUSERAG_PUBLIC_ASSET_BASE_URL is set but "
+                "MUSERAG_PUBLIC_ASSET_STRIP_PREFIX is not; "
                 "skipping public URL attachment."
             )
             _MISCONFIG_WARNED.add("base_only")
@@ -94,8 +94,8 @@ def attach_public_media_urls(item: dict) -> None:
     if strip and not base:
         if "strip_only" not in _MISCONFIG_WARNED:
             logger.warning(
-                "RAGANYTHING_PUBLIC_ASSET_STRIP_PREFIX is set but "
-                "RAGANYTHING_PUBLIC_ASSET_BASE_URL is not; "
+                "MUSERAG_PUBLIC_ASSET_STRIP_PREFIX is set but "
+                "MUSERAG_PUBLIC_ASSET_BASE_URL is not; "
                 "skipping public URL attachment."
             )
             _MISCONFIG_WARNED.add("strip_only")

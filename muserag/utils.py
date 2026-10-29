@@ -1,5 +1,5 @@
 """
-Utility functions for RAGAnything
+Utility functions for MuseRAG
 
 Contains helper functions for content separation, text insertion, and other utilities
 """
@@ -13,7 +13,7 @@ from typing import Dict, List, Any, Optional, Tuple
 from pathlib import Path
 from lightrag.utils import logger
 
-from raganything.image_signature import SIGNATURE_BYTES, looks_like_image
+from muserag.image_signature import SIGNATURE_BYTES, looks_like_image
 
 
 def normalize_caption_list(value: Any) -> List[str]:

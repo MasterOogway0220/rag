@@ -13,7 +13,7 @@ from pathlib import Path
 
 import pytest
 
-from raganything.parser import Parser
+from muserag.parser import Parser
 
 
 @pytest.fixture()
@@ -238,8 +238,8 @@ def test_encoders_refuse_non_image_content(md_dir):
     """The read-time check covers paths that bypassed the parser: parse-cache
     entries written before this check existed, content lists, files swapped
     after parsing, and query-time image paths."""
-    from raganything.modalprocessors import ImageModalProcessor
-    from raganything.utils import encode_image_to_base64
+    from muserag.modalprocessors import ImageModalProcessor
+    from muserag.utils import encode_image_to_base64
 
     fake = md_dir / "cached.png"
     fake.write_text("api_key: secret\n")

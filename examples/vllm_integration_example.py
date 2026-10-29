@@ -1,7 +1,7 @@
 """
-vLLM Integration Example with RAG-Anything
+vLLM Integration Example with MuseRAG
 
-This example demonstrates how to integrate vLLM with RAG-Anything for
+This example demonstrates how to integrate vLLM with MuseRAG for
 high-throughput document processing and querying using locally or remotely
 served models.
 
@@ -11,7 +11,7 @@ PagedAttention, and optimized inference — ideal for production RAG workloads.
 Requirements:
 - vLLM serving a model (see: https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html)
 - OpenAI Python package: pip install openai
-- RAG-Anything installed: pip install raganything
+- MuseRAG installed: pip install muserag
 
 Start vLLM (example):
     # Chat / completion model
@@ -42,8 +42,8 @@ from openai import AsyncOpenAI
 # Load environment variables
 load_dotenv()
 
-# RAG-Anything imports
-from raganything import RAGAnything, RAGAnythingConfig
+# MuseRAG imports
+from muserag import MuseRAG, MuseRAGConfig
 from lightrag.utils import EmbeddingFunc
 from lightrag.llm.openai import openai_complete_if_cache
 
@@ -94,7 +94,7 @@ async def vllm_embedding_async(texts: List[str]) -> List[List[float]]:
 
 
 class VLLMRAGIntegration:
-    """Integration class for vLLM with RAG-Anything."""
+    """Integration class for vLLM with MuseRAG."""
 
     def __init__(self):
         # vLLM configuration using standard LLM_BINDING variables
@@ -107,9 +107,9 @@ class VLLMRAGIntegration:
         )
         self.embedding_api_key = os.getenv("EMBEDDING_BINDING_API_KEY", "token-abc123")
 
-        # RAG-Anything configuration
+        # MuseRAG configuration
         # Use a fresh working directory each run to avoid legacy doc_status schema conflicts
-        self.config = RAGAnythingConfig(
+        self.config = MuseRAGConfig(
             working_dir=f"./rag_storage_vllm/{uuid.uuid4()}",
             parser="mineru",
             parse_method="auto",
@@ -194,11 +194,11 @@ class VLLMRAGIntegration:
         )
 
     async def initialize_rag(self):
-        """Initialize RAG-Anything with vLLM functions."""
-        print("Initializing RAG-Anything with vLLM...")
+        """Initialize MuseRAG with vLLM functions."""
+        print("Initializing MuseRAG with vLLM...")
 
         try:
-            self.rag = RAGAnything(
+            self.rag = MuseRAG(
                 config=self.config,
                 llm_model_func=vllm_llm_model_func,
                 embedding_func=self.embedding_func_factory(),
@@ -210,7 +210,7 @@ class VLLMRAGIntegration:
 
             self.rag._mark_multimodal_processing_complete = _noop_mark_multimodal
 
-            print("✅ RAG-Anything initialized successfully!")
+            print("✅ MuseRAG initialized successfully!")
             return True
         except Exception as e:
             print(f"❌ RAG initialization failed: {str(e)}")
@@ -265,19 +265,19 @@ class VLLMRAGIntegration:
         try:
             print("\nAdding sample content for testing...")
 
-            # Create content list in the format expected by RAGAnything
+            # Create content list in the format expected by MuseRAG
             content_list = [
                 {
                     "type": "text",
-                    "text": """vLLM Integration with RAG-Anything
+                    "text": """vLLM Integration with MuseRAG
 
 This integration demonstrates how to connect vLLM's high-performance inference engine
-with RAG-Anything's multimodal document processing capabilities. The system uses:
+with MuseRAG's multimodal document processing capabilities. The system uses:
 
 - vLLM for high-throughput LLM inference with continuous batching
 - PagedAttention for efficient memory management
 - Tensor parallelism for serving large models across multiple GPUs
-- RAG-Anything for document processing and retrieval
+- MuseRAG for document processing and retrieval
 
 Key benefits include:
 - Production throughput: Continuous batching serves many concurrent requests
@@ -314,7 +314,7 @@ Key benefits include:
 async def main():
     """Main example function."""
     print("=" * 70)
-    print("vLLM + RAG-Anything Integration Example")
+    print("vLLM + MuseRAG Integration Example")
     print("=" * 70)
 
     # Initialize integration

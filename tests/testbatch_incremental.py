@@ -32,21 +32,21 @@ def _load_batch_parser_module(monkeypatch):
     fake_parser = FakeParser()
     repo_root = Path(__file__).parents[1]
 
-    package = types.ModuleType("raganything")
-    package.__path__ = [str(repo_root / "raganything")]
-    parser_module = types.ModuleType("raganything.parser")
+    package = types.ModuleType("muserag")
+    package.__path__ = [str(repo_root / "muserag")]
+    parser_module = types.ModuleType("muserag.parser")
     parser_module.get_parser = lambda parser_type: fake_parser
 
-    monkeypatch.setitem(sys.modules, "raganything", package)
-    monkeypatch.setitem(sys.modules, "raganything.parser", parser_module)
-    sys.modules.pop("raganything.batch_parser", None)
+    monkeypatch.setitem(sys.modules, "muserag", package)
+    monkeypatch.setitem(sys.modules, "muserag.parser", parser_module)
+    sys.modules.pop("muserag.batch_parser", None)
 
     spec = importlib.util.spec_from_file_location(
-        "raganything.batch_parser",
-        repo_root / "raganything" / "batch_parser.py",
+        "muserag.batch_parser",
+        repo_root / "muserag" / "batch_parser.py",
     )
     batch_parser_module = importlib.util.module_from_spec(spec)
-    monkeypatch.setitem(sys.modules, "raganything.batch_parser", batch_parser_module)
+    monkeypatch.setitem(sys.modules, "muserag.batch_parser", batch_parser_module)
     spec.loader.exec_module(batch_parser_module)
 
     return batch_parser_module, fake_parser
@@ -68,7 +68,7 @@ def _make_batch_parser(monkeypatch):
 @pytest.mark.parametrize("use_directory", [False, True])
 def test_docling_batch_processes_html(monkeypatch, tmp_path, extension, use_directory):
     batch_parser, _ = _make_batch_parser(monkeypatch)
-    module_path = Path(__file__).parents[1] / "raganything" / "parser.py"
+    module_path = Path(__file__).parents[1] / "muserag" / "parser.py"
     spec = importlib.util.spec_from_file_location("_batch_html_parser", module_path)
     parser_module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(parser_module)
@@ -135,7 +135,7 @@ def test_cli_can_disable_recursive_scan(monkeypatch, tmp_path):
         sys,
         "argv",
         [
-            "raganything.batch_parser",
+            "muserag.batch_parser",
             str(tmp_path / "docs"),
             "--output",
             str(tmp_path / "output"),
@@ -298,7 +298,7 @@ def test_incremental_ignores_corrupt_manifest(monkeypatch, tmp_path, manifest_co
 
     batch_parser.process_batch([str(docs_dir)], str(output_dir), incremental=True)
 
-    manifest_path = output_dir / ".raganything_batch_manifest.json"
+    manifest_path = output_dir / ".muserag_batch_manifest.json"
     manifest_path.write_bytes(manifest_content)
     fake_parser.processed_files.clear()
 
@@ -350,7 +350,7 @@ def test_incremental_dry_run_does_not_write_manifest(monkeypatch, tmp_path):
         [str(docs_dir)], str(output_dir), incremental=True, dry_run=True
     )
 
-    manifest_path = output_dir / ".raganything_batch_manifest.json"
+    manifest_path = output_dir / ".muserag_batch_manifest.json"
     assert not manifest_path.exists()
 
 
@@ -816,10 +816,10 @@ def test_rag_batch_dry_run_skips_ingestion(monkeypatch, tmp_path, dry_run):
     _load_batch_parser_module(monkeypatch)
     repo_root = Path(__file__).parents[1]
     spec = importlib.util.spec_from_file_location(
-        "raganything.batch", repo_root / "raganything" / "batch.py"
+        "muserag.batch", repo_root / "muserag" / "batch.py"
     )
     module = importlib.util.module_from_spec(spec)
-    monkeypatch.setitem(sys.modules, "raganything.batch", module)
+    monkeypatch.setitem(sys.modules, "muserag.batch", module)
     spec.loader.exec_module(module)
     events = []
 

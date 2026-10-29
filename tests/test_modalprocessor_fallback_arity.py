@@ -1,7 +1,7 @@
 """Multimodal processing failures must keep the caller's 3-value contract.
 
 ``ProcessorMixin._process_multimodal_content`` unpacks three values from
-``process_multimodal_content`` (``raganything/processor.py``).  When a
+``process_multimodal_content`` (``muserag/processor.py``).  When a
 processor swallowed an error and returned only the fallback pair, the
 unpacking raised ``ValueError: not enough values to unpack`` in the caller,
 which hid the real failure and dropped the item.
@@ -12,7 +12,7 @@ from unittest.mock import AsyncMock
 
 import pytest
 
-import raganything.modalprocessors as modalprocessors
+import muserag.modalprocessors as modalprocessors
 
 CONTENT_TYPES = {
     "image": modalprocessors.ImageModalProcessor,

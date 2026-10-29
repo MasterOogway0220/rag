@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Parser Validation Test Script for RAG-Anything (Pytest)
+Parser Validation Test Script for MuseRAG (Pytest)
 
 This script validates the environment variable propagation and
 argument validation logic for both MineruParser and DoclingParser.
@@ -13,7 +13,7 @@ exercise the Python-API path through DocumentConverter mocks instead of
 subprocess mocks.
 
 Requirements:
-- RAG-Anything package
+- MuseRAG package
 - pytest
 
 Usage:
@@ -26,8 +26,8 @@ import os
 import re
 import threading
 from concurrent.futures import ThreadPoolExecutor
-from raganything.parser import MineruParser, DoclingParser, Parser
-import raganything.parser as parser_module
+from muserag.parser import MineruParser, DoclingParser, Parser
+import muserag.parser as parser_module
 from pathlib import Path
 
 

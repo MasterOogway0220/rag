@@ -1,7 +1,7 @@
 """
-MiniMax Integration Example with RAG-Anything
+MiniMax Integration Example with MuseRAG
 
-This example demonstrates how to integrate MiniMax with RAG-Anything for
+This example demonstrates how to integrate MiniMax with MuseRAG for
 cloud-based text document processing and querying using MiniMax's
 OpenAI-compatible API.
 
@@ -9,7 +9,7 @@ MiniMax provides high-quality language models accessible via an API that is
 fully compatible with the OpenAI chat completions protocol.
 
 Requirements:
-- RAG-Anything installed: pip install raganything
+- MuseRAG installed: pip install muserag
 - A MiniMax API key (https://www.minimaxi.com/)
 - An embedding service (OpenAI, Ollama, or any OpenAI-compatible endpoint)
   Note: MiniMax does not provide an embedding model, so a separate embedding
@@ -41,8 +41,8 @@ from typing import Dict, List, Optional
 
 from dotenv import load_dotenv
 
-# RAG-Anything imports
-from raganything import RAGAnything, RAGAnythingConfig
+# MuseRAG imports
+from muserag import MuseRAG, MuseRAGConfig
 from lightrag.utils import EmbeddingFunc
 from lightrag.llm.openai import openai_complete_if_cache, openai_embed
 
@@ -127,15 +127,15 @@ async def embedding_func_async(texts: List[str]) -> List[List[float]]:
 
 
 class MiniMaxRAGIntegration:
-    """Integration class for MiniMax with RAG-Anything."""
+    """Integration class for MiniMax with MuseRAG."""
 
     def __init__(self):
         self.base_url = MINIMAX_BASE_URL
         self.api_key = MINIMAX_API_KEY
         self.model_name = MINIMAX_LLM_MODEL
 
-        # RAG-Anything configuration
-        self.config = RAGAnythingConfig(
+        # MuseRAG configuration
+        self.config = MuseRAGConfig(
             working_dir=f"./rag_storage_minimax/{uuid.uuid4()}",
             parser="mineru",
             parse_method="auto",
@@ -197,7 +197,7 @@ class MiniMaxRAGIntegration:
         try:
             print(f"💬 Testing chat with model: {self.model_name}")
             result = await minimax_llm_model_func(
-                "Say 'RAG-Anything MiniMax integration test passed' in one sentence."
+                "Say 'MuseRAG MiniMax integration test passed' in one sentence."
             )
             print("✅ Chat test successful!")
             print(f"   Response: {result.strip()[:120]}")
@@ -214,15 +214,15 @@ class MiniMaxRAGIntegration:
         )
 
     async def initialize_rag(self) -> bool:
-        """Initialize RAG-Anything with MiniMax as the LLM backend."""
-        print("\nInitializing RAG-Anything with MiniMax ...")
+        """Initialize MuseRAG with MiniMax as the LLM backend."""
+        print("\nInitializing MuseRAG with MiniMax ...")
         try:
-            self.rag = RAGAnything(
+            self.rag = MuseRAG(
                 config=self.config,
                 llm_model_func=minimax_llm_model_func,
                 embedding_func=self._make_embedding_func(),
             )
-            print("✅ RAG-Anything initialized successfully!")
+            print("✅ MuseRAG initialized successfully!")
             return True
         except Exception as e:
             print(f"❌ Initialization failed: {e}")
@@ -253,9 +253,9 @@ class MiniMaxRAGIntegration:
             {
                 "type": "text",
                 "text": (
-                    "MiniMax Integration with RAG-Anything\n\n"
+                    "MiniMax Integration with MuseRAG\n\n"
                     "This integration connects MiniMax's powerful language models "
-                    "with RAG-Anything's multimodal document processing pipeline.\n\n"
+                    "with MuseRAG's multimodal document processing pipeline.\n\n"
                     "Key features:\n"
                     "- MiniMax-M3: The latest flagship model and current default.\n"
                     "- MiniMax-M2.7: Previous generation, available as alternative.\n"
@@ -290,7 +290,7 @@ class MiniMaxRAGIntegration:
 
 async def main():
     print("=" * 70)
-    print("MiniMax + RAG-Anything Integration Example")
+    print("MiniMax + MuseRAG Integration Example")
     print("=" * 70)
 
     integration = MiniMaxRAGIntegration()

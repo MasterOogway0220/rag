@@ -11,7 +11,7 @@ import pytest
 _ROOT = Path(__file__).resolve().parents[1]
 _SPEC = importlib.util.spec_from_file_location(
     "asset_urls",
-    _ROOT / "raganything" / "asset_urls.py",
+    _ROOT / "muserag" / "asset_urls.py",
 )
 assert _SPEC and _SPEC.loader
 _asset_urls = importlib.util.module_from_spec(_SPEC)
@@ -70,9 +70,9 @@ def test_attach_respects_env(monkeypatch: pytest.MonkeyPatch, tmp_path: Path):
     img.write_bytes(b"x")
 
     monkeypatch.setenv(
-        "RAGANYTHING_PUBLIC_ASSET_BASE_URL", "https://bucket.s3.amazonaws.com/proj"
+        "MUSERAG_PUBLIC_ASSET_BASE_URL", "https://bucket.s3.amazonaws.com/proj"
     )
-    monkeypatch.setenv("RAGANYTHING_PUBLIC_ASSET_STRIP_PREFIX", str(root.resolve()))
+    monkeypatch.setenv("MUSERAG_PUBLIC_ASSET_STRIP_PREFIX", str(root.resolve()))
 
     item: dict = {"type": "image", "img_path": str(img.resolve())}
     attach_public_media_urls(item)
@@ -82,8 +82,8 @@ def test_attach_respects_env(monkeypatch: pytest.MonkeyPatch, tmp_path: Path):
 
 
 def test_skips_when_already_http(monkeypatch: pytest.MonkeyPatch):
-    monkeypatch.setenv("RAGANYTHING_PUBLIC_ASSET_BASE_URL", "https://x.com")
-    monkeypatch.setenv("RAGANYTHING_PUBLIC_ASSET_STRIP_PREFIX", "/var")
+    monkeypatch.setenv("MUSERAG_PUBLIC_ASSET_BASE_URL", "https://x.com")
+    monkeypatch.setenv("MUSERAG_PUBLIC_ASSET_STRIP_PREFIX", "/var")
 
     item = {"img_path": "https://cdn/a.png"}
     attach_public_media_urls(item)
@@ -98,11 +98,11 @@ def test_all_media_fields_documented():
 def test_warns_once_when_only_base_url_is_set(
     monkeypatch: pytest.MonkeyPatch, caplog: pytest.LogCaptureFixture
 ):
-    monkeypatch.setenv("RAGANYTHING_PUBLIC_ASSET_BASE_URL", "https://x.com")
-    monkeypatch.delenv("RAGANYTHING_PUBLIC_ASSET_STRIP_PREFIX", raising=False)
+    monkeypatch.setenv("MUSERAG_PUBLIC_ASSET_BASE_URL", "https://x.com")
+    monkeypatch.delenv("MUSERAG_PUBLIC_ASSET_STRIP_PREFIX", raising=False)
 
     item = {"img_path": "/var/rag/out/a.png"}
-    with caplog.at_level(logging.WARNING, logger="raganything.asset_urls"):
+    with caplog.at_level(logging.WARNING, logger="muserag.asset_urls"):
         attach_public_media_urls(item)
         attach_public_media_urls(item)
 
@@ -115,11 +115,11 @@ def test_warns_once_when_only_base_url_is_set(
 def test_warns_once_when_only_strip_prefix_is_set(
     monkeypatch: pytest.MonkeyPatch, caplog: pytest.LogCaptureFixture
 ):
-    monkeypatch.delenv("RAGANYTHING_PUBLIC_ASSET_BASE_URL", raising=False)
-    monkeypatch.setenv("RAGANYTHING_PUBLIC_ASSET_STRIP_PREFIX", "/var")
+    monkeypatch.delenv("MUSERAG_PUBLIC_ASSET_BASE_URL", raising=False)
+    monkeypatch.setenv("MUSERAG_PUBLIC_ASSET_STRIP_PREFIX", "/var")
 
     item = {"img_path": "/var/a.png"}
-    with caplog.at_level(logging.WARNING, logger="raganything.asset_urls"):
+    with caplog.at_level(logging.WARNING, logger="muserag.asset_urls"):
         attach_public_media_urls(item)
         attach_public_media_urls(item)
 
@@ -132,11 +132,11 @@ def test_warns_once_when_only_strip_prefix_is_set(
 def test_silent_when_neither_env_is_set(
     monkeypatch: pytest.MonkeyPatch, caplog: pytest.LogCaptureFixture
 ):
-    monkeypatch.delenv("RAGANYTHING_PUBLIC_ASSET_BASE_URL", raising=False)
-    monkeypatch.delenv("RAGANYTHING_PUBLIC_ASSET_STRIP_PREFIX", raising=False)
+    monkeypatch.delenv("MUSERAG_PUBLIC_ASSET_BASE_URL", raising=False)
+    monkeypatch.delenv("MUSERAG_PUBLIC_ASSET_STRIP_PREFIX", raising=False)
 
     item = {"img_path": "/var/a.png"}
-    with caplog.at_level(logging.WARNING, logger="raganything.asset_urls"):
+    with caplog.at_level(logging.WARNING, logger="muserag.asset_urls"):
         attach_public_media_urls(item)
 
     assert not [r for r in caplog.records if r.levelno == logging.WARNING]

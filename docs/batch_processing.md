@@ -1,6 +1,6 @@
 # Batch Processing
 
-This document describes the batch processing feature for RAG-Anything, which allows you to process multiple documents in parallel for improved throughput.
+This document describes the batch processing feature for MuseRAG, which allows you to process multiple documents in parallel for improved throughput.
 
 ## Overview
 
@@ -21,13 +21,13 @@ The batch processing feature allows you to process multiple documents concurrent
 
 ```bash
 # Basic installation
-pip install raganything[all]
+pip install muserag[all]
 
 # Required for batch processing
 pip install tqdm
 
 # Optional for parser='paddleocr'
-pip install raganything[paddleocr]
+pip install muserag[paddleocr]
 
 # Optional for parser='docling' (required for HTML files)
 pip install docling
@@ -38,7 +38,7 @@ pip install docling
 ### Basic Batch Processing
 
 ```python
-from raganything.batch_parser import BatchParser
+from muserag.batch_parser import BatchParser
 
 # Create batch parser
 batch_parser = BatchParser(
@@ -86,7 +86,7 @@ manifest when none exists.
 
 ```python
 import asyncio
-from raganything.batch_parser import BatchParser
+from muserag.batch_parser import BatchParser
 
 async def async_batch_processing():
     batch_parser = BatchParser(
@@ -108,12 +108,12 @@ async def async_batch_processing():
 result = asyncio.run(async_batch_processing())
 ```
 
-### Integration with RAG-Anything
+### Integration with MuseRAG
 
 ```python
-from raganything import RAGAnything
+from muserag import MuseRAG
 
-rag = RAGAnything()
+rag = MuseRAG()
 
 # Process documents with batch functionality
 result = rag.process_documents_batch(
@@ -147,32 +147,32 @@ Pass `dry_run=True` to preview the parse plan without initializing LightRAG or i
 
 ```bash
 # Basic batch processing
-python -m raganything.batch_parser examples/sample_docs/ --output ./output --workers 4
+python -m muserag.batch_parser examples/sample_docs/ --output ./output --workers 4
 
 # With specific parser
-python -m raganything.batch_parser examples/sample_docs/ --parser mineru --method auto
-python -m raganything.batch_parser examples/sample_docs/ --parser paddleocr --method ocr
+python -m muserag.batch_parser examples/sample_docs/ --parser mineru --method auto
+python -m muserag.batch_parser examples/sample_docs/ --parser paddleocr --method ocr
 
 # Without progress bar
-python -m raganything.batch_parser examples/sample_docs/ --output ./output --no-progress
+python -m muserag.batch_parser examples/sample_docs/ --output ./output --no-progress
 
 # Only process files directly inside the specified directories
-python -m raganything.batch_parser examples/sample_docs/ --output ./output --no-recursive
+python -m muserag.batch_parser examples/sample_docs/ --output ./output --no-recursive
 
 # Dry run (list supported files without processing)
-python -m raganything.batch_parser examples/sample_docs/ --output ./output --dry-run
+python -m muserag.batch_parser examples/sample_docs/ --output ./output --dry-run
 
 # Incremental run (skip files unchanged since the last successful batch)
-python -m raganything.batch_parser examples/sample_docs/ --output ./output --incremental
+python -m muserag.batch_parser examples/sample_docs/ --output ./output --incremental
 
 # Help
-python -m raganything.batch_parser --help
+python -m muserag.batch_parser --help
 ```
 
 ### Incremental Folder Scans
 
-Use `incremental=True` when repeatedly processing the same folder. RAG-Anything
-stores a manifest at `.raganything_batch_manifest.json` inside the output
+Use `incremental=True` when repeatedly processing the same folder. MuseRAG
+stores a manifest at `.muserag_batch_manifest.json` inside the output
 directory and skips files that are unchanged since the last successful run. A
 file is skipped only when both its content and the parsing configuration match
 the manifest:
@@ -241,7 +241,7 @@ RAG failure.
 
 ```env
 # Batch processing configuration
-MAX_CONCURRENT_FILES=4  # Default max_workers for RAGAnything batch methods; at least 1
+MAX_CONCURRENT_FILES=4  # Default max_workers for MuseRAG batch methods; at least 1
 SUPPORTED_FILE_EXTENSIONS=.pdf,.docx,.doc,.pptx,.ppt,.xlsx,.xls,.txt,.md
 RECURSIVE_FOLDER_PROCESSING=true
 OUTPUT_DIR=./parsed_output
@@ -267,22 +267,22 @@ Parsing workers and multimodal ingestion have separate limits:
 - `BatchParser.max_workers` controls parallel file parsing. Increasing it does not
   increase image-description concurrency inside one document.
 - `LightRAG.max_parallel_insert` also limits concurrent multimodal item section
-  generation in RAG-Anything's type-aware batch path, reached by
+  generation in MuseRAG's type-aware batch path, reached by
   `insert_content_list()` and `process_document_complete()`. This includes image
-  descriptions. The limit is taken from the LightRAG instance; RAG-Anything falls
+  descriptions. The limit is taken from the LightRAG instance; MuseRAG falls
   back to `2` only when that attribute is absent.
 - `llm_model_max_async` controls LightRAG's wrapped LLM calls, including the later
   entity-extraction and graph-merge stages. Multimodal description generation
-  calls the `llm_model_func` or `vision_model_func` supplied to `RAGAnything`
+  calls the `llm_model_func` or `vision_model_func` supplied to `MuseRAG`
   directly, outside that wrapper, so `llm_model_max_async` does not throttle
   those direct calls. An already wrapped model function, including one inherited
   from an existing LightRAG instance, can still impose its own limit.
 
-When RAG-Anything creates LightRAG, set the item limit through `lightrag_kwargs`
+When MuseRAG creates LightRAG, set the item limit through `lightrag_kwargs`
 (alongside your existing model and embedding configuration):
 
 ```python
-rag = RAGAnything(
+rag = MuseRAG(
     llm_model_func=llm_model_func,
     vision_model_func=vision_model_func,
     embedding_func=embedding_func,
@@ -290,14 +290,14 @@ rag = RAGAnything(
 )
 ```
 
-If you supply `RAGAnything(lightrag=existing_lightrag, ...)`, configure
+If you supply `MuseRAG(lightrag=existing_lightrag, ...)`, configure
 `max_parallel_insert` on that LightRAG instance instead; `lightrag_kwargs` does not
 reconfigure an existing instance. LightRAG 1.4.16 defaults this setting to `2`,
 with an environment override via `MAX_PARALLEL_INSERT`; check your installed
 LightRAG version and effective instance value. Use a positive integer.
 
 The semaphore is created **per multimodal batch call**, not globally or per
-RAG-Anything instance. The limits can therefore multiply:
+MuseRAG instance. The limits can therefore multiply:
 
 - `process_folder_complete()` processes up to `max_workers` files concurrently,
   defaulting to `MAX_CONCURRENT_FILES` (`config.max_concurrent_files`). Each file
@@ -321,7 +321,7 @@ Text indexing goes through LightRAG's single document pipeline per workspace. A
 file whose text arrives while a pipeline run is busy is queued and indexed by
 that run (queued files fetched together are indexed in parallel, up to
 `max_parallel_insert`), using the `split_by_character` settings of the insert
-that started the run; RAG-Anything waits for its text before going on to the
+that started the run; MuseRAG waits for its text before going on to the
 file's multimodal content. If LightRAG fails a file's text (for example, the LLM
 is unavailable) and no run is left to retry it, `process_document_complete()` and
 `insert_content_list()` raise and the document stays `failed` in `doc_status`;
@@ -335,7 +335,7 @@ instead of restarting it.
 - **Office documents**: `.doc`, `.docx`, `.ppt`, `.pptx`, `.xls`, `.xlsx`
 - **Images**: `.png`, `.jpg`, `.jpeg`, `.bmp`, `.tiff`, `.tif`, `.gif`, `.webp`
 - **Text files**: `.txt`, `.md`
-- **HTML files** (Docling parser only): `.html`, `.htm`, `.xhtml`. With MinerU or PaddleOCR, `BatchParser` and the batch CLI skip HTML (a file passed explicitly is logged as "Unsupported file type"), while `parse_document()` and `process_document_complete()` raise a `ValueError` (the parser CLI exits with that error) telling you to select Docling (`RAGAnythingConfig(parser="docling")`, `PARSER=docling` or `--parser docling`), because converting HTML to PDF with LibreOffice would fetch remote URLs and embed local files referenced by the page. With Docling, `BatchParser`, the CLI, `process_documents_batch()` and `process_documents_with_rag_batch()` discover them automatically; `process_folder_complete()` filters on `SUPPORTED_FILE_EXTENSIONS`, so pass `file_extensions=[".html", ".htm", ".xhtml"]` (or add them to that variable). Docling does not fetch `<img>` sources, so HTML images are not analysed; their caption (or alt text) is indexed as text.
+- **HTML files** (Docling parser only): `.html`, `.htm`, `.xhtml`. With MinerU or PaddleOCR, `BatchParser` and the batch CLI skip HTML (a file passed explicitly is logged as "Unsupported file type"), while `parse_document()` and `process_document_complete()` raise a `ValueError` (the parser CLI exits with that error) telling you to select Docling (`MuseRAGConfig(parser="docling")`, `PARSER=docling` or `--parser docling`), because converting HTML to PDF with LibreOffice would fetch remote URLs and embed local files referenced by the page. With Docling, `BatchParser`, the CLI, `process_documents_batch()` and `process_documents_with_rag_batch()` discover them automatically; `process_folder_complete()` filters on `SUPPORTED_FILE_EXTENSIONS`, so pass `file_extensions=[".html", ".htm", ".xhtml"]` (or add them to that variable). Docling does not fetch `<img>` sources, so HTML images are not analysed; their caption (or alt text) is indexed as text.
 
 ## API Reference
 
@@ -525,4 +525,4 @@ def process_with_retry(file_paths, max_retries=3):
 
 ## Conclusion
 
-The batch processing feature significantly improves RAG-Anything's throughput for large document collections. It provides flexible configuration options, comprehensive error handling, and seamless integration with the existing RAG-Anything pipeline.
+The batch processing feature significantly improves MuseRAG's throughput for large document collections. It provides flexible configuration options, comprehensive error handling, and seamless integration with the existing MuseRAG pipeline.

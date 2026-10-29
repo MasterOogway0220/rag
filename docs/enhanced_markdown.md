@@ -1,12 +1,12 @@
 # Enhanced Markdown Conversion
 
-This document describes the enhanced markdown conversion feature for RAG-Anything, which provides high-quality PDF generation from markdown files with multiple backend options and advanced styling.
+This document describes the enhanced markdown conversion feature for MuseRAG, which provides high-quality PDF generation from markdown files with multiple backend options and advanced styling.
 
 > **Note**: Since v1.4.0, document **ingestion** no longer converts `.txt`/`.md` to PDF — text files are parsed directly, and markdown image references pointing to local image files (image extension and contents) become image blocks in the multimodal pipeline; references to any other file stay text. This converter is for *producing* styled PDF deliverables from markdown, not part of the ingest path.
 
 ## Overview
 
-The enhanced markdown conversion feature provides professional-quality PDF generation from markdown files. It supports multiple conversion backends, advanced styling options, syntax highlighting, and seamless integration with RAG-Anything's document processing pipeline.
+The enhanced markdown conversion feature provides professional-quality PDF generation from markdown files. It supports multiple conversion backends, advanced styling options, syntax highlighting, and seamless integration with MuseRAG's document processing pipeline.
 
 ## Key Features
 
@@ -25,7 +25,7 @@ The enhanced markdown conversion feature provides professional-quality PDF gener
 
 ```bash
 # Basic installation
-pip install raganything[all]
+pip install muserag[all]
 
 # Required for enhanced markdown conversion
 pip install markdown weasyprint pygments
@@ -69,7 +69,7 @@ sudo apt-get install -y build-essential python3-dev python3-pip \
 ### Basic Conversion
 
 ```python
-from raganything.enhanced_markdown import EnhancedMarkdownConverter, MarkdownConfig
+from muserag.enhanced_markdown import EnhancedMarkdownConverter, MarkdownConfig
 
 # Create converter with default settings
 converter = EnhancedMarkdownConverter()
@@ -199,19 +199,19 @@ success = converter.convert_markdown_to_pdf(
 
 ```bash
 # Basic conversion
-python -m raganything.enhanced_markdown document.md --output document.pdf
+python -m muserag.enhanced_markdown document.md --output document.pdf
 
 # With specific backend
-python -m raganything.enhanced_markdown document.md --method weasyprint
+python -m muserag.enhanced_markdown document.md --method weasyprint
 
 # With custom CSS file
-python -m raganything.enhanced_markdown document.md --css custom_style.css
+python -m muserag.enhanced_markdown document.md --css custom_style.css
 
 # Show backend information
-python -m raganything.enhanced_markdown --info
+python -m muserag.enhanced_markdown --info
 
 # Help
-python -m raganything.enhanced_markdown --help
+python -m muserag.enhanced_markdown --help
 ```
 
 ### Resource Loading (WeasyPrint)
@@ -334,15 +334,15 @@ function exampleFunction() {
 ```
 ```
 
-## Integration with RAG-Anything
+## Integration with MuseRAG
 
-The enhanced markdown conversion integrates seamlessly with RAG-Anything:
+The enhanced markdown conversion integrates seamlessly with MuseRAG:
 
 ```python
-from raganything import RAGAnything
+from muserag import MuseRAG
 
-# Initialize RAG-Anything
-rag = RAGAnything()
+# Initialize MuseRAG
+rag = MuseRAG()
 
 # Process markdown files - enhanced conversion is used automatically
 await rag.process_document_complete("document.md")
@@ -397,10 +397,10 @@ This document provides comprehensive technical specifications.
 
 ### Code Implementation
 ```python
-from raganything import RAGAnything
+from muserag import MuseRAG
 
 # Initialize system
-rag = RAGAnything(config={
+rag = MuseRAG(config={
     "working_dir": "./storage",
     "enable_image_processing": True
 })
@@ -605,4 +605,4 @@ class EnhancedMarkdownConverter:
 
 ## Conclusion
 
-The enhanced markdown conversion feature provides professional-quality PDF generation with flexible styling options and multiple backend support. It seamlessly integrates with RAG-Anything's document processing pipeline while offering standalone functionality for markdown-to-PDF conversion needs.
+The enhanced markdown conversion feature provides professional-quality PDF generation with flexible styling options and multiple backend support. It seamlessly integrates with MuseRAG's document processing pipeline while offering standalone functionality for markdown-to-PDF conversion needs.

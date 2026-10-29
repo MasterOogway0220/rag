@@ -1,5 +1,5 @@
 """
-Configuration classes for RAGAnything
+Configuration classes for MuseRAG
 
 Contains configuration dataclasses with environment variable support
 """
@@ -10,7 +10,7 @@ from lightrag.utils import get_env_value
 
 
 @dataclass
-class RAGAnythingConfig:
+class MuseRAGConfig:
     """Configuration whose environment defaults are read at instantiation."""
 
     # Directory Configuration
@@ -61,13 +61,13 @@ class RAGAnythingConfig:
         default_factory=lambda: get_env_value("ENABLE_AUDIO_PROCESSING", False, bool)
     )
     """Enable audio content processing. Requires optional 'audio' dependencies
-    (``pip install raganything[audio]``); disabled by default."""
+    (``pip install muserag[audio]``); disabled by default."""
 
     enable_video_processing: bool = field(
         default_factory=lambda: get_env_value("ENABLE_VIDEO_PROCESSING", False, bool)
     )
     """Enable video content processing. Requires optional 'video' dependencies
-    (``pip install raganything[video]``); disabled by default."""
+    (``pip install muserag[video]``); disabled by default."""
 
     # Batch Processing Configuration
     # ---

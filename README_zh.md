@@ -1,10 +1,10 @@
 <div align="center">
 
 <div style="margin: 20px 0;">
-  <img src="./assets/logo.png" width="120" height="120" alt="RAG-Anything Logo" style="border-radius: 20px; box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3);">
+  <img src="./assets/logo.png" width="120" height="120" alt="MuseRAG Logo" style="border-radius: 20px; box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3);">
 </div>
 
-# 🚀 RAG-Anything: All-in-One RAG System
+# 🚀 MuseRAG: All-in-One RAG System
 
 <div align="center">
   <div style="width: 100%; height: 2px; margin: 20px 0; background: linear-gradient(90deg, transparent, #00d9ff, transparent);"></div>
@@ -13,14 +13,14 @@
 <div align="center">
   <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; padding: 25px; text-align: center;">
     <p>
-      <a href='https://github.com/HKUDS/RAG-Anything'><img src='https://img.shields.io/badge/🔥项目-主页-00d9ff?style=for-the-badge&logo=github&logoColor=white&labelColor=1a1a2e'></a>
+      <a href='https://github.com/MasterOogway0220/rag'><img src='https://img.shields.io/badge/🔥项目-主页-00d9ff?style=for-the-badge&logo=github&logoColor=white&labelColor=1a1a2e'></a>
       <a href='https://arxiv.org/abs/2510.12323'><img src='https://img.shields.io/badge/📄arXiv-2510.12323-ff6b6b?style=for-the-badge&logo=arxiv&logoColor=white&labelColor=1a1a2e'></a>
       <a href='https://github.com/HKUDS/LightRAG'><img src='https://img.shields.io/badge/⚡基于-LightRAG-4ecdc4?style=for-the-badge&logo=lightning&logoColor=white&labelColor=1a1a2e'></a>
     </p>
     <p>
-      <a href="https://github.com/HKUDS/RAG-Anything/stargazers"><img src='https://img.shields.io/github/stars/HKUDS/RAG-Anything?color=00d9ff&style=for-the-badge&logo=star&logoColor=white&labelColor=1a1a2e' /></a>
+      <a href="https://github.com/MasterOogway0220/rag/stargazers"><img src='https://img.shields.io/github/stars/MasterOogway0220/rag?color=00d9ff&style=for-the-badge&logo=star&logoColor=white&labelColor=1a1a2e' /></a>
       <img src="https://img.shields.io/badge/🐍Python-3.10-4ecdc4?style=for-the-badge&logo=python&logoColor=white&labelColor=1a1a2e">
-      <a href="https://pypi.org/project/raganything/"><img src="https://img.shields.io/pypi/v/raganything.svg?style=for-the-badge&logo=pypi&logoColor=white&labelColor=1a1a2e&color=ff6b6b"></a>
+      <a href="https://pypi.org/project/muserag/"><img src="https://img.shields.io/pypi/v/muserag.svg?style=for-the-badge&logo=pypi&logoColor=white&labelColor=1a1a2e&color=ff6b6b"></a>
     </p>
     <p>
       <a href="https://discord.gg/yF2MmDJyGJ"><img src="https://img.shields.io/badge/💬Discord-社区-7289da?style=for-the-badge&logo=discord&logoColor=white&labelColor=1a1a2e"></a>
@@ -48,12 +48,12 @@
 ---
 
 ## 🎉 新闻
-- [X] [2026.06]🎯📢 🎉 [LightRAG](https://github.com/HKUDS/LightRAG) 通过原生集成 RAG-Anything 实现多模态 RAG。
+- [X] [2026.06]🎯📢 🎉 [LightRAG](https://github.com/HKUDS/LightRAG) 通过原生集成 MuseRAG 实现多模态 RAG。
 - [X] [2025.10]🎯📢 🚀 我们已发布 [RAG-Anything] 的技术报告（[http://arxiv.org/abs/2510.12323](http://arxiv.org/abs/2510.12323)），立即访问以了解我们的最新研究成果。
-- [X] [2025.08.12]🎯📢 🔍 RAGAnything 现在支持 **VLM增强查询** 模式！当文档包含图片时，系统可以自动将图片与文本上下文一起直接传递给VLM进行综合多模态分析。
-- [X] [2025.07.05]🎯📢 RAGAnything 新增[上下文配置模块](docs/context_aware_processing.md)，支持为多模态内容处理添加相关上下文信息。
-- [X] [2025.07.04]🎯📢 RAGAnything 现在支持多模态内容查询，实现了集成文本、图像、表格和公式处理的增强检索生成功能。
-- [X] [2025.07.03]🎯📢 RAGAnything 在GitHub上达到了1K星标🌟！感谢您的支持和贡献。
+- [X] [2025.08.12]🎯📢 🔍 MuseRAG 现在支持 **VLM增强查询** 模式！当文档包含图片时，系统可以自动将图片与文本上下文一起直接传递给VLM进行综合多模态分析。
+- [X] [2025.07.05]🎯📢 MuseRAG 新增[上下文配置模块](docs/context_aware_processing.md)，支持为多模态内容处理添加相关上下文信息。
+- [X] [2025.07.04]🎯📢 MuseRAG 现在支持多模态内容查询，实现了集成文本、图像、表格和公式处理的增强检索生成功能。
+- [X] [2025.07.03]🎯📢 MuseRAG 在GitHub上达到了1K星标🌟！感谢您的支持和贡献。
 
 ---
 
@@ -63,9 +63,9 @@
 
 <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); border-radius: 15px; padding: 25px; margin: 20px 0; border: 2px solid #00d9ff; box-shadow: 0 0 30px rgba(0, 217, 255, 0.3);">
 
-**RAG-Anything**是一个综合性多模态文档处理RAG系统。该系统能够无缝处理和查询包含文本、图像、表格、公式等多模态内容的复杂文档，提供完整的检索增强(RAG)生成解决方案。
+**MuseRAG**是一个综合性多模态文档处理RAG系统。该系统能够无缝处理和查询包含文本、图像、表格、公式等多模态内容的复杂文档，提供完整的检索增强(RAG)生成解决方案。
 
-<img src="assets/rag_anything_framework.png" alt="RAG-Anything" />
+<img src="assets/muserag_framework.png" alt="MuseRAG" />
 
 </div>
 
@@ -91,7 +91,7 @@
 
 ### 核心算法
 
-**RAG-Anything** 采用灵活的分层架构设计，实现多阶段多模态处理流水线，将传统RAG系统扩展为支持异构内容类型的综合处理平台。
+**MuseRAG** 采用灵活的分层架构设计，实现多阶段多模态处理流水线，将传统RAG系统扩展为支持异构内容类型的综合处理平台。
 
 </div>
 
@@ -233,20 +233,20 @@
 
 ```bash
 # 基础安装
-pip install raganything
+pip install muserag
 
 # 安装包含扩展格式支持的可选依赖：
-pip install 'raganything[all]'              # 所有可选功能（不含 Docling）
-pip install 'raganything[image]'            # 图像格式转换 (BMP, TIFF, GIF, WebP)
-pip install 'raganything[text]'             # 文本文件处理 (TXT, MD)
-pip install 'raganything[image,text]'       # 多个功能组合
+pip install 'muserag[all]'              # 所有可选功能（不含 Docling）
+pip install 'muserag[image]'            # 图像格式转换 (BMP, TIFF, GIF, WebP)
+pip install 'muserag[text]'             # 文本文件处理 (TXT, MD)
+pip install 'muserag[image,text]'       # 多个功能组合
 ```
 
 #### 选项2：从源码安装
 
 ```bash
-git clone https://github.com/HKUDS/RAG-Anything.git
-cd RAG-Anything
+git clone https://github.com/MasterOogway0220/rag.git
+cd MuseRAG
 pip install -e .
 
 # 安装可选依赖
@@ -274,7 +274,7 @@ pip install -e '.[all]'
 mineru --version
 
 # 检查是否正确配置
-python -c "from raganything import RAGAnything; rag = RAGAnything(); print('✅ MinerU安装正常' if rag.check_parser_installation() else '❌ MinerU安装有问题')"
+python -c "from muserag import MuseRAG; rag = MuseRAG(); print('✅ MinerU安装正常' if rag.check_parser_installation() else '❌ MinerU安装有问题')"
 ```
 
 模型在首次使用时自动下载。手动下载参考[MinerU模型源配置](https://github.com/opendatalab/MinerU/blob/master/README_zh-CN.md#22-%E6%A8%A1%E5%9E%8B%E6%BA%90%E9%85%8D%E7%BD%AE)：
@@ -287,8 +287,8 @@ python -c "from raganything import RAGAnything; rag = RAGAnything(); print('✅ 
 import asyncio
 import base64
 from functools import partial
-from raganything import RAGAnything, RAGAnythingConfig
-from raganything.image_signature import image_mime_type
+from muserag import MuseRAG, MuseRAGConfig
+from muserag.image_signature import image_mime_type
 from lightrag.llm.openai import openai_complete_if_cache, openai_embed
 from lightrag.utils import EmbeddingFunc
 
@@ -297,8 +297,8 @@ async def main():
     api_key = "your-api-key"
     base_url = "your-base-url"  # 可选
 
-    # 创建 RAGAnything 配置
-    config = RAGAnythingConfig(
+    # 创建 MuseRAG 配置
+    config = MuseRAGConfig(
         working_dir="./rag_storage",
         parser="mineru",  # 选择解析器：mineru、docling 或 paddleocr
         parse_method="auto",  # 解析方法：auto, ocr 或 txt
@@ -384,8 +384,8 @@ async def main():
         ),
     )
 
-    # 初始化 RAGAnything
-    rag = RAGAnything(
+    # 初始化 MuseRAG
+    rag = MuseRAG(
         config=config,
         llm_model_func=llm_model_func,
         vision_model_func=vision_model_func,
@@ -413,7 +413,7 @@ async def main():
         multimodal_content=[{
             "type": "table",
             "table_data": """系统,准确率,F1分数
-                            RAGAnything,95.2%,0.94
+                            MuseRAG,95.2%,0.94
                             基准方法,87.3%,0.85""",
             "table_caption": "性能对比结果"
         }],
@@ -436,8 +436,8 @@ from functools import partial
 from lightrag import LightRAG
 from lightrag.llm.openai import openai_complete_if_cache, openai_embed
 from lightrag.utils import EmbeddingFunc
-from raganything.modalprocessors import ImageModalProcessor, TableModalProcessor
-from raganything.image_signature import image_mime_type
+from muserag.modalprocessors import ImageModalProcessor, TableModalProcessor
+from muserag.image_signature import image_mime_type
 
 def image_data_url(image_data):
     # 按图像的真实媒体类型（PNG、GIF、WebP 等）标注，
@@ -536,7 +536,7 @@ async def process_multimodal_content():
         "table_body": """
         | 方法 | 准确率 | F1分数 |
         |------|--------|--------|
-        | RAGAnything | 95.2% | 0.94 |
+        | MuseRAG | 95.2% | 0.94 |
         | 基准方法 | 87.3% | 0.85 |
         """,
         "table_caption": ["性能对比"],
@@ -572,7 +572,7 @@ await rag.process_folder_complete(
 #### 4. 自定义模态处理器
 
 ```python
-from raganything.modalprocessors import GenericModalProcessor
+from muserag.modalprocessors import GenericModalProcessor
 
 class CustomModalProcessor(GenericModalProcessor):
     async def process_multimodal_content(self, modal_content, content_type, file_path, entity_name):
@@ -584,7 +584,7 @@ class CustomModalProcessor(GenericModalProcessor):
 
 #### 5. 查询选项
 
-RAG-Anything 提供三种类型的查询方法：
+MuseRAG 提供三种类型的查询方法：
 
 **纯文本查询** - 使用LightRAG直接进行知识库搜索：
 ```python
@@ -662,8 +662,8 @@ equation_result = await rag.aquery_with_multimodal(
 import asyncio
 import base64
 from functools import partial
-from raganything import RAGAnything
-from raganything.image_signature import image_mime_type
+from muserag import MuseRAG
+from muserag.image_signature import image_mime_type
 from lightrag import LightRAG
 from lightrag.llm.openai import openai_complete_if_cache, openai_embed
 from lightrag.utils import EmbeddingFunc
@@ -764,8 +764,8 @@ async def load_existing_lightrag():
         else:
             return lightrag_instance.llm_model_func(prompt, system_prompt, history_messages, **kwargs)
 
-    # 现在使用已存在的 LightRAG 实例初始化 RAGAnything
-    rag = RAGAnything(
+    # 现在使用已存在的 LightRAG 实例初始化 MuseRAG
+    rag = MuseRAG(
         lightrag=lightrag_instance,  # 传入已存在的 LightRAG 实例
         vision_model_func=vision_model_func,
         # 注意：working_dir、llm_model_func、embedding_func 等都从 lightrag_instance 继承
@@ -790,14 +790,14 @@ if __name__ == "__main__":
 
 #### 7. 直接插入内容列表
 
-当您已经有预解析的内容列表（例如，来自外部解析器或之前的处理结果）时，可以直接插入到 RAGAnything 中而无需文档解析：
+当您已经有预解析的内容列表（例如，来自外部解析器或之前的处理结果）时，可以直接插入到 MuseRAG 中而无需文档解析：
 
 ```python
 import asyncio
 import base64
 from functools import partial
-from raganything import RAGAnything, RAGAnythingConfig
-from raganything.image_signature import image_mime_type
+from muserag import MuseRAG, MuseRAGConfig
+from muserag.image_signature import image_mime_type
 from lightrag.llm.openai import openai_complete_if_cache, openai_embed
 from lightrag.utils import EmbeddingFunc
 
@@ -806,8 +806,8 @@ async def insert_content_list_example():
     api_key = "your-api-key"
     base_url = "your-base-url"  # 可选
 
-    # 创建 RAGAnything 配置
-    config = RAGAnythingConfig(
+    # 创建 MuseRAG 配置
+    config = MuseRAGConfig(
         working_dir="./rag_storage",
         enable_image_processing=True,
         enable_table_processing=True,
@@ -878,8 +878,8 @@ async def insert_content_list_example():
         ),
     )
 
-    # 初始化 RAGAnything
-    rag = RAGAnything(
+    # 初始化 MuseRAG
+    rag = MuseRAG(
         config=config,
         llm_model_func=llm_model_func,
         vision_model_func=vision_model_func,
@@ -988,7 +988,7 @@ if __name__ == "__main__":
 
 #### 8. 切换存储后端后重新处理多模态内容
 
-默认情况下，`process_document_complete` 和 `insert_content_list` 会跳过已标记为"完全处理完成"文档的多模态（图像/表格/公式）处理，以避免重复的 LLM 调用。如果您切换到了**新的**图/向量存储后端（例如从默认的文件存储迁移到 Neo4j），新后端中还不会包含之前写入旧后端的多模态实体/关系——详见 [#154](https://github.com/HKUDS/RAG-Anything/issues/154)。
+默认情况下，`process_document_complete` 和 `insert_content_list` 会跳过已标记为"完全处理完成"文档的多模态（图像/表格/公式）处理，以避免重复的 LLM 调用。如果您切换到了**新的**图/向量存储后端（例如从默认的文件存储迁移到 Neo4j），新后端中还不会包含之前写入旧后端的多模态实体/关系——详见 [#154](https://github.com/MasterOogway0220/rag/issues/154)。
 
 传入 `force_multimodal_reprocess=True` 可以显式地重新运行多模态处理，将数据重新写入当前存储后端：
 
@@ -1023,7 +1023,7 @@ await rag.insert_content_list(
 
 `examples/` 目录包含完整的使用示例：
 
-- **`raganything_example.py`**：基于MinerU的端到端文档处理
+- **`muserag_example.py`**：基于MinerU的端到端文档处理
 - **`modalprocessors_example.py`**：直接多模态内容处理
 - **`office_document_test.py`**：Office文档解析测试（无需API密钥）
 - **`image_format_test.py`**：图像格式解析测试（无需API密钥）
@@ -1033,7 +1033,7 @@ await rag.insert_content_list(
 
 ```bash
 # 端到端处理（包含解析器选择）
-python examples/raganything_example.py path/to/document.pdf --api-key YOUR_API_KEY --parser mineru
+python examples/muserag_example.py path/to/document.pdf --api-key YOUR_API_KEY --parser mineru
 
 # 直接模态处理
 python examples/modalprocessors_example.py --api-key YOUR_API_KEY
@@ -1082,9 +1082,9 @@ PARSE_METHOD=auto              # 解析方法：auto, ocr 或 txt
 
 ### 解析器配置
 
-解析器在创建 `RAGAnything` 时确定：将 `RAGAnythingConfig(parser=...)` 设为 `"mineru"`（默认）、`"docling"` 或 `"paddleocr"`，或使用 `PARSER` 环境变量（命令行工具：`--parser`）。不能在单次 `process_document_complete()` 调用中切换解析器。
+解析器在创建 `MuseRAG` 时确定：将 `MuseRAGConfig(parser=...)` 设为 `"mineru"`（默认）、`"docling"` 或 `"paddleocr"`，或使用 `PARSER` 环境变量（命令行工具：`--parser`）。不能在单次 `process_document_complete()` 调用中切换解析器。
 
-RAGAnything 现在支持多种解析器，每种解析器都有其特定的优势：
+MuseRAG 现在支持多种解析器，每种解析器都有其特定的优势：
 
 #### MinerU 解析器
 - 支持PDF、图像、Office文档等多种格式
@@ -1097,7 +1097,7 @@ RAGAnything 现在支持多种解析器，每种解析器都有其特定的优�
 - 更好的文档结构保持
 - 原生支持多种Office格式
 
-安装 Docling（不包含在 `raganything[all]` 中）：
+安装 Docling（不包含在 `muserag[all]` 中）：
 
 ```bash
 pip install docling
@@ -1116,12 +1116,12 @@ mineru -p input.pdf -o output_dir -m ocr     # OCR重点解析
 mineru -p input.pdf -o output_dir -b pipeline --device cuda  # GPU加速
 ```
 
-你也可以通过RAGAnything参数配置解析：
+你也可以通过MuseRAG参数配置解析：
 
 ```python
-# 解析器来自 RAGAnythingConfig（或 PARSER），而不是 process_document_complete()
-config = RAGAnythingConfig(parser="mineru")  # "mineru"、"docling" 或 "paddleocr"
-rag = RAGAnything(config=config, llm_model_func=llm_model_func, embedding_func=embedding_func)
+# 解析器来自 MuseRAGConfig（或 PARSER），而不是 process_document_complete()
+config = MuseRAGConfig(parser="mineru")  # "mineru"、"docling" 或 "paddleocr"
+rag = MuseRAG(config=config, llm_model_func=llm_model_func, embedding_func=embedding_func)
 
 # 基础解析配置
 await rag.process_document_complete(
@@ -1148,18 +1148,18 @@ await rag.process_document_complete(
     # vlm_url="http://127.0.0.1:3000" # 当backend=vlm-http-client时，需指定服务地址
     include_layout_blocks=False,  # 仅在确有需要时保留 MinerU v2 的页眉、页脚和页码
 
-    # RAGAnything标准参数
+    # MuseRAG标准参数
     display_stats=True,          # 显示内容统计信息
     split_by_character=None,     # 可选的文本分割字符
     doc_id=None                  # 可选的文档ID
 )
 ```
 
-> **注意**：MinerU 2.0不再使用 `magic-pdf.json` 配置文件。所有设置现在通过命令行参数或函数参数传递。RAG-Anything现在支持多种文档解析器 - 你可以根据需要在MinerU和Docling之间选择。
+> **注意**：MinerU 2.0不再使用 `magic-pdf.json` 配置文件。所有设置现在通过命令行参数或函数参数传递。MuseRAG现在支持多种文档解析器 - 你可以根据需要在MinerU和Docling之间选择。
 
 #### MinerU 3.x Content List v2
 
-当 MinerU 3.x 产出 `*_content_list_v2.json` 或 `content_list_v2.json` 时，RAG-Anything 会优先读取它们，而不是旧的扁平 content list。文件发现遵循确定性优先级：文档专属目录优先于共享根目录；同一 bundle 内 v2 优先于 legacy，同一 schema 内精确文件名优先于 generic 文件名。v2 按页分组的结构会被转换为现有的扁平 `content_list` 契约，同时保留页码、边界框、锚点、标题层级、视觉元数据、标题说明和脚注。算法块会兼容归一为 `type="code", sub_type="algorithm"`。
+当 MinerU 3.x 产出 `*_content_list_v2.json` 或 `content_list_v2.json` 时，MuseRAG 会优先读取它们，而不是旧的扁平 content list。文件发现遵循确定性优先级：文档专属目录优先于共享根目录；同一 bundle 内 v2 优先于 legacy，同一 schema 内精确文件名优先于 generic 文件名。v2 按页分组的结构会被转换为现有的扁平 `content_list` 契约，同时保留页码、边界框、锚点、标题层级、视觉元数据、标题说明和脚注。算法块会兼容归一为 `type="code", sub_type="algorithm"`。
 
 默认会排除页眉、页脚、页码、旁注和页脚注，避免重复版面噪声进入语义检索或图谱构建。只有这些信息确实有业务意义时，才开启 `include_layout_blocks=True`：
 
@@ -1170,19 +1170,19 @@ await rag.process_document_complete(
 )
 ```
 
-MinerU 将 v2 标记为持续演进的输出 schema。RAG-Anything 会记录并跳过未来的未知块；当 v2 文件损坏、结构无效，或没有生成任何可支持的语义块且存在旧版文件时，会自动回退到 legacy content list。
+MinerU 将 v2 标记为持续演进的输出 schema。MuseRAG 会记录并跳过未来的未知块；当 v2 文件损坏、结构无效，或没有生成任何可支持的语义块且存在旧版文件时，会自动回退到 legacy content list。
 
 ### 处理要求
 
 不同内容类型需要特定的可选依赖：
 
 - **Office文档** (.doc, .docx, .ppt, .pptx, .xls, .xlsx): 安装并配置 [LibreOffice](https://www.libreoffice.org/download/download/)
-- **扩展图像格式** (.bmp, .tiff, .gif, .webp): 使用 `pip install raganything[image]` 安装
-- **音频** (.mp3, .wav, .flac, .m4a, .ogg): 使用 `pip install raganything[audio]` 安装，并设置 `enable_audio_processing=True`（环境变量 `ENABLE_AUDIO_PROCESSING`）；由 faster-whisper 本地转写（`WHISPER_MODEL` 选模型；默认 `base`，中文等非拉丁语音建议 `medium` 及以上并设置 `WHISPER_LANGUAGE=zh`，小模型会写错专有名词），长音频自动切分为有序分块
-- **视频** (.mp4, .mov, .webm, .avi, .mkv): 使用 `pip install raganything[video]` 安装（另需系统 ffmpeg），并设置 `enable_video_processing=True`（环境变量 `ENABLE_VIDEO_PROCESSING`）；双通道处理：SceneDetect 场景切分 + 关键帧 VLM 描述 + 音轨转写，按时间戳合并。媒体文件可以直接传给 `process_document_complete()` / 文件夹批处理，也可以作为 content list 项插入
-- **文本文件** (.txt, .md): 使用 `pip install raganything[text]` 安装。直接解析，不再经过 PDF/OCR 中转；markdown 中指向本地图片文件（扩展名为图片格式且文件内容确为图片）的引用（`![alt](path)`）会生成图像块，与 PDF 中提取的图片走同一条多模态管线——URL、不存在的文件和其他文件保持为纯文本。被引用的图片无论位于磁盘何处都会发送给配置的视觉模型，因此只摄入图片引用可信的 Markdown
+- **扩展图像格式** (.bmp, .tiff, .gif, .webp): 使用 `pip install muserag[image]` 安装
+- **音频** (.mp3, .wav, .flac, .m4a, .ogg): 使用 `pip install muserag[audio]` 安装，并设置 `enable_audio_processing=True`（环境变量 `ENABLE_AUDIO_PROCESSING`）；由 faster-whisper 本地转写（`WHISPER_MODEL` 选模型；默认 `base`，中文等非拉丁语音建议 `medium` 及以上并设置 `WHISPER_LANGUAGE=zh`，小模型会写错专有名词），长音频自动切分为有序分块
+- **视频** (.mp4, .mov, .webm, .avi, .mkv): 使用 `pip install muserag[video]` 安装（另需系统 ffmpeg），并设置 `enable_video_processing=True`（环境变量 `ENABLE_VIDEO_PROCESSING`）；双通道处理：SceneDetect 场景切分 + 关键帧 VLM 描述 + 音轨转写，按时间戳合并。媒体文件可以直接传给 `process_document_complete()` / 文件夹批处理，也可以作为 content list 项插入
+- **文本文件** (.txt, .md): 使用 `pip install muserag[text]` 安装。直接解析，不再经过 PDF/OCR 中转；markdown 中指向本地图片文件（扩展名为图片格式且文件内容确为图片）的引用（`![alt](path)`）会生成图像块，与 PDF 中提取的图片走同一条多模态管线——URL、不存在的文件和其他文件保持为纯文本。被引用的图片无论位于磁盘何处都会发送给配置的视觉模型，因此只摄入图片引用可信的 Markdown
 
-> **📋 快速安装**: 使用 `pip install raganything[all]` 启用所有格式支持（仅Python依赖 - LibreOffice仍需单独安装，HTML需要Docling：`pip install docling`）
+> **📋 快速安装**: 使用 `pip install muserag[all]` 启用所有格式支持（仅Python依赖 - LibreOffice仍需单独安装，HTML需要Docling：`pip install docling`）
 
 ---
 
@@ -1194,7 +1194,7 @@ MinerU 将 v2 标记为持续演进的输出 schema。RAG-Anything 会记录并�
 - **Office文档** - DOC、DOCX、PPT、PPTX、XLS、XLSX
 - **图像** - JPG、PNG、BMP、TIFF、GIF、WebP
 - **文本文件** - TXT、MD
-- **HTML** - HTML、HTM、XHTML（仅 Docling 解析器：使用 `pip install docling` 安装，并通过 `RAGAnythingConfig(parser="docling")` 或 `PARSER=docling` 选择）。MinerU 和 PaddleOCR 遇到这些文件会直接报错，而不是用 LibreOffice 转成 PDF，因为该转换会请求网页引用的远程 URL 并嵌入其引用的本地文件。HTML 按文件扩展名识别：以 Office 扩展名（如 `.doc`、`.xls`）保存的 HTML 内容仍会交给 LibreOffice 转换
+- **HTML** - HTML、HTM、XHTML（仅 Docling 解析器：使用 `pip install docling` 安装，并通过 `MuseRAGConfig(parser="docling")` 或 `PARSER=docling` 选择）。MinerU 和 PaddleOCR 遇到这些文件会直接报错，而不是用 LibreOffice 转成 PDF，因为该转换会请求网页引用的远程 URL 并嵌入其引用的本地文件。HTML 按文件扩展名识别：以 Office 扩展名（如 `.doc`、`.xls`）保存的 HTML 内容仍会交给 LibreOffice 转换
 
 ### 多模态元素
 
@@ -1219,6 +1219,8 @@ MinerU 将 v2 标记为持续演进的输出 schema。RAG-Anything 会记录并�
     <div style="position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%); width: 20px; height: 20px; background: white; border-right: 2px solid #00d9ff; border-bottom: 2px solid #00d9ff; transform: rotate(45deg);"></div>
   </div>
 </div>
+
+MuseRAG 基于 HKUDS 的 [RAG-Anything](https://github.com/HKUDS/RAG-Anything)（MIT 许可证）。如果对您的研究有帮助，请引用原论文：
 
 ```bibtex
 @misc{guo2025raganythingallinoneragframework,
@@ -1283,8 +1285,8 @@ MinerU 将 v2 标记为持续演进的输出 schema。RAG-Anything 会记录并�
 </div>
 
 <div align="center">
-  <a href="https://github.com/HKUDS/RAG-Anything/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=HKUDS/RAG-Anything" style="border-radius: 15px; box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);" />
+  <a href="https://github.com/MasterOogway0220/rag/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=MasterOogway0220/rag" style="border-radius: 15px; box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);" />
   </a>
 </div>
 
@@ -1295,13 +1297,13 @@ MinerU 将 v2 标记为持续演进的输出 schema。RAG-Anything 会记录并�
     <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="500">
   </div>
   <div style="margin-top: 20px;">
-    <a href="https://github.com/HKUDS/RAG-Anything" style="text-decoration: none;">
+    <a href="https://github.com/MasterOogway0220/rag" style="text-decoration: none;">
       <img src="https://img.shields.io/badge/⭐%20在GitHub上为我们点星-1a1a2e?style=for-the-badge&logo=github&logoColor=white">
     </a>
-    <a href="https://github.com/HKUDS/RAG-Anything/issues" style="text-decoration: none;">
+    <a href="https://github.com/MasterOogway0220/rag/issues" style="text-decoration: none;">
       <img src="https://img.shields.io/badge/🐛%20报告问题-ff6b6b?style=for-the-badge&logo=github&logoColor=white">
     </a>
-    <a href="https://github.com/HKUDS/RAG-Anything/discussions" style="text-decoration: none;">
+    <a href="https://github.com/MasterOogway0220/rag/discussions" style="text-decoration: none;">
       <img src="https://img.shields.io/badge/💬%20讨论交流-4ecdc4?style=for-the-badge&logo=github&logoColor=white">
     </a>
   </div>
@@ -1311,7 +1313,7 @@ MinerU 将 v2 标记为持续演进的输出 schema。RAG-Anything 会记录并�
   <div style="width: 100%; max-width: 600px; margin: 20px auto; padding: 20px; background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 217, 255, 0.05) 100%); border-radius: 15px; border: 1px solid rgba(0, 217, 255, 0.2);">
     <div style="display: flex; justify-content: center; align-items: center; gap: 15px;">
       <span style="font-size: 24px;">⭐</span>
-      <span style="color: #00d9ff; font-size: 18px;">感谢您访问RAG-Anything!</span>
+      <span style="color: #00d9ff; font-size: 18px;">感谢您访问MuseRAG!</span>
       <span style="font-size: 24px;">⭐</span>
     </div>
     <div style="margin-top: 10px; color: #00d9ff; font-size: 16px;">构建多模态AI的未来</div>
@@ -1319,7 +1321,7 @@ MinerU 将 v2 标记为持续演进的输出 schema。RAG-Anything 会记录并�
 </div>
 
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=20&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&width=600&lines=感谢您访问RAG-Anything!;构建多模态AI的未来;如果觉得有用请点星⭐!" alt="Closing Animation" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=20&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&width=600&lines=感谢您访问MuseRAG!;构建多模态AI的未来;如果觉得有用请点星⭐!" alt="Closing Animation" />
 </div>
 
 <style>

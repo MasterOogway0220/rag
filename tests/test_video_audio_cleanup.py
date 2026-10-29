@@ -5,7 +5,7 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from raganything.modalprocessors_video import VideoModalProcessor
+from muserag.modalprocessors_video import VideoModalProcessor
 
 
 @pytest.mark.parametrize(
@@ -32,7 +32,7 @@ def test_extract_audio_closes_clip_and_cleans_failed_output(
         factory.side_effect = OSError("video cannot be opened")
     monkeypatch.setitem(sys.modules, "moviepy", SimpleNamespace(VideoFileClip=factory))
     monkeypatch.setattr(
-        "raganything.modalprocessors_video.tempfile.tempdir", str(tmp_path)
+        "muserag.modalprocessors_video.tempfile.tempdir", str(tmp_path)
     )
     processor = object.__new__(VideoModalProcessor)
 

@@ -1,5 +1,5 @@
 """
-Audio Modal Processor for RAG-Anything
+Audio Modal Processor for MuseRAG
 
 Processes audio files (MP3, WAV, FLAC, M4A, OGG) by transcribing speech to text
 using faster-whisper, then feeding the transcribed text into LightRAG's knowledge graph.
@@ -12,7 +12,7 @@ Supports:
   ``generate_chunk_sections``)
 
 Dependencies:
-    pip install raganything[audio]
+    pip install muserag[audio]
     # or: pip install faster-whisper "av<19"
 """
 
@@ -116,7 +116,7 @@ class AudioModalProcessor(BaseModalProcessor):
             except ImportError:
                 raise ImportError(
                     "faster-whisper is required for audio processing. "
-                    "Install it with: pip install raganything[audio] "
+                    "Install it with: pip install muserag[audio] "
                     'or: pip install faster-whisper "av<19"'
                 )
 

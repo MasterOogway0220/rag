@@ -1,4 +1,4 @@
-"""Tests for raganything.omml_extractor.
+"""Tests for muserag.omml_extractor.
 
 These tests build minimal in-memory DOCX archives and OMML XML fragments so
 the converter can be exercised end-to-end without requiring a real Word
@@ -13,7 +13,7 @@ from xml.etree import ElementTree as ET
 
 import pytest
 
-from raganything.omml_extractor import (
+from muserag.omml_extractor import (
     enrich_content_list_with_docx_equations,
     extract_omml_equations,
     omml_to_latex,

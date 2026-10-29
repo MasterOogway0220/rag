@@ -14,9 +14,9 @@ def _load_example(monkeypatch):
     openai = types.ModuleType("openai")
     openai.AsyncOpenAI = object
 
-    raganything = types.ModuleType("raganything")
-    raganything.RAGAnything = object
-    raganything.RAGAnythingConfig = lambda **kwargs: types.SimpleNamespace(**kwargs)
+    muserag = types.ModuleType("muserag")
+    muserag.MuseRAG = object
+    muserag.MuseRAGConfig = lambda **kwargs: types.SimpleNamespace(**kwargs)
 
     lightrag = types.ModuleType("lightrag")
     lightrag_utils = types.ModuleType("lightrag.utils")
@@ -27,7 +27,7 @@ def _load_example(monkeypatch):
 
     monkeypatch.setitem(sys.modules, "dotenv", dotenv)
     monkeypatch.setitem(sys.modules, "openai", openai)
-    monkeypatch.setitem(sys.modules, "raganything", raganything)
+    monkeypatch.setitem(sys.modules, "muserag", muserag)
     monkeypatch.setitem(sys.modules, "lightrag", lightrag)
     monkeypatch.setitem(sys.modules, "lightrag.utils", lightrag_utils)
     monkeypatch.setitem(sys.modules, "lightrag.llm", lightrag_llm)

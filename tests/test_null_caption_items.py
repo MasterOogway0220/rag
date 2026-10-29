@@ -13,19 +13,19 @@ def test_normalize_caption_list_skips_null_entries():
     lightrag = types.ModuleType("lightrag")
     lightrag_utils = types.ModuleType("lightrag.utils")
     lightrag_utils.logger = logging.getLogger(__name__)
-    raganything = types.ModuleType("raganything")
-    raganything.__path__ = [str(root / "raganything")]
+    muserag = types.ModuleType("muserag")
+    muserag.__path__ = [str(root / "muserag")]
 
     with patch.dict(
         sys.modules,
         {
             "lightrag": lightrag,
             "lightrag.utils": lightrag_utils,
-            "raganything": raganything,
+            "muserag": muserag,
         },
     ):
         spec = importlib.util.spec_from_file_location(
-            "raganything.utils", root / "raganything" / "utils.py"
+            "muserag.utils", root / "muserag" / "utils.py"
         )
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)

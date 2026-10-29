@@ -26,9 +26,9 @@ from lightrag.kg.shared_storage import get_namespace_data, get_pipeline_status_l
 from lightrag.operate import extract_entities, merge_nodes_and_edges
 
 # Import prompt templates
-from raganything.prompt import PROMPTS
-from raganything.document_context import get_document_source, set_document_source
-from raganything.utils import (
+from muserag.prompt import PROMPTS
+from muserag.document_context import get_document_source, set_document_source
+from muserag.utils import (
     encode_image_to_base64,
     format_table_body,
     get_equation_description,

@@ -15,8 +15,8 @@ from types import SimpleNamespace
 
 import pytest
 
-from raganything.processor import ProcessorMixin
-from raganything.utils import separate_content
+from muserag.processor import ProcessorMixin
+from muserag.utils import separate_content
 
 
 class _Logger:

@@ -10,21 +10,21 @@ import pytest
 
 def _load_batch_mixin(monkeypatch):
     repo_root = Path(__file__).parents[1]
-    package = types.ModuleType("raganything")
-    package.__path__ = [str(repo_root / "raganything")]
-    batch_parser_module = types.ModuleType("raganything.batch_parser")
+    package = types.ModuleType("muserag")
+    package.__path__ = [str(repo_root / "muserag")]
+    batch_parser_module = types.ModuleType("muserag.batch_parser")
     batch_parser_module.BatchParser = object
     batch_parser_module.BatchProcessingResult = object
 
-    monkeypatch.setitem(sys.modules, "raganything", package)
-    monkeypatch.setitem(sys.modules, "raganything.batch_parser", batch_parser_module)
-    sys.modules.pop("raganything.batch", None)
+    monkeypatch.setitem(sys.modules, "muserag", package)
+    monkeypatch.setitem(sys.modules, "muserag.batch_parser", batch_parser_module)
+    sys.modules.pop("muserag.batch", None)
 
     spec = importlib.util.spec_from_file_location(
-        "raganything.batch", repo_root / "raganything" / "batch.py"
+        "muserag.batch", repo_root / "muserag" / "batch.py"
     )
     module = importlib.util.module_from_spec(spec)
-    monkeypatch.setitem(sys.modules, "raganything.batch", module)
+    monkeypatch.setitem(sys.modules, "muserag.batch", module)
     spec.loader.exec_module(module)
     return module.BatchMixin
 

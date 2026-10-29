@@ -14,8 +14,8 @@ from types import SimpleNamespace
 
 import pytest
 
-from raganything.parser import DoclingParser
-from raganything.processor import ProcessorMixin
+from muserag.parser import DoclingParser
+from muserag.processor import ProcessorMixin
 
 PNG_BASE64 = (
     "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGP4z8AAAAMBAQDJ"

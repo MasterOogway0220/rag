@@ -8,7 +8,7 @@ from pathlib import Path
 # manipulates has a genuine cached entry for monkeypatch to record and
 # restore — otherwise a key first imported inside the stubbed fixture
 # would leak a stub-derived module into the rest of the session.
-import raganything.modalprocessors  # noqa: F401  (imports .prompt and .utils too)
+import muserag.modalprocessors  # noqa: F401  (imports .prompt and .utils too)
 
 
 class FakeLogger:
@@ -51,8 +51,8 @@ class FakeLightRAG:
 def _import_modalprocessors_with_lightrag_stubs(monkeypatch):
     repo_root = Path(__file__).resolve().parents[1]
 
-    raganything_package = types.ModuleType("raganything")
-    raganything_package.__path__ = [str(repo_root / "raganything")]
+    muserag_package = types.ModuleType("muserag")
+    muserag_package.__path__ = [str(repo_root / "muserag")]
 
     lightrag_package = types.ModuleType("lightrag")
 
@@ -77,17 +77,17 @@ def _import_modalprocessors_with_lightrag_stubs(monkeypatch):
     # monkeypatch record "absent" as the original value: its LIFO undo then
     # deleted the keys instead of restoring the real package, and every
     # test module imported afterwards got a fresh, stub-derived
-    # `raganything` — which is why unrelated monkeypatch.setattr targets
-    # (e.g. raganything.modalprocessors_video) vanished mid-session.
+    # `muserag` — which is why unrelated monkeypatch.setattr targets
+    # (e.g. muserag.modalprocessors_video) vanished mid-session.
     for module_name in [
-        "raganything",
-        "raganything.prompt",
-        "raganything.utils",
-        "raganything.modalprocessors",
+        "muserag",
+        "muserag.prompt",
+        "muserag.utils",
+        "muserag.modalprocessors",
     ]:
         monkeypatch.delitem(sys.modules, module_name, raising=False)
 
-    monkeypatch.setitem(sys.modules, "raganything", raganything_package)
+    monkeypatch.setitem(sys.modules, "muserag", muserag_package)
     monkeypatch.setitem(sys.modules, "lightrag", lightrag_package)
     monkeypatch.setitem(sys.modules, "lightrag.utils", utils_module)
     monkeypatch.setitem(sys.modules, "lightrag.lightrag", lightrag_module)
@@ -97,7 +97,7 @@ def _import_modalprocessors_with_lightrag_stubs(monkeypatch):
     )
     monkeypatch.setitem(sys.modules, "lightrag.operate", operate_module)
 
-    return importlib.import_module("raganything.modalprocessors")
+    return importlib.import_module("muserag.modalprocessors")
 
 
 def test_base_modal_processor_uses_lightrag_runtime_global_config(monkeypatch):

@@ -5,7 +5,7 @@ from unittest.mock import AsyncMock, MagicMock
 
 import pytest
 
-from raganything.modalprocessors_video import (
+from muserag.modalprocessors_video import (
     VideoModalProcessor,
     is_video_file,
     video_deps_available,
@@ -366,7 +366,7 @@ class TestDescribeScenesSystemPrompt:
     """Frame description must pass a system prompt (matches ImageModalProcessor)."""
 
     async def test_passes_system_prompt_and_image_data(self, tmp_path):
-        from raganything.prompt import PROMPTS
+        from muserag.prompt import PROMPTS
 
         cap = AsyncMock(return_value="a solid red frame")
         proc = VideoModalProcessor(lightrag=_FakeLightRAG(), modal_caption_func=cap)
@@ -502,14 +502,14 @@ class TestVideoDepsAvailable:
 
     def test_returns_false_when_any_missing(self, monkeypatch):
         monkeypatch.setattr(
-            "raganything.modalprocessors_video.importlib.util.find_spec",
+            "muserag.modalprocessors_video.importlib.util.find_spec",
             lambda name: None if name == "moviepy" else object(),
         )
         assert video_deps_available() is False
 
     def test_returns_true_when_all_present(self, monkeypatch):
         monkeypatch.setattr(
-            "raganything.modalprocessors_video.importlib.util.find_spec",
+            "muserag.modalprocessors_video.importlib.util.find_spec",
             lambda name: object(),
         )
         assert video_deps_available() is True

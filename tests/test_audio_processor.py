@@ -5,7 +5,7 @@ from unittest.mock import AsyncMock, MagicMock
 
 import pytest
 
-from raganything.modalprocessors_audio import (
+from muserag.modalprocessors_audio import (
     AudioModalProcessor,
     audio_deps_available,
     is_audio_file,
@@ -317,14 +317,14 @@ class TestAudioDepsAvailable:
 
     def test_returns_false_when_missing(self, monkeypatch):
         monkeypatch.setattr(
-            "raganything.modalprocessors_audio.importlib.util.find_spec",
+            "muserag.modalprocessors_audio.importlib.util.find_spec",
             lambda name: None,
         )
         assert audio_deps_available() is False
 
     def test_returns_true_when_present(self, monkeypatch):
         monkeypatch.setattr(
-            "raganything.modalprocessors_audio.importlib.util.find_spec",
+            "muserag.modalprocessors_audio.importlib.util.find_spec",
             lambda name: object(),
         )
         assert audio_deps_available() is True

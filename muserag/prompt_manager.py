@@ -1,12 +1,12 @@
 """
-Prompt language management for RAGAnything.
+Prompt language management for MuseRAG.
 
 Enables switching prompt templates between languages at runtime.
 Addresses GitHub issue #85 — prompt language support.
 
 Usage (process-global switch)::
 
-    from raganything.prompt_manager import set_prompt_language, get_prompt_language
+    from muserag.prompt_manager import set_prompt_language, get_prompt_language
 
     # Switch all prompts in this process to Chinese
     set_prompt_language("zh")
@@ -21,7 +21,7 @@ import logging
 import threading
 from typing import Any, Dict
 
-from raganything.prompt import PROMPTS
+from muserag.prompt import PROMPTS
 
 logger = logging.getLogger(__name__)
 
@@ -55,7 +55,7 @@ def _normalize_language_code(language_code: str) -> str:
 def _lazy_load_language(lang: str) -> Dict[str, Any]:
     """Lazily load prompt templates for a language."""
     if lang == "zh":
-        from raganything.prompts_zh import PROMPTS_ZH
+        from muserag.prompts_zh import PROMPTS_ZH
 
         return PROMPTS_ZH
     return {}
@@ -67,11 +67,11 @@ def register_prompt_language(language_code: str, prompts: Dict[str, Any]) -> Non
     Args:
         language_code: ISO 639-1 language code (e.g., "zh", "ja", "ko").
         prompts: Dictionary of prompt templates, using the same keys as
-                 :data:`raganything.prompt.PROMPTS`.
+                 :data:`muserag.prompt.PROMPTS`.
 
     Example::
 
-        from raganything.prompt_manager import register_prompt_language
+        from muserag.prompt_manager import register_prompt_language
 
         my_prompts = {"IMAGE_ANALYSIS_SYSTEM": "...in Japanese..."}
         register_prompt_language("ja", my_prompts)

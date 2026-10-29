@@ -6,8 +6,8 @@ from concurrent.futures import ThreadPoolExecutor
 
 import pytest
 
-import raganything.resilience as resilience_module
-from raganything.resilience import CircuitBreaker
+import muserag.resilience as resilience_module
+from muserag.resilience import CircuitBreaker
 
 
 @pytest.mark.parametrize("state", ["open", "half-open", "closed"])

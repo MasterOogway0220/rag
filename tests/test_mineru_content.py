@@ -3,13 +3,13 @@ from unittest.mock import patch
 
 import pytest
 
-from raganything.mineru_content import (
+from muserag.mineru_content import (
     MineruContentListV2Error,
     convert_mineru_content_list_v2,
 )
-from raganything.parser import MineruParser
-from raganything.processor import ProcessorMixin
-from raganything.utils import separate_content
+from muserag.parser import MineruParser
+from muserag.processor import ProcessorMixin
+from muserag.utils import separate_content
 
 
 def _text_span(text):

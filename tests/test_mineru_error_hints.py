@@ -2,7 +2,7 @@
 """
 Tests for MinerU failure diagnosis (issue #304).
 
-When MinerU crashes inside its own subprocess, RAG-Anything can only see the
+When MinerU crashes inside its own subprocess, MuseRAG can only see the
 stderr lines it printed. For known dependency incompatibilities we translate
 those opaque tracebacks into actionable remediation advice.
 
@@ -14,7 +14,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from raganything.parser import (
+from muserag.parser import (
     MineruExecutionError,
     MineruParser,
     _diagnose_mineru_failure,

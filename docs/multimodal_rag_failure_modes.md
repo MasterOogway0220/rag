@@ -1,8 +1,8 @@
 # Multimodal RAG: common failure modes and quick checks
 
-Real-world PDFs and Office files are noisy. RAG-Anything (MinerU / Docling / etc.) usually does the right thing, but when something feels “off”, this page is a **short sanity checklist** before opening an issue.
+Real-world PDFs and Office files are noisy. MuseRAG (MinerU / Docling / etc.) usually does the right thing, but when something feels “off”, this page is a **short sanity checklist** before opening an issue.
 
-It is meant to stay small and easy to maintain (see discussion in [#207](https://github.com/HKUDS/RAG-Anything/issues/207) and [#213](https://github.com/HKUDS/RAG-Anything/issues/213)).
+It is meant to stay small and easy to maintain (see discussion in [#207](https://github.com/MasterOogway0220/rag/issues/207) and [#213](https://github.com/MasterOogway0220/rag/issues/213)).
 
 ---
 
@@ -56,7 +56,7 @@ It is meant to stay small and easy to maintain (see discussion in [#207](https:/
 
 **Quick checks:**
 
-- [#48](https://github.com/HKUDS/RAG-Anything/issues/48) style: large PDFs and OCR are inherently heavy—batch size and hardware matter.
+- [#48](https://github.com/MasterOogway0220/rag/issues/48) style: large PDFs and OCR are inherently heavy—batch size and hardware matter.
 - Distinguish **slow but progressing** from a **hang** (then check subprocess timeouts, MinerU/Docling logs, and disk space).
 - For image-heavy ingestion, check `rag.lightrag.max_parallel_insert` after initialization: it also limits concurrent multimodal item generation within each batch call. Raising `llm_model_max_async` alone does not raise this limit. See [multimodal ingestion concurrency](batch_processing.md#multimodal-ingestion-concurrency) for configuration and scope; extraction and graph merging can add further LLM calls.
 
@@ -68,7 +68,7 @@ It is meant to stay small and easy to maintain (see discussion in [#207](https:/
 
 **Quick checks:**
 
-- Absolute local paths are normal for processing on one host. For a browser or another server, set **public URL mapping** (environment variables `RAGANYTHING_PUBLIC_ASSET_BASE_URL` and `RAGANYTHING_PUBLIC_ASSET_STRIP_PREFIX` — see the main [README](../README.md)) so each chunk can carry an `*_public_url` field alongside the local path. Today this mapping only runs in the MinerU parser path; other parsers will not yet produce `*_public_url`.
+- Absolute local paths are normal for processing on one host. For a browser or another server, set **public URL mapping** (environment variables `MUSERAG_PUBLIC_ASSET_BASE_URL` and `MUSERAG_PUBLIC_ASSET_STRIP_PREFIX` — see the main [README](../README.md)) so each chunk can carry an `*_public_url` field alongside the local path. Today this mapping only runs in the MinerU parser path; other parsers will not yet produce `*_public_url`.
 
 ---
 

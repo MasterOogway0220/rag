@@ -1,12 +1,12 @@
 """Retrieved image paths must be found in the prompt LightRAG really builds.
 
 LightRAG 1.4.x json.dumps every retrieved chunk into the prompt, so the
-newline after ``Image Path: <path>`` reaches RAG-Anything as the two
+newline after ``Image Path: <path>`` reaches MuseRAG as the two
 characters backslash and ``n``, not as a line break. Hand-written prompts
 with real newlines hide that, so these tests build the prompt with
 LightRAG's own context builders: ``naive_query`` for naive mode and
 ``_build_context_str`` for the knowledge-graph modes such as mix. Chunk
-content uses RAG-Anything's own ``image_chunk`` template.
+content uses MuseRAG's own ``image_chunk`` template.
 """
 
 import base64
@@ -21,9 +21,9 @@ from lightrag.base import QueryParam
 from lightrag.operate import _build_context_str, naive_query
 from lightrag.utils import Tokenizer
 
-import raganything.query as query_module
-from raganything.prompt import PROMPTS
-from raganything.query import QueryMixin
+import muserag.query as query_module
+from muserag.prompt import PROMPTS
+from muserag.query import QueryMixin
 
 Image = pytest.importorskip("PIL.Image")
 

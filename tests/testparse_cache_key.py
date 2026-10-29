@@ -7,8 +7,8 @@ from types import SimpleNamespace
 
 import pytest
 
-from raganything.processor import ProcessorMixin
-from raganything.parser import DoclingParser, MineruParser, PaddleOCRParser
+from muserag.processor import ProcessorMixin
+from muserag.parser import DoclingParser, MineruParser, PaddleOCRParser
 
 
 class _Logger:

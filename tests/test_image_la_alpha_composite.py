@@ -10,8 +10,8 @@ from PIL import Image  # noqa: E402
 
 
 def _load_mineru_parser_class():
-    module_path = Path(__file__).resolve().parents[1] / "raganything" / "parser.py"
-    spec = importlib.util.spec_from_file_location("_raganything_parser_la", module_path)
+    module_path = Path(__file__).resolve().parents[1] / "muserag" / "parser.py"
+    spec = importlib.util.spec_from_file_location("_muserag_parser_la", module_path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)

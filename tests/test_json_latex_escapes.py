@@ -1,4 +1,4 @@
-from raganything.modalprocessors import BaseModalProcessor
+from muserag.modalprocessors import BaseModalProcessor
 
 
 def parse(response):

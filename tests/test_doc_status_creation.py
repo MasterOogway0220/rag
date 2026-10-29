@@ -24,7 +24,7 @@ class InMemoryJsonStorage:
         return None
 
 
-def _load_raganything_module(module_name: str, relative_path: str):
+def _load_muserag_module(module_name: str, relative_path: str):
     module_path = PROJECT_ROOT / relative_path
     spec = importlib.util.spec_from_file_location(module_name, module_path)
     module = importlib.util.module_from_spec(spec)
@@ -35,7 +35,7 @@ def _load_raganything_module(module_name: str, relative_path: str):
 
 
 @pytest.fixture
-def raganything_modules(monkeypatch):
+def muserag_modules(monkeypatch):
     logger = types.SimpleNamespace(
         info=lambda *args, **kwargs: None,
         warning=lambda *args, **kwargs: None,
@@ -53,15 +53,15 @@ def raganything_modules(monkeypatch):
     monkeypatch.setitem(sys.modules, "lightrag", fake_lightrag)
     monkeypatch.setitem(sys.modules, "lightrag.utils", fake_lightrag_utils)
 
-    rag_pkg = types.ModuleType("raganything")
-    rag_pkg.__path__ = [str(PROJECT_ROOT / "raganything")]
-    monkeypatch.setitem(sys.modules, "raganything", rag_pkg)
+    rag_pkg = types.ModuleType("muserag")
+    rag_pkg.__path__ = [str(PROJECT_ROOT / "muserag")]
+    monkeypatch.setitem(sys.modules, "muserag", rag_pkg)
 
-    base_module = _load_raganything_module("raganything.base", "raganything/base.py")
-    _load_raganything_module("raganything.parser", "raganything/parser.py")
-    utils_module = _load_raganything_module("raganything.utils", "raganything/utils.py")
-    processor_module = _load_raganything_module(
-        "raganything.processor", "raganything/processor.py"
+    base_module = _load_muserag_module("muserag.base", "muserag/base.py")
+    _load_muserag_module("muserag.parser", "muserag/parser.py")
+    utils_module = _load_muserag_module("muserag.utils", "muserag/utils.py")
+    processor_module = _load_muserag_module(
+        "muserag.processor", "muserag/processor.py"
     )
 
     return types.SimpleNamespace(
@@ -73,7 +73,7 @@ def raganything_modules(monkeypatch):
 
 @pytest.mark.asyncio
 async def test_insert_text_content_with_multimodal_falls_back_for_old_lightrag(
-    raganything_modules,
+    muserag_modules,
 ):
     calls = []
 
@@ -97,7 +97,7 @@ async def test_insert_text_content_with_multimodal_falls_back_for_old_lightrag(
                 }
             )
 
-    await raganything_modules.utils.insert_text_content_with_multimodal_content(
+    await muserag_modules.utils.insert_text_content_with_multimodal_content(
         FakeLightRAG(),
         input="hello world",
         multimodal_content=[{"type": "image"}],
@@ -119,11 +119,11 @@ async def test_insert_text_content_with_multimodal_falls_back_for_old_lightrag(
 
 @pytest.mark.asyncio
 async def test_process_document_complete_bootstraps_doc_status(
-    raganything_modules,
+    muserag_modules,
     tmp_path,
 ):
-    processor_module = raganything_modules.processor
-    DocStatus = raganything_modules.base.DocStatus
+    processor_module = muserag_modules.processor
+    DocStatus = muserag_modules.base.DocStatus
 
     class FakeDocStatusStorage:
         def __init__(self):
@@ -194,11 +194,11 @@ async def test_process_document_complete_bootstraps_doc_status(
 
 @pytest.mark.asyncio
 async def test_image_only_document_falls_back_when_multimodal_flag_is_unsupported(
-    raganything_modules,
+    muserag_modules,
     tmp_path,
 ):
-    processor_module = raganything_modules.processor
-    DocStatus = raganything_modules.base.DocStatus
+    processor_module = muserag_modules.processor
+    DocStatus = muserag_modules.base.DocStatus
 
     class FakeDocStatusStorage:
         def __init__(self):
@@ -292,10 +292,10 @@ async def test_image_only_document_falls_back_when_multimodal_flag_is_unsupporte
 
 @pytest.mark.asyncio
 async def test_compatibility_multimodal_cache_prevents_repeat_processing(
-    raganything_modules,
+    muserag_modules,
 ):
-    processor_module = raganything_modules.processor
-    DocStatus = raganything_modules.base.DocStatus
+    processor_module = muserag_modules.processor
+    DocStatus = muserag_modules.base.DocStatus
 
     class FakeDocStatusStorage:
         def __init__(self):

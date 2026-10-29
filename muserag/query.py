@@ -1,5 +1,5 @@
 """
-Query functionality for RAGAnything
+Query functionality for MuseRAG
 
 Contains all query-related methods for both text and multimodal queries
 """
@@ -13,9 +13,9 @@ from typing import AsyncIterator, Dict, List, Any
 from pathlib import Path
 from lightrag import QueryParam
 from lightrag.utils import always_get_an_event_loop
-from raganything.image_signature import SIGNATURE_BYTES, image_mime_type
-from raganything.prompt import PROMPTS
-from raganything.utils import (
+from muserag.image_signature import SIGNATURE_BYTES, image_mime_type
+from muserag.prompt import PROMPTS
+from muserag.utils import (
     get_processor_for_type,
     encode_image_to_base64,
     validate_image_file,
@@ -27,7 +27,7 @@ from raganything.utils import (
 
 
 class QueryMixin:
-    """QueryMixin class containing query functionality for RAGAnything"""
+    """QueryMixin class containing query functionality for MuseRAG"""
 
     @staticmethod
     def _fingerprint_local_file(file_path: str) -> str | None:
@@ -412,7 +412,7 @@ class QueryMixin:
         if not hasattr(self, "vision_model_func") or not self.vision_model_func:
             raise ValueError(
                 "VLM enhanced query requires vision_model_func. "
-                "Please provide a vision model function when initializing RAGAnything."
+                "Please provide a vision model function when initializing MuseRAG."
             )
 
         # Ensure LightRAG is initialized

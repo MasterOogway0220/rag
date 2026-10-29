@@ -1,6 +1,6 @@
 huggingface_hub
 # LightRAG packages
-# <1.5 is permanent: RAG-Anything was merged upstream into LightRAG 1.5+, and
+# <1.5 is permanent: MuseRAG was merged upstream into LightRAG 1.5+, and
 # this line's multimodal extraction is incompatible with 1.5 (role_llm_funcs).
 # Keep in sync with pyproject.toml, which is what published wheels use.
 lightrag-hku<1.5
@@ -17,5 +17,5 @@ tqdm
 # - [office]: requires LibreOffice (external program, not Python package)
 # - [all]: includes all optional dependencies
 #
-# Install with: pip install raganything[image,text] or pip install raganything[all]
-# For best PDF handling: pip install raganything[paddleocr]
+# Install with: pip install muserag[image,text] or pip install muserag[all]
+# For best PDF handling: pip install muserag[paddleocr]

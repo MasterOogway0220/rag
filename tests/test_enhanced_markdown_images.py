@@ -9,7 +9,7 @@ pytest.importorskip("weasyprint")
 pypdf = pytest.importorskip("pypdf")
 from PIL import Image
 
-from raganything.enhanced_markdown import EnhancedMarkdownConverter
+from muserag.enhanced_markdown import EnhancedMarkdownConverter
 
 
 @pytest.mark.parametrize("relative_input", [False, True])

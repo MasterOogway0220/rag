@@ -13,7 +13,7 @@ from pathlib import Path
 
 import pytest
 
-from raganything.image_signature import image_mime_type
+from muserag.image_signature import image_mime_type
 
 Image = pytest.importorskip("PIL.Image")
 
@@ -94,7 +94,7 @@ def test_every_documented_vision_function_is_checked():
     assert names.count("README.md") == 4
     assert names.count("README_zh.md") == 4
     assert {
-        "raganything_example.py",
+        "muserag_example.py",
         "modalprocessors_example.py",
         "insert_content_list_example.py",
         "index.py",

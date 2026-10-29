@@ -242,7 +242,7 @@ class BatchParser:
     @staticmethod
     def _manifest_path(output_dir: str) -> Path:
         """Return the incremental processing manifest path."""
-        return Path(output_dir) / ".raganything_batch_manifest.json"
+        return Path(output_dir) / ".muserag_batch_manifest.json"
 
     def _load_incremental_manifest(
         self, output_dir: str
@@ -285,7 +285,7 @@ class BatchParser:
         # writing to the same output_dir clobber each other's half-written temp.
         fd, temp_name = tempfile.mkstemp(
             dir=str(manifest_path.parent),
-            prefix=".raganything_batch_manifest.",
+            prefix=".muserag_batch_manifest.",
             suffix=".tmp",
         )
         temp_path = Path(temp_name)
@@ -703,7 +703,7 @@ def main():
         default="mineru",
         help=(
             "Parser to use. Built-ins: mineru, docling, paddleocr. "
-            "When using RAGAnything as a library, any custom parsers that you "
+            "When using MuseRAG as a library, any custom parsers that you "
             "have registered via register_parser() in the current process "
             "are also accepted. The standalone CLI itself does not perform "
             "plugin discovery."

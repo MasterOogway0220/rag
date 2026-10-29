@@ -8,8 +8,8 @@ from unittest.mock import Mock
 import pytest
 from lightrag import QueryParam
 
-import raganything.query as query_module
-from raganything.query import QueryMixin
+import muserag.query as query_module
+from muserag.query import QueryMixin
 
 
 class _QueryHarness(QueryMixin):

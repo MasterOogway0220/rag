@@ -1,7 +1,7 @@
 """
 Example of directly using modal processors
 
-This example demonstrates how to use RAG-Anything's modal processors directly without going through MinerU.
+This example demonstrates how to use MuseRAG's modal processors directly without going through MinerU.
 """
 
 import asyncio
@@ -12,12 +12,12 @@ from lightrag.llm.openai import openai_complete_if_cache, openai_embed
 from lightrag.utils import EmbeddingFunc
 from lightrag.kg.shared_storage import initialize_pipeline_status
 from lightrag import LightRAG
-from raganything.modalprocessors import (
+from muserag.modalprocessors import (
     ImageModalProcessor,
     TableModalProcessor,
     EquationModalProcessor,
 )
-from raganything.image_signature import image_mime_type
+from muserag.image_signature import image_mime_type
 
 WORKING_DIR = "./rag_storage"
 

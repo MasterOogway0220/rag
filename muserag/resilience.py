@@ -1,5 +1,5 @@
 """
-Retry and resilience utilities for RAGAnything.
+Retry and resilience utilities for MuseRAG.
 
 Provides decorators and helpers for handling transient failures in LLM API
 calls, embedding requests, and other network-dependent operations.

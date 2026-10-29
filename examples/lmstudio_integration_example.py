@@ -1,13 +1,13 @@
 """
-LM Studio Integration Example with RAG-Anything
+LM Studio Integration Example with MuseRAG
 
-This example demonstrates how to integrate LM Studio with RAG-Anything for local
+This example demonstrates how to integrate LM Studio with MuseRAG for local
 text document processing and querying.
 
 Requirements:
 - LM Studio running locally with server enabled
 - OpenAI Python package: pip install openai
-- RAG-Anything installed: pip install raganything
+- MuseRAG installed: pip install muserag
 
 Environment Setup:
 Create a .env file with:
@@ -28,8 +28,8 @@ from typing import List, Dict, Optional
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
 
-# RAG-Anything imports
-from raganything import RAGAnything, RAGAnythingConfig
+# MuseRAG imports
+from muserag import MuseRAG, MuseRAGConfig
 from lightrag.utils import EmbeddingFunc
 from lightrag.llm.openai import openai_complete_if_cache
 
@@ -74,7 +74,7 @@ async def lmstudio_embedding_async(texts: List[str]) -> List[List[float]]:
 
 
 class LMStudioRAGIntegration:
-    """Integration class for LM Studio with RAG-Anything."""
+    """Integration class for LM Studio with MuseRAG."""
 
     def __init__(self):
         # LM Studio configuration using standard LLM_BINDING variables
@@ -85,9 +85,9 @@ class LMStudioRAGIntegration:
             "EMBEDDING_MODEL", "text-embedding-nomic-embed-text-v1.5"
         )
 
-        # RAG-Anything configuration
+        # MuseRAG configuration
         # Use a fresh working directory each run to avoid legacy doc_status schema conflicts
-        self.config = RAGAnythingConfig(
+        self.config = MuseRAGConfig(
             working_dir=f"./rag_storage_lmstudio/{uuid.uuid4()}",
             parser="mineru",
             parse_method="auto",
@@ -182,11 +182,11 @@ class LMStudioRAGIntegration:
         )
 
     async def initialize_rag(self):
-        """Initialize RAG-Anything with LM Studio functions."""
-        print("Initializing RAG-Anything with LM Studio...")
+        """Initialize MuseRAG with LM Studio functions."""
+        print("Initializing MuseRAG with LM Studio...")
 
         try:
-            self.rag = RAGAnything(
+            self.rag = MuseRAG(
                 config=self.config,
                 llm_model_func=lmstudio_llm_model_func,
                 embedding_func=self.embedding_func_factory(),
@@ -199,7 +199,7 @@ class LMStudioRAGIntegration:
 
             self.rag._mark_multimodal_processing_complete = _noop_mark_multimodal
 
-            print("✅ RAG-Anything initialized successfully!")
+            print("✅ MuseRAG initialized successfully!")
             return True
         except Exception as e:
             print(f"❌ RAG initialization failed: {str(e)}")
@@ -254,17 +254,17 @@ class LMStudioRAGIntegration:
         try:
             print("\nAdding sample content for testing...")
 
-            # Create content list in the format expected by RAGAnything
+            # Create content list in the format expected by MuseRAG
             content_list = [
                 {
                     "type": "text",
-                    "text": """LM Studio Integration with RAG-Anything
+                    "text": """LM Studio Integration with MuseRAG
 
-This integration demonstrates how to connect LM Studio's local AI models with RAG-Anything's document processing capabilities. The system uses:
+This integration demonstrates how to connect LM Studio's local AI models with MuseRAG's document processing capabilities. The system uses:
 
 - LM Studio for local LLM inference
 - nomic-embed-text-v1.5 for embeddings (768 dimensions)
-- RAG-Anything for document processing and retrieval
+- MuseRAG for document processing and retrieval
 
 Key benefits include:
 - Privacy: All processing happens locally
@@ -301,7 +301,7 @@ Key benefits include:
 async def main():
     """Main example function."""
     print("=" * 70)
-    print("LM Studio + RAG-Anything Integration Example")
+    print("LM Studio + MuseRAG Integration Example")
     print("=" * 70)
 
     # Initialize integration

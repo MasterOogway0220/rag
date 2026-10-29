@@ -1,7 +1,7 @@
 import pytest
 
-from raganything.base import DocStatus
-from raganything.processor import ProcessorMixin
+from muserag.base import DocStatus
+from muserag.processor import ProcessorMixin
 
 
 class FakeLogger:

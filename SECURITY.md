@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-Security fixes are applied to the latest released version of RAG-Anything.
+Security fixes are applied to the latest released version of MuseRAG.
 We recommend always running the most recent release.
 
 | Version | Supported          |
@@ -16,7 +16,7 @@ We recommend always running the most recent release.
 issues, discussions, or pull requests.**
 
 Instead, report them privately through GitHub's built-in
-[private vulnerability reporting](https://github.com/HKUDS/RAG-Anything/security/advisories/new).
+[private vulnerability reporting](https://github.com/MasterOogway0220/rag/security/advisories/new).
 This opens a confidential channel visible only to the maintainers.
 
 When reporting, please include as much of the following as you can:
@@ -36,4 +36,4 @@ When reporting, please include as much of the following as you can:
   agreement, publicly credit your contribution. Please give us a reasonable
   window to ship the fix before any public disclosure.
 
-Thank you for helping keep RAG-Anything and its users safe.
+Thank you for helping keep MuseRAG and its users safe.

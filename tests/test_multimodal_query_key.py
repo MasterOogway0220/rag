@@ -5,7 +5,7 @@ from types import SimpleNamespace
 
 import pytest
 
-from raganything.query import QueryMixin
+from muserag.query import QueryMixin
 
 
 def _cache_key(file_path: str) -> str:

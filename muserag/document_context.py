@@ -6,7 +6,7 @@ from typing import Any
 
 
 _sources: ContextVar[dict[int, tuple[Any, str]] | None] = ContextVar(
-    "raganything_document_context", default=None
+    "muserag_document_context", default=None
 )
 
 

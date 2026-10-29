@@ -10,9 +10,9 @@ from types import SimpleNamespace
 
 import pytest
 
-from raganything.batch_parser import BatchParser
-from raganything.parser import DoclingParser
-from raganything.processor import ProcessorMixin
+from muserag.batch_parser import BatchParser
+from muserag.parser import DoclingParser
+from muserag.processor import ProcessorMixin
 
 
 def _write_text_files(directory: Path):

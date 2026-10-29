@@ -1,5 +1,5 @@
 """
-Batch processing functionality for RAGAnything
+Batch processing functionality for MuseRAG
 
 Contains methods for processing multiple documents in batch mode
 """
@@ -14,14 +14,14 @@ from .batch_parser import BatchParser, BatchProcessingResult
 from .base import DocStatus
 
 if TYPE_CHECKING:
-    from .config import RAGAnythingConfig
+    from .config import MuseRAGConfig
 
 
 class BatchMixin:
-    """BatchMixin class containing batch processing functionality for RAGAnything"""
+    """BatchMixin class containing batch processing functionality for MuseRAG"""
 
-    # Type hints for mixin attributes (will be available when mixed into RAGAnything)
-    config: "RAGAnythingConfig"
+    # Type hints for mixin attributes (will be available when mixed into MuseRAG)
+    config: "MuseRAGConfig"
     logger: logging.Logger
 
     # Type hints for methods that will be available from other mixins

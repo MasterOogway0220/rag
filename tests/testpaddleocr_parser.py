@@ -3,7 +3,7 @@ import sys
 
 import pytest
 
-from raganything.parser import PaddleOCRParser, SUPPORTED_PARSERS, get_parser
+from muserag.parser import PaddleOCRParser, SUPPORTED_PARSERS, get_parser
 
 
 def test_supported_parsers_include_paddleocr():
@@ -22,8 +22,8 @@ def test_get_parser_rejects_unknown_parser():
 
 def test_parser_module_import_does_not_import_paddleocr():
     sys.modules.pop("paddleocr", None)
-    sys.modules.pop("raganything.parser", None)
-    importlib.import_module("raganything.parser")
+    sys.modules.pop("muserag.parser", None)
+    importlib.import_module("muserag.parser")
     assert "paddleocr" not in sys.modules
 
 

@@ -3,12 +3,12 @@ requires = ["setuptools>=64", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "raganything"
+name = "muserag"
 dynamic = ["version"]
 authors = [
     {name = "Zirui Guo"}
 ]
-description = "RAGAnything: All-in-One RAG System"
+description = "MuseRAG: All-in-One RAG System"
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.10"
@@ -66,10 +66,10 @@ all = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/HKUDS/RAG-Anything"
-Documentation = "https://github.com/HKUDS/RAG-Anything"
-Repository = "https://github.com/HKUDS/RAG-Anything"
-Issues = "https://github.com/HKUDS/RAG-Anything/issues"
+Homepage = "https://github.com/MasterOogway0220/rag"
+Documentation = "https://github.com/MasterOogway0220/rag"
+Repository = "https://github.com/MasterOogway0220/rag"
+Issues = "https://github.com/MasterOogway0220/rag/issues"
 
 [tool.uv]
 dev-dependencies = [
@@ -84,13 +84,13 @@ dev-dependencies = [
 ]
 
 [tool.setuptools.packages.find]
-include = ["raganything*"]
+include = ["muserag*"]
 
 [tool.setuptools]
 include-package-data = true
 
 [tool.setuptools.dynamic]
-version = {attr = "raganything.__version__"}
+version = {attr = "muserag.__version__"}
 
 [tool.ruff]
 target-version = "py310"

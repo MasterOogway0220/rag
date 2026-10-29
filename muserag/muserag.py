@@ -28,16 +28,16 @@ from lightrag import LightRAG
 from lightrag.utils import logger
 
 # Import configuration and modules
-from raganything.config import RAGAnythingConfig
-from raganything.query import QueryMixin
-from raganything.processor import ProcessorMixin
-from raganything.batch import BatchMixin
-from raganything.utils import get_processor_supports
-from raganything.parser import MineruParser, SUPPORTED_PARSERS, get_parser
-from raganything.callbacks import CallbackManager
+from muserag.config import MuseRAGConfig
+from muserag.query import QueryMixin
+from muserag.processor import ProcessorMixin
+from muserag.batch import BatchMixin
+from muserag.utils import get_processor_supports
+from muserag.parser import MineruParser, SUPPORTED_PARSERS, get_parser
+from muserag.callbacks import CallbackManager
 
 # Import specialized processors
-from raganything.modalprocessors import (
+from muserag.modalprocessors import (
     ImageModalProcessor,
     TableModalProcessor,
     EquationModalProcessor,
@@ -50,18 +50,18 @@ from raganything.modalprocessors import (
 # loaded lazily), so we gate registration on the *runtime* availability of the
 # extra dependencies via the ``*_deps_available`` helpers below.
 # (audio -> faster-whisper; video -> scenedetect + moviepy + opencv + faster-whisper).
-from raganything.modalprocessors_audio import (
+from muserag.modalprocessors_audio import (
     AudioModalProcessor,
     audio_deps_available,
 )
-from raganything.modalprocessors_video import (
+from muserag.modalprocessors_video import (
     VideoModalProcessor,
     video_deps_available,
 )
 
 
 @dataclass
-class RAGAnything(QueryMixin, ProcessorMixin, BatchMixin):
+class MuseRAG(QueryMixin, ProcessorMixin, BatchMixin):
     """Multimodal Document Processing Pipeline - Complete document parsing and insertion pipeline"""
 
     # Core Components
@@ -78,7 +78,7 @@ class RAGAnything(QueryMixin, ProcessorMixin, BatchMixin):
     embedding_func: Optional[Callable] = field(default=None)
     """Embedding function for text vectorization."""
 
-    config: Optional[RAGAnythingConfig] = field(default=None)
+    config: Optional[MuseRAGConfig] = field(default=None)
     """Configuration object, if None will create with environment variables."""
 
     # LightRAG Configuration
@@ -127,7 +127,7 @@ class RAGAnything(QueryMixin, ProcessorMixin, BatchMixin):
         """Post-initialization setup following LightRAG pattern"""
         # Initialize configuration if not provided
         if self.config is None:
-            self.config = RAGAnythingConfig()
+            self.config = MuseRAGConfig()
 
         # Set working directory
         self.working_dir = self.config.working_dir
@@ -147,7 +147,7 @@ class RAGAnything(QueryMixin, ProcessorMixin, BatchMixin):
             self.logger.info(f"Created working directory: {self.working_dir}")
 
         # Log configuration info
-        self.logger.info("RAGAnything initialized with config:")
+        self.logger.info("MuseRAG initialized with config:")
         self.logger.info(f"  Working directory: {self.config.working_dir}")
         self.logger.info(f"  Parser: {self.config.parser}")
         self.logger.info(f"  Parse method: {self.config.parse_method}")
@@ -197,7 +197,7 @@ class RAGAnything(QueryMixin, ProcessorMixin, BatchMixin):
             pass
 
     def _create_context_config(self) -> ContextConfig:
-        """Create context configuration from RAGAnything config"""
+        """Create context configuration from MuseRAG config"""
         return ContextConfig(
             context_window=self.config.context_window,
             context_mode=self.config.context_mode,
@@ -257,7 +257,7 @@ class RAGAnything(QueryMixin, ProcessorMixin, BatchMixin):
             if not audio_deps_available():
                 self.logger.warning(
                     "enable_audio_processing=True but audio dependencies are missing. "
-                    "Install them with: pip install raganything[audio]. "
+                    "Install them with: pip install muserag[audio]. "
                     "Audio content will fall back to the generic processor."
                 )
             else:
@@ -271,7 +271,7 @@ class RAGAnything(QueryMixin, ProcessorMixin, BatchMixin):
             if not video_deps_available():
                 self.logger.warning(
                     "enable_video_processing=True but video dependencies are missing. "
-                    "Install them with: pip install raganything[video]. "
+                    "Install them with: pip install muserag[video]. "
                     "Video content will fall back to the generic processor."
                 )
             else:
@@ -491,13 +491,13 @@ class RAGAnything(QueryMixin, ProcessorMixin, BatchMixin):
 
         Example usage:
             try:
-                rag_anything = RAGAnything(...)
-                await rag_anything.process_file("document.pdf")
+                muserag = MuseRAG(...)
+                await muserag.process_file("document.pdf")
                 # ... other operations ...
             finally:
                 # Always finalize storages to clean up resources
-                if rag_anything:
-                    await rag_anything.finalize_storages()
+                if muserag:
+                    await muserag.finalize_storages()
 
         Note:
             - This method is automatically called in __del__ when the object is destroyed
@@ -526,7 +526,7 @@ class RAGAnything(QueryMixin, ProcessorMixin, BatchMixin):
             # Run all finalization tasks concurrently
             if tasks:
                 await asyncio.gather(*tasks)
-                self.logger.info("Successfully finalized all RAGAnything storages")
+                self.logger.info("Successfully finalized all MuseRAG storages")
             else:
                 self.logger.debug("No storages to finalize")
 

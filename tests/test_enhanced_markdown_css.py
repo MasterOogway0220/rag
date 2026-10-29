@@ -1,5 +1,5 @@
 def test_enhanced_markdown_converter_loads_configured_css_file(tmp_path, monkeypatch):
-    from raganything import enhanced_markdown
+    from muserag import enhanced_markdown
 
     class FakeMarkdown:
         def __init__(self, **kwargs):

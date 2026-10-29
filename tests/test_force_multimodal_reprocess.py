@@ -3,7 +3,7 @@
 This flag lets callers explicitly re-run multimodal (image/table/equation)
 processing for a document that was already marked complete, which is useful
 after swapping the underlying graph/vector storage backend (see
-https://github.com/HKUDS/RAG-Anything/issues/154). It defaults to False, so
+https://github.com/MasterOogway0220/rag/issues/154). It defaults to False, so
 existing callers see no behavior change.
 """
 
@@ -32,7 +32,7 @@ class InMemoryJsonStorage:
         return None
 
 
-def _load_raganything_module(module_name: str, relative_path: str):
+def _load_muserag_module(module_name: str, relative_path: str):
     module_path = PROJECT_ROOT / relative_path
     spec = importlib.util.spec_from_file_location(module_name, module_path)
     module = importlib.util.module_from_spec(spec)
@@ -43,7 +43,7 @@ def _load_raganything_module(module_name: str, relative_path: str):
 
 
 @pytest.fixture
-def raganything_modules(monkeypatch):
+def muserag_modules(monkeypatch):
     logger = types.SimpleNamespace(
         info=lambda *args, **kwargs: None,
         warning=lambda *args, **kwargs: None,
@@ -61,15 +61,15 @@ def raganything_modules(monkeypatch):
     monkeypatch.setitem(sys.modules, "lightrag", fake_lightrag)
     monkeypatch.setitem(sys.modules, "lightrag.utils", fake_lightrag_utils)
 
-    rag_pkg = types.ModuleType("raganything")
-    rag_pkg.__path__ = [str(PROJECT_ROOT / "raganything")]
-    monkeypatch.setitem(sys.modules, "raganything", rag_pkg)
+    rag_pkg = types.ModuleType("muserag")
+    rag_pkg.__path__ = [str(PROJECT_ROOT / "muserag")]
+    monkeypatch.setitem(sys.modules, "muserag", rag_pkg)
 
-    base_module = _load_raganything_module("raganything.base", "raganything/base.py")
-    _load_raganything_module("raganything.parser", "raganything/parser.py")
-    utils_module = _load_raganything_module("raganything.utils", "raganything/utils.py")
-    processor_module = _load_raganything_module(
-        "raganything.processor", "raganything/processor.py"
+    base_module = _load_muserag_module("muserag.base", "muserag/base.py")
+    _load_muserag_module("muserag.parser", "muserag/parser.py")
+    utils_module = _load_muserag_module("muserag.utils", "muserag/utils.py")
+    processor_module = _load_muserag_module(
+        "muserag.processor", "muserag/processor.py"
     )
 
     return types.SimpleNamespace(
@@ -121,11 +121,11 @@ def _make_processor(processor_module, doc_status_records):
 
 @pytest.mark.asyncio
 async def test_default_behavior_still_skips_already_processed_document(
-    raganything_modules,
+    muserag_modules,
 ):
     """Regression guard: without the new flag, nothing changes."""
-    processor_module = raganything_modules.processor
-    DocStatus = raganything_modules.base.DocStatus
+    processor_module = muserag_modules.processor
+    DocStatus = muserag_modules.base.DocStatus
 
     processor = _make_processor(
         processor_module,
@@ -155,9 +155,9 @@ async def test_default_behavior_still_skips_already_processed_document(
 
 
 @pytest.mark.asyncio
-async def test_force_reprocess_bypasses_already_processed_check(raganything_modules):
-    processor_module = raganything_modules.processor
-    DocStatus = raganything_modules.base.DocStatus
+async def test_force_reprocess_bypasses_already_processed_check(muserag_modules):
+    processor_module = muserag_modules.processor
+    DocStatus = muserag_modules.base.DocStatus
 
     processor = _make_processor(
         processor_module,
@@ -191,9 +191,9 @@ async def test_force_reprocess_bypasses_already_processed_check(raganything_modu
 
 @pytest.mark.asyncio
 async def test_process_document_complete_forwards_force_flag(
-    raganything_modules, tmp_path
+    muserag_modules, tmp_path
 ):
-    processor_module = raganything_modules.processor
+    processor_module = muserag_modules.processor
 
     processor = _make_processor(processor_module, {})
     processor.config = types.SimpleNamespace(
@@ -240,9 +240,9 @@ async def test_process_document_complete_forwards_force_flag(
 
 @pytest.mark.asyncio
 async def test_process_document_complete_defaults_force_flag_to_false(
-    raganything_modules, tmp_path
+    muserag_modules, tmp_path
 ):
-    processor_module = raganything_modules.processor
+    processor_module = muserag_modules.processor
 
     processor = _make_processor(processor_module, {})
     processor.config = types.SimpleNamespace(
@@ -289,8 +289,8 @@ async def test_process_document_complete_defaults_force_flag_to_false(
 
 
 @pytest.mark.asyncio
-async def test_insert_content_list_forwards_force_flag(raganything_modules, tmp_path):
-    processor_module = raganything_modules.processor
+async def test_insert_content_list_forwards_force_flag(muserag_modules, tmp_path):
+    processor_module = muserag_modules.processor
 
     processor = _make_processor(processor_module, {})
     processor.config = types.SimpleNamespace(
@@ -327,11 +327,11 @@ async def test_insert_content_list_forwards_force_flag(raganything_modules, tmp_
 
 
 @pytest.mark.asyncio
-async def test_update_doc_status_with_chunks_deduplicates_ids(raganything_modules):
+async def test_update_doc_status_with_chunks_deduplicates_ids(muserag_modules):
     """Re-running processing for the same doc must not duplicate chunk ids
     in chunks_list/chunks_count, since chunk ids are content-derived and
     therefore identical across a force_reprocess run."""
-    processor_module = raganything_modules.processor
+    processor_module = muserag_modules.processor
 
     processor = _make_processor(
         processor_module,

@@ -20,8 +20,8 @@ import pytest
 from lightrag.operate import chunking_by_token_size
 from lightrag.utils import Tokenizer, compute_mdhash_id, sanitize_text_for_encoding
 
-from raganything.processor import ProcessorMixin
-from raganything.utils import (
+from muserag.processor import ProcessorMixin
+from muserag.utils import (
     annotate_chunks_with_page_idx,
     build_sanitized_page_map,
     replay_chunk_spans,

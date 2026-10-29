@@ -1,7 +1,7 @@
 """The parse cache and the incremental batch manifest share one definition."""
 
-from raganything import parse_options
-from raganything.processor import _PARSER_CACHE_KWARGS, ProcessorMixin
+from muserag import parse_options
+from muserag.processor import _PARSER_CACHE_KWARGS, ProcessorMixin
 
 
 def test_processor_uses_the_shared_whitelist():

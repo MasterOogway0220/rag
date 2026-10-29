@@ -2,7 +2,7 @@
 
 from dotenv import load_dotenv
 
-from raganything.config import RAGAnythingConfig
+from muserag.config import MuseRAGConfig
 
 
 def test_environment_loaded_after_import(tmp_path, monkeypatch):
@@ -19,7 +19,7 @@ def test_environment_loaded_after_import(tmp_path, monkeypatch):
     env_file.write_text("\n".join(f"{key}={value}" for key, value in values.items()))
     load_dotenv(env_file, override=True)
 
-    config = RAGAnythingConfig()
+    config = MuseRAGConfig()
     assert config.working_dir == "./loaded-storage"
     assert config.parser == "docling"
     assert config.max_concurrent_files == 4
@@ -28,10 +28,10 @@ def test_environment_loaded_after_import(tmp_path, monkeypatch):
 
 def test_each_configuration_captures_current_environment(monkeypatch):
     monkeypatch.setenv("MAX_CONCURRENT_FILES", "2")
-    first = RAGAnythingConfig()
+    first = MuseRAGConfig()
     monkeypatch.setenv("MAX_CONCURRENT_FILES", "3")
-    second = RAGAnythingConfig()
-    explicit = RAGAnythingConfig(max_concurrent_files=7)
+    second = MuseRAGConfig()
+    explicit = MuseRAGConfig(max_concurrent_files=7)
     assert first.max_concurrent_files == 2
     assert second.max_concurrent_files == 3
     assert explicit.max_concurrent_files == 7

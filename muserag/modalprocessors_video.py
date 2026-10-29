@@ -1,5 +1,5 @@
 """
-Video Modal Processor for RAG-Anything
+Video Modal Processor for MuseRAG
 
 Processes video files (MP4, MOV, WebM, AVI, MKV) with dual-channel analysis:
 - Visual channel: scene detection + keyframe extraction + VLM description
@@ -19,7 +19,7 @@ Supports:
 - Podcasts with video (talking heads + speech)
 
 Dependencies:
-    pip install raganything[video]
+    pip install muserag[video]
     # or: pip install scenedetect[opencv] moviepy faster-whisper "av<19" opencv-python
 """
 
@@ -52,7 +52,7 @@ def _load_cv2():
     except ImportError as e:
         raise ImportError(
             "opencv-python is required for video processing. "
-            "Install it with: pip install raganything[video] "
+            "Install it with: pip install muserag[video] "
             "or: pip install opencv-python"
         ) from e
     return cv2
@@ -195,7 +195,7 @@ class VideoModalProcessor(BaseModalProcessor):
         except ImportError:
             raise ImportError(
                 "scenedetect is required for video processing. "
-                "Install it with: pip install raganything[video] "
+                "Install it with: pip install muserag[video] "
                 "or: pip install scenedetect[opencv]"
             )
 
@@ -255,7 +255,7 @@ class VideoModalProcessor(BaseModalProcessor):
             return None
 
         # Unique temp name so concurrent extractions never collide
-        fd, frame_path = tempfile.mkstemp(suffix=".jpg", prefix="raganything_vframe_")
+        fd, frame_path = tempfile.mkstemp(suffix=".jpg", prefix="muserag_vframe_")
         os.close(fd)
         cv2.imwrite(frame_path, frame)
         return frame_path
@@ -274,12 +274,12 @@ class VideoModalProcessor(BaseModalProcessor):
         except ImportError:
             raise ImportError(
                 "moviepy is required for video audio extraction. "
-                "Install it with: pip install raganything[video] "
+                "Install it with: pip install muserag[video] "
                 "or: pip install moviepy"
             )
 
         # Unique temp name so concurrent video processing never overwrites it
-        fd, audio_path = tempfile.mkstemp(suffix=".wav", prefix="raganything_vaudio_")
+        fd, audio_path = tempfile.mkstemp(suffix=".wav", prefix="muserag_vaudio_")
         os.close(fd)
 
         try:

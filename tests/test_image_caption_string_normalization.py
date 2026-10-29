@@ -1,7 +1,7 @@
 """Parsers that emit a plain string caption must not be split per character.
 
 ``DoclingParser`` writes ``image_caption``/``image_footnote`` as strings
-(``raganything/parser.py``), while MinerU writes lists.  ``normalize_caption_list``
+(``muserag/parser.py``), while MinerU writes lists.  ``normalize_caption_list``
 exists to bridge both shapes and is already used by ``TableModalProcessor`` and
 ``ProcessorMixin._apply_chunk_template``; the image paths had to catch up.
 """
@@ -13,8 +13,8 @@ from unittest.mock import AsyncMock
 import pytest
 from PIL import Image
 
-import raganything.modalprocessors as modalprocessors
-from raganything.modalprocessors import ContextConfig, ContextExtractor
+import muserag.modalprocessors as modalprocessors
+from muserag.modalprocessors import ContextConfig, ContextExtractor
 
 
 class RecordingStorage:

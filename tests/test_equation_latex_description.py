@@ -12,10 +12,10 @@ from unittest.mock import AsyncMock
 
 import pytest
 
-import raganything.modalprocessors as modalprocessors
-from raganything.processor import ProcessorMixin
-from raganything.prompt import PROMPTS
-from raganything.utils import get_equation_description, get_equation_text_and_format
+import muserag.modalprocessors as modalprocessors
+from muserag.processor import ProcessorMixin
+from muserag.prompt import PROMPTS
+from muserag.utils import get_equation_description, get_equation_text_and_format
 
 FORMULA = r"P(d|q) = \frac{P(q|d) \cdot P(d)}{P(q)}"
 DESCRIPTION = "Document relevance probability formula"

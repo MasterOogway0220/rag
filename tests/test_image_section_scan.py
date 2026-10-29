@@ -2,7 +2,7 @@
 
 from copy import deepcopy
 
-from raganything.utils import separate_content_with_page_map
+from muserag.utils import separate_content_with_page_map
 
 
 def test_section_context_keeps_hierarchy_and_existing_metadata():

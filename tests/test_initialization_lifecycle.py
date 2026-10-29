@@ -1,4 +1,4 @@
-"""Exercise real RAGAnything initialization with controlled storage backends."""
+"""Exercise real MuseRAG initialization with controlled storage backends."""
 
 import asyncio
 import sys
@@ -7,8 +7,8 @@ from collections import Counter
 
 import pytest
 
-import raganything.raganything as rag_module
-from raganything.config import RAGAnythingConfig
+import muserag.muserag as rag_module
+from muserag.config import MuseRAGConfig
 
 
 def _make_rag(monkeypatch, tmp_path, *, preprovided, gate=None, failure=None):
@@ -73,10 +73,10 @@ def _make_rag(monkeypatch, tmp_path, *, preprovided, gate=None, failure=None):
         self.modal_processors = {"test": object()}
 
     monkeypatch.setattr(
-        rag_module.RAGAnything, "_initialize_processors", initialize_processors
+        rag_module.MuseRAG, "_initialize_processors", initialize_processors
     )
-    rag = rag_module.RAGAnything(
-        config=RAGAnythingConfig(working_dir=str(tmp_path / "rag")),
+    rag = rag_module.MuseRAG(
+        config=MuseRAGConfig(working_dir=str(tmp_path / "rag")),
         lightrag=LightRAG() if preprovided else None,
         llm_model_func=lambda: None,
         embedding_func=lambda: None,

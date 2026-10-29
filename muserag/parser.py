@@ -10,8 +10,8 @@ Important notes:
 
 - The custom parser registry is primarily intended for Python usage, where your
   application imports a parser implementation and calls :func:`register_parser`
-  before invoking RAGAnything APIs.
-- The standalone CLI (``python -m raganything.parser`` or the installed console
+  before invoking MuseRAG APIs.
+- The standalone CLI (``python -m muserag.parser`` or the installed console
   script) does **not** perform automatic plugin discovery; it will only see
   custom parsers that have already been registered in the current process
   (for example via a wrapper script or :mod:`sitecustomize`).
@@ -56,9 +56,9 @@ from typing import (
 if TYPE_CHECKING:
     from PIL import Image
 
-from raganything.asset_urls import attach_public_media_urls
-from raganything.image_signature import SIGNATURE_BYTES, looks_like_image
-from raganything.mineru_content import (
+from muserag.asset_urls import attach_public_media_urls
+from muserag.image_signature import SIGNATURE_BYTES, looks_like_image
+from muserag.mineru_content import (
     MineruContentListV2Error,
     convert_mineru_content_list_v2,
 )
@@ -83,7 +83,7 @@ _MINERU_KNOWN_FAILURES: Tuple[Tuple[str, str], ...] = (
         "Office documents (.xls, .xlsx, .doc, .docx, .ppt, .pptx) trigger this most often\n"
         "because they are converted to text-based PDFs, which always take MinerU's pdftext\n"
         "path. As an immediate workaround for those formats, the Docling parser reads them\n"
-        'natively without going through MinerU: RAGAnythingConfig(parser="docling").',
+        'natively without going through MinerU: MuseRAGConfig(parser="docling").',
     ),
 )
 
@@ -136,7 +136,7 @@ def html_requires_docling_error(file_path: Union[str, Path]) -> ValueError:
     return ValueError(
         f"HTML input ({Path(file_path).name}) requires a parser with native "
         "HTML support (parse_html), such as Docling (pip install docling): "
-        "select it with RAGAnythingConfig(parser='docling') or the "
+        "select it with MuseRAGConfig(parser='docling') or the "
         "PARSER=docling environment variable (CLI: --parser docling). HTML is "
         "not converted to PDF with LibreOffice, because that conversion "
         "fetches remote URLs and embeds local files referenced by the page."
@@ -1226,7 +1226,7 @@ class MineruParser(Parser):
             return input_path, output_dir, input_path.stem, None
 
         path_hash = cls._mineru_safe_path_hash(hash_source)
-        temp_dir = Path(tempfile.mkdtemp(prefix="raganything_mineru_"))
+        temp_dir = Path(tempfile.mkdtemp(prefix="muserag_mineru_"))
 
         mineru_input_path = input_path
         if input_is_unsafe:
@@ -3161,7 +3161,7 @@ _CUSTOM_PARSERS: Dict[str, type] = {}
 
 
 def register_parser(name: str, parser_class: type) -> None:
-    """Register a custom parser class for use with RAGAnything.
+    """Register a custom parser class for use with MuseRAG.
 
     This enables the Bring-Your-Own-Parser pattern: users can integrate
     any document parser (e.g., Marker, Unstructured, Surya) by subclassing
@@ -3173,7 +3173,7 @@ def register_parser(name: str, parser_class: type) -> None:
         parser_class: A subclass of ``Parser`` that implements at least
                       ``parse_document``, ``check_installation``, and
                       optionally ``parse_pdf``, ``parse_image``, ``parse_office_doc``.
-                      ``RAGAnything.parse_document`` passes HTML
+                      ``MuseRAG.parse_document`` passes HTML
                       (``.html``/``.htm``/``.xhtml``) only to an optional
                       ``parse_html(html_path, output_dir=None, **kwargs)`` and
                       raises ``ValueError`` without it; ``BatchParser``
@@ -3186,7 +3186,7 @@ def register_parser(name: str, parser_class: type) -> None:
 
     Example::
 
-        from raganything.parser import Parser, register_parser
+        from muserag.parser import Parser, register_parser
 
         class MarkerParser(Parser):
             def check_installation(self) -> bool:
@@ -3367,7 +3367,7 @@ def main():
         help=(
             "Parser selection. Built-ins: mineru, docling, paddleocr. "
             "Custom parsers registered via register_parser() in the same "
-            "Python process are also accepted when you integrate RAGAnything "
+            "Python process are also accepted when you integrate MuseRAG "
             "as a library. The standalone CLI itself only sees parsers that "
             "have already been registered in this process."
         ),

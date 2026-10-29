@@ -5,7 +5,7 @@ from types import SimpleNamespace
 
 import pytest
 
-from raganything.parser import DoclingParser
+from muserag.parser import DoclingParser
 
 
 @pytest.mark.parametrize(

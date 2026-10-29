@@ -1,7 +1,7 @@
 """Adapters for MinerU structured content-list output.
 
 MinerU 3.x can emit ``*_content_list_v2.json`` as a list of pages, while
-RAG-Anything's processing pipeline consumes a flat list of content blocks.
+MuseRAG's processing pipeline consumes a flat list of content blocks.
 This module keeps that schema conversion independent from file-system access
 so it can be tested without installing or running MinerU.
 """
@@ -68,7 +68,7 @@ def convert_mineru_content_list_v2(
     *,
     include_layout_blocks: bool = False,
 ) -> list[dict[str, Any]]:
-    """Convert MinerU's page-grouped v2 output to RAG-Anything's flat schema.
+    """Convert MinerU's page-grouped v2 output to MuseRAG's flat schema.
 
     Args:
         payload: Parsed JSON value. The v2 schema is ``list[list[dict]]``.
@@ -78,7 +78,7 @@ def convert_mineru_content_list_v2(
             document content.
 
     Returns:
-        A flat list compatible with :func:`raganything.utils.separate_content`.
+        A flat list compatible with :func:`muserag.utils.separate_content`.
 
     Raises:
         MineruContentListV2Error: If the top-level shape is not a valid v2

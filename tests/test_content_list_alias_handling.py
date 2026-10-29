@@ -28,27 +28,27 @@ def install_import_stubs():
     lightrag_utils.logger = FakeLogger()
     lightrag_utils.compute_mdhash_id = lambda value, prefix="": f"{prefix}test"
 
-    raganything_pkg = types.ModuleType("raganything")
-    raganything_pkg.__path__ = [str(PROJECT_ROOT / "raganything")]
+    muserag_pkg = types.ModuleType("muserag")
+    muserag_pkg.__path__ = [str(PROJECT_ROOT / "muserag")]
 
-    raganything_base = types.ModuleType("raganything.base")
+    muserag_base = types.ModuleType("muserag.base")
 
-    raganything_parser = types.ModuleType("raganything.parser")
-    raganything_parser.MineruParser = object
-    raganything_parser.MineruExecutionError = RuntimeError
-    raganything_parser.get_parser = lambda *args, **kwargs: None
+    muserag_parser = types.ModuleType("muserag.parser")
+    muserag_parser.MineruParser = object
+    muserag_parser.MineruExecutionError = RuntimeError
+    muserag_parser.get_parser = lambda *args, **kwargs: None
     # processor.py imports these since HTML parsing requires Docling (#418)
-    raganything_parser.HTML_FILE_EXTENSIONS = frozenset({".html", ".htm", ".xhtml"})
-    raganything_parser.html_requires_docling_error = lambda file_path: ValueError(
+    muserag_parser.HTML_FILE_EXTENSIONS = frozenset({".html", ".htm", ".xhtml"})
+    muserag_parser.html_requires_docling_error = lambda file_path: ValueError(
         f"HTML input ({file_path}) requires a parser with parse_html"
     )
 
     sys.modules.setdefault("lightrag", lightrag_module)
     sys.modules.setdefault("lightrag.utils", lightrag_utils)
-    sys.modules.setdefault("raganything", raganything_pkg)
-    sys.modules.setdefault("raganything.base", raganything_base)
-    sys.modules.setdefault("raganything.parser", raganything_parser)
-    raganything_base.DocStatus = types.SimpleNamespace(
+    sys.modules.setdefault("muserag", muserag_pkg)
+    sys.modules.setdefault("muserag.base", muserag_base)
+    sys.modules.setdefault("muserag.parser", muserag_parser)
+    muserag_base.DocStatus = types.SimpleNamespace(
         READY="ready",
         HANDLING="handling",
         PENDING="pending",
@@ -69,20 +69,20 @@ def load_project_module(module_name, path):
 _STUBBED_MODULES = (
     "lightrag",
     "lightrag.utils",
-    "raganything",
-    "raganything.base",
-    "raganything.parser",
-    "raganything.utils",
-    "raganything.processor",
+    "muserag",
+    "muserag.base",
+    "muserag.parser",
+    "muserag.utils",
+    "muserag.processor",
 )
 _saved_modules = {name: sys.modules.get(name) for name in _STUBBED_MODULES}
 
 install_import_stubs()
 utils_module = load_project_module(
-    "raganything.utils", PROJECT_ROOT / "raganything" / "utils.py"
+    "muserag.utils", PROJECT_ROOT / "muserag" / "utils.py"
 )
 processor_module = load_project_module(
-    "raganything.processor", PROJECT_ROOT / "raganything" / "processor.py"
+    "muserag.processor", PROJECT_ROOT / "muserag" / "processor.py"
 )
 
 # The modules under test are bound above. Put sys.modules back so these
@@ -138,7 +138,7 @@ class ContentListAliasHandlingTests(unittest.TestCase):
         chunk = processor._apply_chunk_template(
             "table",
             {
-                "table_data": [["Method", "Score"], ["RAGAnything", "95.2"]],
+                "table_data": [["Method", "Score"], ["MuseRAG", "95.2"]],
                 "table_caption": "Performance table",
                 "table_footnote": "Synthetic example",
             },
@@ -155,7 +155,7 @@ class ContentListAliasHandlingTests(unittest.TestCase):
             normalize_caption_list("Performance table"), ["Performance table"]
         )
         self.assertIn("| Method | Score |", chunk)
-        self.assertIn("| RAGAnything | 95.2 |", chunk)
+        self.assertIn("| MuseRAG | 95.2 |", chunk)
         self.assertIn("Performance table", chunk)
         self.assertNotIn("P, e, r, f", chunk)
         self.assertIn("Synthetic example", chunk)

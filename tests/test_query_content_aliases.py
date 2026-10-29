@@ -6,7 +6,7 @@ from unittest.mock import AsyncMock
 
 import pytest
 
-from raganything.query import QueryMixin
+from muserag.query import QueryMixin
 
 
 @pytest.fixture

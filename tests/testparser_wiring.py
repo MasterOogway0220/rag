@@ -1,6 +1,6 @@
 import pytest
 
-from raganything.batch_parser import BatchParser
+from muserag.batch_parser import BatchParser
 
 
 def test_batch_parser_uses_paddleocr_parser():
@@ -12,11 +12,11 @@ def test_batch_parser_uses_paddleocr_parser():
     assert batch_parser.parser.__class__.__name__ == "PaddleOCRParser"
 
 
-def test_raganything_initializes_selected_parser(monkeypatch, tmp_path):
+def test_muserag_initializes_selected_parser(monkeypatch, tmp_path):
     pytest.importorskip("lightrag")
 
-    import raganything.raganything as rag_module
-    from raganything.config import RAGAnythingConfig
+    import muserag.muserag as rag_module
+    from muserag.config import MuseRAGConfig
 
     class StubParser:
         def check_installation(self):
@@ -31,11 +31,11 @@ def test_raganything_initializes_selected_parser(monkeypatch, tmp_path):
     monkeypatch.setattr(rag_module, "get_parser", fake_get_parser)
     monkeypatch.setattr(rag_module.atexit, "register", lambda *args, **kwargs: None)
 
-    config = RAGAnythingConfig(
+    config = MuseRAGConfig(
         working_dir=str(tmp_path / "rag_workdir"),
         parser="paddleocr",
     )
-    rag = rag_module.RAGAnything(config=config)
+    rag = rag_module.MuseRAG(config=config)
 
     assert captured["parser_name"] == "paddleocr"
     assert isinstance(rag.doc_parser, StubParser)
@@ -43,7 +43,7 @@ def test_raganything_initializes_selected_parser(monkeypatch, tmp_path):
 
 @pytest.mark.asyncio
 async def test_processor_parse_document_uses_selected_parser(monkeypatch, tmp_path):
-    import raganything.processor as processor_module
+    import muserag.processor as processor_module
 
     class FakeLogger:
         def info(self, *args, **kwargs):

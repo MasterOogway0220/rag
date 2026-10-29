@@ -7,7 +7,7 @@ Tests verify:
 - Base URL and model name handling
 - LLM function parameter passing
 
-These tests are self-contained and do not require lightrag or raganything
+These tests are self-contained and do not require lightrag or muserag
 to be installed — heavy dependencies are mocked at the sys.modules level.
 """
 
@@ -24,7 +24,7 @@ from unittest.mock import AsyncMock, patch
 
 
 def _make_stub_modules():
-    """Create minimal stub modules for lightrag and raganything."""
+    """Create minimal stub modules for lightrag and muserag."""
     # lightrag stub
     lightrag_mod = types.ModuleType("lightrag")
     lightrag_llm = types.ModuleType("lightrag.llm")
@@ -42,28 +42,28 @@ def _make_stub_modules():
     lightrag_mod.llm = lightrag_llm
     lightrag_mod.utils = lightrag_utils
 
-    # raganything stub
-    rag_mod = types.ModuleType("raganything")
+    # muserag stub
+    rag_mod = types.ModuleType("muserag")
 
-    class _RAGAnythingConfig:
+    class _MuseRAGConfig:
         def __init__(self, **kwargs):
             for k, v in kwargs.items():
                 setattr(self, k, v)
 
-    class _RAGAnything:
+    class _MuseRAG:
         def __init__(self, **kwargs):
             for k, v in kwargs.items():
                 setattr(self, k, v)
 
-    rag_mod.RAGAnything = _RAGAnything
-    rag_mod.RAGAnythingConfig = _RAGAnythingConfig
+    rag_mod.MuseRAG = _MuseRAG
+    rag_mod.MuseRAGConfig = _MuseRAGConfig
 
     return {
         "lightrag": lightrag_mod,
         "lightrag.llm": lightrag_llm,
         "lightrag.llm.openai": lightrag_llm_openai,
         "lightrag.utils": lightrag_utils,
-        "raganything": rag_mod,
+        "muserag": rag_mod,
     }
 
 
